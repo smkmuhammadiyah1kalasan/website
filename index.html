@@ -3,49 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <title>SMK Muhammadiyah 1 Kalasan</title>
-  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- TOP HEADER -->
-<div class="top-header">
-  <div class="container top-flex">
-    <div class="logo-area">
-      <img src="images/logo.png" alt="Logo Sekolah">
-      <div class="school-name">
-        <h1>SMK MUHAMMADIYAH 1</h1>
-        <h2>KALASAN</h2>
-        <p>Mencetak Generasi Islami, Mandiri, Berprestasi</p>
-      </div>
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="container topbar-flex">
+    <div>
+      ✉️ pos@smkmuhkalasan.sch.id &nbsp;&nbsp; 📞 0274 496 170
     </div>
-    <div class="top-info">
-      <span>✉️ pos@smkmuhkalasan.sch.id</span>
-      <span>📞 0274 496 170</span>
+    <div class="topbar-right">
+      🔍 Pencarian &nbsp; RSS
     </div>
   </div>
 </div>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="container">
-    <a href="#">Beranda</a>
-    <a href="#">Profil</a>
-    <a href="#">Visi & Misi</a>
-    <a href="#">Program Keahlian</a>
-    <a href="#">Direktori</a>
-    <a href="#">E-Raport</a>
-    <a href="#">PPDB 2026</a>
-    <a href="#">Galeri</a>
-    <a href="#">Hubungi Kami</a>
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container header-flex">
+    <div class="logo-box">
+      <img src="assets/logo.png">
+      <div>
+        <h1>SMK MUHAMMADIYAH</h1>
+        <h2>1 KALASAN</h2>
+        <p>Mencetak Generasi Islami, Mandiri, Berprestasi</p>
+      </div>
+    </div>
   </div>
+</header>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <ul class="menu container">
+    <li><a href="#">Beranda</a></li>
+    <li class="dropdown">
+      <a href="#">Profil ▾</a>
+      <ul>
+        <li><a href="#">Sejarah</a></li>
+        <li><a href="#">Visi & Misi</a></li>
+        <li><a href="#">Struktur Organisasi</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#">Program Keahlian ▾</a>
+      <ul>
+        <li><a href="#">Elektronika Industri</a></li>
+        <li><a href="#">Teknik Komputer</a></li>
+      </ul>
+    </li>
+    <li><a href="#">E-Raport</a></li>
+    <li><a href="#">PPDB 2026</a></li>
+    <li><a href="#">Galeri</a></li>
+    <li><a href="#">Hubungi Kami</a></li>
+  </ul>
 </nav>
 
-<!-- BANNER -->
-<section class="banner">
-  <img src="images/banner.jpg" alt="Elektronika Industri">
-  <div class="banner-text">
+<!-- ===== HERO BANNER ===== -->
+<section class="hero">
+  <img src="assets/banner.jpg" class="hero-bg">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
     <h1>ELEKTRONIKA INDUSTRI</h1>
+    <div class="badge">Mahir di Bidang</div>
     <ul>
       <li>Teknisi Robotika</li>
       <li>Teknisi Elektronika Industri</li>
@@ -53,5 +75,6 @@
   </div>
 </section>
 
+<script src="script.js"></script>
 </body>
 </html>
