@@ -2,115 +2,146 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>SMK Muhammadiyah 1 Kalasan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMK Muhammadiyah 1 Kalasan</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ICON -->
+  <link rel="icon" href="assets/logo.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="container topbar-flex">
-    <div>✉️ info@smkmuhkalasan.sch.id | 📞 0274 496 170</div>
-    <div>RSS | 🔍 Pencarian</div>
-  </div>
+<!-- ================= LOADER ================= -->
+<div class="loader">
+  <div class="spinner"></div>
 </div>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="container header-flex">
-    <div class="logo-box">
-      <img src="assets/logo.png">
-      <div>
-        <h1>SMK MUHAMMADIYAH</h1>
-        <h2>1 KALASAN</h2>
-        <p>Mencetak Generasi Islami, Mandiri, dan Berprestasi</p>
-      </div>
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="container nav-wrapper">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo SMK">
+      <span>SMK Muhammadiyah 1 Kalasan</span>
     </div>
+
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="#home" class="active">Beranda</a>
+      <a href="#profil">Profil</a>
+      <a href="#jurusan">Jurusan</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
   </div>
 </header>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <ul class="menu container">
-    <li><a href="#">Beranda</a></li>
-    <li class="dropdown">
-      <a href="#">Profil ▾</a>
-      <ul>
-        <li><a href="#">Sejarah</a></li>
-        <li><a href="#">Visi & Misi</a></li>
-        <li><a href="#">Struktur Organisasi</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a href="#">Program Keahlian ▾</a>
-      <ul>
-        <li><a href="#jurusan">Teknika Kapal Niaga</a></li>
-        <li><a href="#jurusan">Nautika Kapal Niaga</a></li>
-        <li><a href="#jurusan">Seni Musik Populer</a></li>
-      </ul>
-    </li>
-    <li><a href="#">PPDB 2026</a></li>
-    <li><a href="#">Galeri</a></li>
-    <li><a href="#">Kontak</a></li>
-  </ul>
-</nav>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home" style="background-image:url('assets/hero.jpg')">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Mencetak Generasi <span>Islami</span>, Mandiri & Berprestasi</h1>
+    <p>Sekolah unggulan berbasis keahlian dan karakter Muhammadiyah</p>
+    <a href="#jurusan" class="btn-primary">Lihat Jurusan</a>
+  </div>
+</section>
 
-<!-- SLIDER -->
-<section class="slider">
-  <div class="slides">
-    <div class="slide active" style="background-image:url('assets/slide1.jpg')">
-      <div class="slide-content">
-        <h1>SMK PUSAT KEUNGGULAN</h1>
-        <p>Berbasis Industri & Karakter Islami</p>
+<!-- ================= PROFIL ================= -->
+<section class="profil reveal" id="profil">
+  <div class="container">
+    <h2 class="section-title">Profil Sekolah</h2>
+    <p class="section-desc">
+      SMK Muhammadiyah 1 Kalasan adalah sekolah kejuruan yang berkomitmen
+      mencetak lulusan profesional, berakhlak mulia, dan siap kerja maupun
+      melanjutkan pendidikan ke jenjang lebih tinggi.
+    </p>
+
+    <div class="stats">
+      <div class="stat-box">
+        <span class="counter" data-target="1200">0</span>
+        <p>Siswa</p>
       </div>
-    </div>
-    <div class="slide" style="background-image:url('assets/slide2.jpg')">
-      <div class="slide-content">
-        <h1>BIDANG KEMARITIMAN</h1>
-        <p>Teknika & Nautika Kapal Niaga</p>
+      <div class="stat-box">
+        <span class="counter" data-target="80">0</span>
+        <p>Guru & Staff</p>
       </div>
-    </div>
-    <div class="slide" style="background-image:url('assets/slide3.jpg')">
-      <div class="slide-content">
-        <h1>SENI MUSIK POPULER</h1>
-        <p>Kreatif • Profesional • Berprestasi</p>
+      <div class="stat-box">
+        <span class="counter" data-target="25">0</span>
+        <p>Tahun Pengalaman</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- JURUSAN -->
-<section id="jurusan" class="jurusan">
-  <h2>PROGRAM KEAHLIAN</h2>
-  <div class="jurusan-grid container">
+<!-- ================= JURUSAN ================= -->
+<section class="jurusan" id="jurusan">
+  <div class="container">
+    <h2 class="section-title">Program Keahlian</h2>
 
-    <div class="card">
-      <img src="assets/tkn.jpg">
-      <h3>Teknika Kapal Niaga</h3>
-      <p>Ahli permesinan kapal, perawatan mesin, dan sistem kelistrikan kapal niaga.</p>
+    <div class="jurusan-grid">
+      <div class="jurusan-card reveal">
+        <img data-src="assets/tkn.jpg" alt="Teknika Kapal Niaga">
+        <h3>Teknika Kapal Niaga</h3>
+        <p>Mencetak teknisi kapal profesional yang siap kerja di dunia maritim nasional dan internasional.</p>
+      </div>
+
+      <div class="jurusan-card reveal">
+        <img data-src="assets/nkn.jpg" alt="Nautika Kapal Niaga">
+        <h3>Nautika Kapal Niaga</h3>
+        <p>Fokus pada keahlian navigasi, keselamatan pelayaran, dan kepemimpinan di laut.</p>
+      </div>
+
+      <div class="jurusan-card reveal">
+        <img data-src="assets/musik.jpg" alt="Seni Musik Populer">
+        <h3>Seni Musik Populer</h3>
+        <p>Mengembangkan bakat musik modern dengan fasilitas studio dan pembinaan profesional.</p>
+      </div>
     </div>
-
-    <div class="card">
-      <img src="assets/nkn.jpg">
-      <h3>Nautika Kapal Niaga</h3>
-      <p>Mencetak perwira pelayaran yang handal dalam navigasi dan keselamatan laut.</p>
-    </div>
-
-    <div class="card">
-      <img src="assets/musik.jpg">
-      <h3>Seni Musik Populer</h3>
-      <p>Mengembangkan bakat musik modern, produksi, dan performa profesional.</p>
-    </div>
-
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ================= GALERI ================= -->
+<section class="galeri reveal" id="galeri">
+  <div class="container">
+    <h2 class="section-title">Galeri Kegiatan</h2>
+    <div class="galeri-grid">
+      <img data-src="assets/galeri1.jpg">
+      <img data-src="assets/galeri2.jpg">
+      <img data-src="assets/galeri3.jpg">
+      <img data-src="assets/galeri4.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAK ================= -->
+<section class="kontak" id="kontak">
+  <div class="container">
+    <h2 class="section-title">Hubungi Kami</h2>
+    <p>Email: info@smkmuhammadiyah1kalasan.sch.id</p>
+    <p>Telepon: (0274) xxx xxx</p>
+    <p>Alamat: Kalasan, Sleman, Yogyakarta</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
-  <p>© 2026 SMK Muhammadiyah 1 Kalasan</p>
+  <p>© <span class="year"></span> SMK Muhammadiyah 1 Kalasan</p>
 </footer>
 
+<!-- ================= SCROLL TOP ================= -->
+<button class="scroll-top">↑</button>
+
+<!-- ================= JS ================= -->
 <script src="script.js"></script>
+
 </body>
 </html>
