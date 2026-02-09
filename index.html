@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMK Muhammadiyah 1 Kalasan • Smart Bell Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#030712;
+  --glass:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.12);
+  --neon1:#60a5fa;
+  --neon2:#6ee7b7;
+  --neon3:#a78bfa;
+  --danger:#ff6b6b;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --blur:blur(16px);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:Inter,system-ui;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* ===== Animated Background ===== */
+.bg{
+  position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(700px 400px at 10% 20%, rgba(96,165,250,.12), transparent),
+    radial-gradient(600px 400px at 90% 80%, rgba(110,231,183,.12), transparent),
+    linear-gradient(180deg,#020617,#020617);
+}
+.particle{
+  position:absolute;border-radius:50%;
+  background:linear-gradient(135deg,var(--neon1),var(--neon2));
+  opacity:.08;filter:blur(2px);
+  animation:float 18s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(120vh) scale(.6)}
+  to{transform:translateY(-20vh) scale(1.3)}
+}
+
+/* ===== Layout ===== */
+.app{
+  max-width:1300px;margin:auto;padding:18px;
+  display:grid;grid-template-columns:280px 1fr;gap:18px;
+}
+
+/* ===== Glass Card ===== */
+.card{
+  background:var(--glass);
+  backdrop-filter:var(--blur);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:0 0 40px rgba(96,165,250,.12);
+  animation:fadeUp .8s ease both;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* ===== Sidebar ===== */
+.sidebar{padding:16px;position:sticky;top:16px;height:fit-content}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{
+  width:56px;height:56px;border-radius:16px;
+  background:linear-gradient(135deg,var(--neon1),var(--neon2));
+  color:#020617;font-weight:900;font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 25px rgba(96,165,250,.6);
+}
+.nav{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.nav button{
+  background:transparent;border:0;
+  padding:12px;border-radius:12px;
+  color:var(--muted);cursor:pointer;
+  display:flex;align-items:center;gap:10px;
+  font-weight:600;transition:.3s;
+}
+.nav button:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav button.active{
+  background:linear-gradient(90deg,var(--neon1),var(--neon2));
+  color:#020617;
+  box-shadow:0 0 20px rgba(96,165,250,.5);
+}
+
+/* ===== Main ===== */
+.main{display:flex;flex-direction:column;gap:18px}
+
+/* ===== Clock ===== */
+.clock{
+  text-align:center;
+}
+.time{
+  font-size:46px;font-weight:900;
+  background:linear-gradient(90deg,var(--neon1),var(--neon3));
+  -webkit-background-clip:text;color:transparent;
+  text-shadow:0 0 30px rgba(96,165,250,.5);
+}
+.date{font-size:14px;color:var(--muted)}
+
+canvas{max-width:100%}
+
+/* ===== Buttons ===== */
+.btn{
+  padding:12px 16px;border-radius:14px;
+  border:0;font-weight:700;cursor:pointer;
+  background:linear-gradient(90deg,var(--neon1),var(--neon2));
+  color:#020617;
+  box-shadow:0 0 25px rgba(96,165,250,.5);
+  transition:.3s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(96,165,250,.8)}
+.btn.ghost{
+  background:transparent;border:1px solid var(--border);
+  color:var(--text);box-shadow:none;
+}
+
+/* ===== Schedule ===== */
+.schedule{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.day{
+  padding:14px;display:flex;flex-direction:column;gap:10px
+}
+.day h3{margin:0;font-size:16px}
+.ev{
+  display:flex;gap:8px;align-items:center;
+  animation:fadeUp .5s ease both;
+}
+.ev input{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:8px;color:#fff
+}
+.ev button{
+  background:none;border:0;color:var(--danger);
+  font-size:18px;cursor:pointer
+}
+
+/* ===== Responsive ===== */
+@media(max-width:1000px){
+  .app{grid-template-columns:1fr}
+  .schedule{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .schedule{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="bg" id="bg"></div>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar card">
+    <div class="brand">
+      <div class="logo">SM</div>
+      <div>
+        <strong>SMK Muhammadiyah 1 Kalasan</strong>
+        <div class="muted">Smart Bell Panel</div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="active">📅 Jadwal</button>
+      <button>🎵 Track</button>
+      <button>⭐ Event Khusus</button>
+    </div>
+
+    <div style="margin-top:16px;font-size:13px">
+      Koneksi: <span id="conn">Offline</span>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="card clock">
+      <div class="time" id="time">--:--:--</div>
+      <div class="date" id="date">—</div>
+      <canvas id="analog" width="180" height="180"></canvas>
+      <div style="margin-top:12px;display:flex;gap:10px;justify-content:center">
+        <button class="btn">Tes Bel</button>
+        <button class="btn ghost">Sync RTC</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>Jadwal Senin – Jumat</strong>
+      <div class="schedule" id="schedule"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+// background particles
+for(let i=0;i<12;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  const s=40+Math.random()*120;
+  p.style.width=p.style.height=s+'px';
+  p.style.left=Math.random()*100+'%';
+  p.style.bottom='-20vh';
+  p.style.animationDelay=Math.random()*10+'s';
+  document.getElementById('bg').appendChild(p);
+}
+
+// digital clock
+function pad(n){return n<10?'0'+n:n}
+setInterval(()=>{
+  const d=new Date();
+  document.getElementById('time').textContent=
+    pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  document.getElementById('date').textContent=
+    d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  drawAnalog(d);
+},1000);
+
+// analog clock
+function drawAnalog(d){
+  const c=document.getElementById('analog');
+  const ctx=c.getContext('2d');
+  const w=c.width,h=c.height,r=w/2;
+  ctx.clearRect(0,0,w,h);
+  ctx.translate(r,r);
+  ctx.strokeStyle='#94a3b8';
+
+  ctx.beginPath();
+  ctx.arc(0,0,r-6,0,Math.PI*2);
+  ctx.stroke();
+
+  const sec=d.getSeconds()*Math.PI/30;
+  const min=d.getMinutes()*Math.PI/30;
+  const hr=(d.getHours()%12)*Math.PI/6;
+
+  function hand(a,l,w){
+    ctx.lineWidth=w;
+    ctx.beginPath();
+    ctx.rotate(a);
+    ctx.moveTo(0,0);
+    ctx.lineTo(0,-l);
+    ctx.stroke();
+    ctx.rotate(-a);
+  }
+  ctx.strokeStyle='#60a5fa';hand(hr+min/12,r*.4,6);
+  ctx.strokeStyle='#93c5fd';hand(min,r*.6,4);
+  ctx.strokeStyle='#fb7185';hand(sec,r*.75,2);
+
+  ctx.translate(-r,-r);
+}
+
+// schedule demo
+const days=['Senin','Selasa','Rabu','Kamis','Jumat'];
+const sched=document.getElementById('schedule');
+days.forEach(d=>{
+  const c=document.createElement('div');
+  c.className='day card';
+  c.innerHTML=`<h3>${d}</h3>`;
+  sched.appendChild(c);
+});
+</script>
+</body>
+</html>
