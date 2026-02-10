@@ -1,15 +1,20 @@
 /* =====================================================
-   ROOT VARIABLE
+   ROOT VARIABLE (BRIGHT VERSION)
 ===================================================== */
 :root {
-    --primary: #00f5ff;
-    --secondary: #00ff9d;
-    --dark: #020617;
-    --dark-soft: #050b18;
-    --glass: rgba(255, 255, 255, 0.06);
-    --border-glass: rgba(255, 255, 255, 0.12);
-    --text-soft: rgba(255, 255, 255, 0.85);
-    --shadow-neon: 0 0 35px rgba(0,245,255,0.55);
+    --primary: #4f9cff;
+    --secondary: #6ee7b7;
+    --accent: #a78bfa;
+
+    --bg-main: #f5f7fb;
+    --bg-soft: #ffffff;
+    --glass: rgba(255, 255, 255, 0.7);
+
+    --border-soft: rgba(0, 0, 0, 0.08);
+    --text-main: #0f172a;
+    --text-soft: #475569;
+
+    --shadow-soft: 0 10px 30px rgba(79, 156, 255, 0.18);
 }
 
 /* =====================================================
@@ -19,7 +24,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -27,8 +31,9 @@ html {
 }
 
 body {
-    background: radial-gradient(circle at top, var(--dark-soft), var(--dark));
-    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #f8fafc, #eef2ff);
+    color: var(--text-main);
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -44,52 +49,44 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 18px 60px;
-    background: rgba(0,0,0,0.45);
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-glass);
-    transition: 0.4s;
-}
-
-nav.nav-scroll {
-    background: rgba(0,0,0,0.75);
-    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    border-bottom: 1px solid var(--border-soft);
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
     color: var(--primary);
-    text-shadow: var(--shadow-neon);
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 35px;
+    gap: 32px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-main);
     font-weight: 500;
     position: relative;
-    transition: 0.3s;
 }
 
 nav ul li a.active {
-    color: var(--secondary);
+    color: var(--primary);
 }
 
 nav ul li a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -8px;
+    bottom: -6px;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    transition: 0.4s;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: 0.35s;
 }
 
 nav ul li a:hover::after,
@@ -98,26 +95,27 @@ nav ul li a.active::after {
 }
 
 /* =====================================================
-   HERO SECTION
+   HERO
 ===================================================== */
 .hero {
-    padding: 150px 20px 120px;
+    padding: 160px 20px 120px;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 60px;
-    font-weight: 800;
-    line-height: 1.2;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.15;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: float 4s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
 }
 
 .hero p {
     max-width: 720px;
-    margin: 30px auto;
+    margin: 26px auto;
     font-size: 18px;
     color: var(--text-soft);
 }
@@ -127,82 +125,61 @@ nav ul li a.active::after {
 ===================================================== */
 .btn,
 .plan button {
-    padding: 15px 48px;
-    border-radius: 50px;
+    padding: 14px 44px;
+    border-radius: 999px;
     border: none;
     cursor: pointer;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #000;
-    box-shadow: var(--shadow-neon);
-    transition: 0.4s;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    box-shadow: var(--shadow-soft);
+    transition: 0.35s;
     position: relative;
     overflow: hidden;
 }
 
 .btn:hover,
 .plan button:hover {
-    transform: scale(1.12);
-    box-shadow: 0 0 60px rgba(0,255,157,0.85);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* =====================================================
    FEATURES
 ===================================================== */
 .features {
-    padding: 90px 60px;
+    padding: 100px 60px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 35px;
+    gap: 36px;
 }
 
 .feature-card {
     background: var(--glass);
-    border-radius: 26px;
-    padding: 40px 30px;
+    border-radius: 24px;
+    padding: 40px 32px;
     text-align: center;
-    border: 1px solid var(--border-glass);
-    transition: 0.45s;
-    position: relative;
-    overflow: hidden;
-}
-
-.feature-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(0,245,255,0.15),
-        transparent
-    );
-    transform: translateX(-100%);
-    transition: 0.6s;
-}
-
-.feature-card:hover::before {
-    transform: translateX(100%);
+    border: 1px solid var(--border-soft);
+    transition: 0.4s;
 }
 
 .feature-card:hover {
-    transform: translateY(-18px);
-    box-shadow: 0 0 40px rgba(0,245,255,0.45);
+    transform: translateY(-14px);
+    box-shadow: var(--shadow-soft);
 }
 
 .feature-card i {
-    font-size: 50px;
+    font-size: 44px;
     color: var(--primary);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .feature-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
     margin-bottom: 10px;
 }
 
 .feature-card p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-soft);
 }
 
@@ -215,8 +192,9 @@ nav ul li a.active::after {
 }
 
 .pricing h2 {
-    font-size: 44px;
-    margin-bottom: 15px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    margin-bottom: 12px;
 }
 
 .pricing p {
@@ -227,175 +205,53 @@ nav ul li a.active::after {
 .pricing-box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap: 35px;
+    gap: 36px;
 }
 
 .plan {
-    background: var(--glass);
-    padding: 45px 30px;
-    border-radius: 28px;
-    border: 1px solid var(--border-glass);
-    transition: 0.45s;
-    position: relative;
+    background: var(--bg-soft);
+    padding: 46px 32px;
+    border-radius: 26px;
+    border: 1px solid var(--border-soft);
+    transition: 0.4s;
 }
 
-.plan:hover,
-.plan.glow {
-    transform: scale(1.06);
-    box-shadow: 0 0 45px rgba(0,245,255,0.4);
+.plan:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-soft);
 }
 
 .plan h3 {
-    font-size: 26px;
-    margin-bottom: 15px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    margin-bottom: 12px;
 }
 
 .plan .price {
-    font-size: 42px;
-    font-weight: 800;
-    color: var(--secondary);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
 .plan ul {
     list-style: none;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .plan ul li {
     margin: 10px 0;
     font-size: 14px;
-}
-
-/* ===== PLAN D PREMIUM ===== */
-.plan.premium {
-    background: linear-gradient(145deg, #00f5ff33, #00ff9d22);
-    border: 2px solid var(--secondary);
-    box-shadow: 0 0 65px rgba(0,255,157,0.6);
-}
-
-.plan.premium::before {
-    content: "🔥 BEST UPGRADE";
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--secondary);
-    color: #000;
-    padding: 6px 22px;
-    border-radius: 25px;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-footer {
-    text-align: center;
-    padding: 35px;
-    background: rgba(0,0,0,0.45);
-    border-top: 1px solid var(--border-glass);
-    font-size: 14px;
     color: var(--text-soft);
 }
 
-/* =====================================================
-   SCROLL & FADE ANIMATION
-===================================================== */
-.hero h1,
-.hero p,
-.btn,
-.feature-card,
-.plan,
-footer {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.8s ease;
+/* ===== PLAN D ===== */
+.plan.premium {
+    border: 2px solid var(--accent);
+    background: linear-gradient(180deg, #ffffff, #f1f5ff);
 }
 
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =====================================================
-   RIPPLE EFFECT
-===================================================== */
-.ripple {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: ripple 0.6s linear;
-}
-
-@keyframes ripple {
-    to {
-        width: 300px;
-        height: 300px;
-        opacity: 0;
-    }
-}
-
-/* =====================================================
-   SCROLL TO TOP BUTTON
-===================================================== */
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #000;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: var(--shadow-neon);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
-    z-index: 999;
-}
-
-.scroll-top.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* =====================================================
-   ANIMATION KEYFRAME
-===================================================== */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-16px); }
-    100% { transform: translateY(0); }
-}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-@media (max-width: 768px) {
-    nav {
-        padding: 16px 25px;
-    }
-
-    nav ul {
-        gap: 20px;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .features,
-    .pricing {
-        padding: 80px 25px;
-    }
-}
+.plan.premium::before {
+    content: "⭐ PALING POPULER";
+    display: inline-block;
+    margin-bottom: 14px;
