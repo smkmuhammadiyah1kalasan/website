@@ -1,257 +1,146 @@
-/* =====================================================
-   ROOT VARIABLE (BRIGHT VERSION)
-===================================================== */
-:root {
-    --primary: #4f9cff;
-    --secondary: #6ee7b7;
-    --accent: #a78bfa;
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Modern Mantap</title>
 
-    --bg-main: #f5f7fb;
-    --bg-soft: #ffffff;
-    --glass: rgba(255, 255, 255, 0.7);
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
-    --border-soft: rgba(0, 0, 0, 0.08);
-    --text-main: #0f172a;
-    --text-soft: #475569;
+    <!-- ICON -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-    --shadow-soft: 0 10px 30px rgba(79, 156, 255, 0.18);
-}
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* =====================================================
-   GLOBAL RESET
-===================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <div class="logo">MantapWeb</div>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#features">Fitur</a></li>
+            <li><a href="#pricing">Upgrade</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
-html {
-    scroll-behavior: smooth;
-}
+    <!-- ================= HERO ================= -->
+    <section class="hero show" id="home">
+        <h1>Website Cerah, Modern<br>dan Sangat Mantap 🚀</h1>
+        <p>
+            Bangun website profesional dengan tampilan modern, cerah,
+            cepat, dan siap untuk upgrade ke level premium.
+        </p>
+        <button class="btn">Mulai Sekarang</button>
+    </section>
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg, #f8fafc, #eef2ff);
-    color: var(--text-main);
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+    <!-- ================= FEATURES ================= -->
+    <section class="features" id="features">
 
-/* =====================================================
-   NAVBAR
-===================================================== */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 60px;
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-soft);
-}
+        <div class="feature-card show">
+            <i class='bx bx-palette'></i>
+            <h3>Desain Modern</h3>
+            <p>Tampilan cerah, clean, dan enak dipandang di semua device.</p>
+        </div>
 
-.logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--primary);
-}
+        <div class="feature-card show">
+            <i class='bx bx-bolt-circle'></i>
+            <h3>Performa Cepat</h3>
+            <p>Struktur ringan, loading cepat, dan responsif.</p>
+        </div>
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-}
+        <div class="feature-card show">
+            <i class='bx bx-shield-quarter'></i>
+            <h3>Aman & Stabil</h3>
+            <p>Kode rapi dan siap dikembangkan lebih lanjut.</p>
+        </div>
 
-nav ul li a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    position: relative;
-}
+        <div class="feature-card show">
+            <i class='bx bx-rocket'></i>
+            <h3>Mudah Upgrade</h3>
+            <p>Bisa naik ke versi Pro dan Premium kapan saja.</p>
+        </div>
 
-nav ul li a.active {
-    color: var(--primary);
-}
+    </section>
 
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    transition: 0.35s;
-}
+    <!-- ================= PRICING ================= -->
+    <section class="pricing" id="pricing">
+        <h2>Pilihan Upgrade 🚀</h2>
+        <p>Pilih paket sesuai kebutuhanmu</p>
 
-nav ul li a:hover::after,
-nav ul li a.active::after {
-    width: 100%;
-}
+        <div class="pricing-box">
 
-/* =====================================================
-   HERO
-===================================================== */
-.hero {
-    padding: 160px 20px 120px;
-    text-align: center;
-}
+            <!-- PLAN A -->
+            <div class="plan show">
+                <h3>Plan A</h3>
+                <div class="price">Gratis</div>
+                <ul>
+                    <li>✔️ Desain Dasar</li>
+                    <li>✔️ Responsive</li>
+                    <li>❌ Tanpa Support</li>
+                </ul>
+                <button>Pilih</button>
+            </div>
 
-.hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 1.15;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: float 5s ease-in-out infinite;
-}
+            <!-- PLAN B -->
+            <div class="plan show">
+                <h3>Plan B</h3>
+                <div class="price">Rp49K</div>
+                <ul>
+                    <li>✔️ Semua di Plan A</li>
+                    <li>✔️ Animasi</li>
+                    <li>✔️ Support Email</li>
+                </ul>
+                <button>Pilih</button>
+            </div>
 
-.hero p {
-    max-width: 720px;
-    margin: 26px auto;
-    font-size: 18px;
-    color: var(--text-soft);
-}
+            <!-- PLAN C -->
+            <div class="plan show">
+                <h3>Plan C</h3>
+                <div class="price">Rp99K</div>
+                <ul>
+                    <li>✔️ Semua di Plan B</li>
+                    <li>✔️ Custom Warna</li>
+                    <li>✔️ Prioritas Support</li>
+                </ul>
+                <button>Pilih</button>
+            </div>
 
-/* =====================================================
-   BUTTON
-===================================================== */
-.btn,
-.plan button {
-    padding: 14px 44px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: #fff;
-    box-shadow: var(--shadow-soft);
-    transition: 0.35s;
-    position: relative;
-    overflow: hidden;
-}
+            <!-- PLAN D -->
+            <div class="plan premium show">
+                <h3>Plan D</h3>
+                <div class="price">Rp199K</div>
+                <ul>
+                    <li>🔥 Semua Fitur</li>
+                    <li>🔥 Desain Premium</li>
+                    <li>🔥 Full Support</li>
+                    <li>🔥 Update Selamanya</li>
+                </ul>
+                <button>Upgrade Sekarang</button>
+            </div>
 
-.btn:hover,
-.plan button:hover {
-    transform: translateY(-3px) scale(1.05);
-}
+        </div>
+    </section>
 
-/* =====================================================
-   FEATURES
-===================================================== */
-.features {
-    padding: 100px 60px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 36px;
-}
+    <!-- ================= FOOTER ================= -->
+    <footer id="contact" class="show">
+        © 2026 MantapWeb • Dibuat dengan ❤️ & CSS Keren
+    </footer>
 
-.feature-card {
-    background: var(--glass);
-    border-radius: 24px;
-    padding: 40px 32px;
-    text-align: center;
-    border: 1px solid var(--border-soft);
-    transition: 0.4s;
-}
+    <!-- ================= JS (ANIMATION) ================= -->
+    <script>
+        const elements = document.querySelectorAll('.show');
+        window.addEventListener('load', () => {
+            elements.forEach((el, i) => {
+                setTimeout(() => {
+                    el.classList.add('show');
+                }, i * 120);
+            });
+        });
+    </script>
 
-.feature-card:hover {
-    transform: translateY(-14px);
-    box-shadow: var(--shadow-soft);
-}
-
-.feature-card i {
-    font-size: 44px;
-    color: var(--primary);
-    margin-bottom: 18px;
-}
-
-.feature-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    margin-bottom: 10px;
-}
-
-.feature-card p {
-    font-size: 15px;
-    color: var(--text-soft);
-}
-
-/* =====================================================
-   PRICING
-===================================================== */
-.pricing {
-    padding: 120px 60px;
-    text-align: center;
-}
-
-.pricing h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 42px;
-    margin-bottom: 12px;
-}
-
-.pricing p {
-    margin-bottom: 55px;
-    color: var(--text-soft);
-}
-
-.pricing-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap: 36px;
-}
-
-.plan {
-    background: var(--bg-soft);
-    padding: 46px 32px;
-    border-radius: 26px;
-    border: 1px solid var(--border-soft);
-    transition: 0.4s;
-}
-
-.plan:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-soft);
-}
-
-.plan h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 24px;
-    margin-bottom: 12px;
-}
-
-.plan .price {
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 20px;
-}
-
-.plan ul {
-    list-style: none;
-    margin-bottom: 30px;
-}
-
-.plan ul li {
-    margin: 10px 0;
-    font-size: 14px;
-    color: var(--text-soft);
-}
-
-/* ===== PLAN D ===== */
-.plan.premium {
-    border: 2px solid var(--accent);
-    background: linear-gradient(180deg, #ffffff, #f1f5ff);
-}
-
-.plan.premium::before {
-    content: "⭐ PALING POPULER";
-    display: inline-block;
-    margin-bottom: 14px;
+</body>
+</html>
