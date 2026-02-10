@@ -1,295 +1,146 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMK Muhammadiyah 1 Kalasan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Modern Mantap</title>
 
-<!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- ICON -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Poppins',sans-serif;
-  background:#000;
-  color:#fff;
-  overflow-x:hidden;
-}
-
-/* ===== PARTICLES ===== */
-#particles-js{
-  position:fixed;
-  width:100%;
-  height:100%;
-  z-index:-2;
-}
-
-/* ===== NAVBAR ===== */
-.navbar{
-  position:fixed;
-  width:100%;
-  padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(0,0,0,.5);
-  backdrop-filter:blur(14px);
-  z-index:999;
-}
-
-.logo{
-  font-family:'Orbitron';
-  font-size:22px;
-  background:linear-gradient(90deg,#00f5ff,#9d00ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.menu-toggle{display:none;font-size:26px;cursor:pointer}
-
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:30px;
-}
-
-nav a{
-  text-decoration:none;
-  color:#fff;
-  transition:.4s;
-}
-nav a:hover{color:#00f5ff}
-
-/* ===== DROPDOWN ===== */
-.dropdown{
-  position:absolute;
-  top:40px;
-  background:rgba(0,0,0,.85);
-  border-radius:10px;
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(20px);
-  transition:.4s;
-}
-nav li:hover .dropdown{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
-}
-.dropdown a{
-  display:block;
-  padding:10px 20px;
-}
-
-/* ===== HERO VIDEO ===== */
-.hero{
-  height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  padding:0 80px;
-}
-
-.hero video{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-1;
-  opacity:.35;
-}
-
-.hero h1{
-  font-family:'Orbitron';
-  font-size:54px;
-  background:linear-gradient(90deg,#00f5ff,#9d00ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero span{color:#00f5ff}
-.hero p{margin-top:20px;max-width:600px}
-
-/* ===== SECTION ===== */
-section{
-  padding:100px 80px;
-}
-
-/* ===== SLIDER ===== */
-.slider{
-  display:flex;
-  gap:30px;
-  overflow:auto;
-  scroll-behavior:smooth;
-}
-.slide{
-  min-width:300px;
-  background:rgba(255,255,255,.08);
-  padding:25px;
-  border-radius:16px;
-}
-
-/* ===== COUNTER ===== */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
-}
-.stat{
-  background:rgba(255,255,255,.08);
-  padding:30px;
-  border-radius:16px;
-  text-align:center;
-}
-.stat h2{
-  font-family:'Orbitron';
-  font-size:42px;
-  color:#00f5ff;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-.menu-toggle{display:block}
-nav ul{
-  position:absolute;
-  top:70px;
-  right:0;
-  background:#000;
-  flex-direction:column;
-  width:220px;
-  padding:20px;
-  transform:translateX(100%);
-  transition:.4s;
-}
-nav ul.active{transform:translateX(0)}
-.hero{padding:0 25px}
-.hero h1{font-size:36px}
-section{padding:70px 25px}
-}
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div id="particles-js"></div>
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <div class="logo">MantapWeb</div>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#features">Fitur</a></li>
+            <li><a href="#pricing">Upgrade</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="logo">SMK MUH 1 KALASAN</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav>
-    <ul id="menu">
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Profil</a></li>
-      <li><a href="#">Visi & Misi</a></li>
-      <li>
-        <a href="#">Jurusan ▾</a>
-        <div class="dropdown">
-          <a href="#">Teknika Kapal Niaga</a>
-          <a href="#">Nautika Kapal Niaga</a>
-          <a href="#">Seni Musik Populer</a>
+    <!-- ================= HERO ================= -->
+    <section class="hero show" id="home">
+        <h1>Website Cerah, Modern<br>dan Sangat Mantap 🚀</h1>
+        <p>
+            Bangun website profesional dengan tampilan modern, cerah,
+            cepat, dan siap untuk upgrade ke level premium.
+        </p>
+        <button class="btn">Mulai Sekarang</button>
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="features" id="features">
+
+        <div class="feature-card show">
+            <i class='bx bx-palette'></i>
+            <h3>Desain Modern</h3>
+            <p>Tampilan cerah, clean, dan enak dipandang di semua device.</p>
         </div>
-      </li>
-      <li><a href="#">Kontak</a></li>
-    </ul>
-  </nav>
-</div>
 
-<!-- HERO -->
-<section class="hero">
-  <video autoplay muted loop>
-    <source src="assets/hero-video.mp4" type="video/mp4">
-  </video>
+        <div class="feature-card show">
+            <i class='bx bx-bolt-circle'></i>
+            <h3>Performa Cepat</h3>
+            <p>Struktur ringan, loading cepat, dan responsif.</p>
+        </div>
 
-  <div data-aos="fade-up">
-    <h1>Sekolah <span id="typing"></span></h1>
-    <p>
-      Perpaduan teknologi futuristik, maritim profesional,
-      dan pendidikan Islami modern.
-    </p>
-  </div>
-</section>
+        <div class="feature-card show">
+            <i class='bx bx-shield-quarter'></i>
+            <h3>Aman & Stabil</h3>
+            <p>Kode rapi dan siap dikembangkan lebih lanjut.</p>
+        </div>
 
-<!-- BERITA -->
-<section data-aos="fade-up">
-  <h2>Berita Terbaru</h2><br>
-  <div class="slider">
-    <div class="slide">Prestasi Siswa Tingkat DIY</div>
-    <div class="slide">PPDB Tahun Ajaran Baru</div>
-    <div class="slide">Kegiatan Islami Sekolah</div>
-  </div>
-</section>
+        <div class="feature-card show">
+            <i class='bx bx-rocket'></i>
+            <h3>Mudah Upgrade</h3>
+            <p>Bisa naik ke versi Pro dan Premium kapan saja.</p>
+        </div>
 
-<!-- STATS -->
-<section data-aos="zoom-in">
-  <div class="stats">
-    <div class="stat">
-      <h2 class="counter" data-target="1200">0</h2>
-      <p>Siswa</p>
-    </div>
-    <div class="stat">
-      <h2 class="counter" data-target="45">0</h2>
-      <p>Guru</p>
-    </div>
-    <div class="stat">
-      <h2 class="counter" data-target="30">0</h2>
-      <p>Prestasi</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ================= PRICING ================= -->
+    <section class="pricing" id="pricing">
+        <h2>Pilihan Upgrade 🚀</h2>
+        <p>Pilih paket sesuai kebutuhanmu</p>
 
-<script>
-AOS.init();
-</script>
+        <div class="pricing-box">
 
-<script>
-particlesJS("particles-js",{
-  particles:{number:{value:70},move:{speed:1},line_linked:{opacity:.3}}
-});
-</script>
+            <!-- PLAN A -->
+            <div class="plan show">
+                <h3>Plan A</h3>
+                <div class="price">Gratis</div>
+                <ul>
+                    <li>✔️ Desain Dasar</li>
+                    <li>✔️ Responsive</li>
+                    <li>❌ Tanpa Support</li>
+                </ul>
+                <button>Pilih</button>
+            </div>
 
-<script>
-const words=["Masa Depan","Teknologi","Maritim","Berakhlak"];
-let i=0,j=0,del=false;
-function type(){
-  const w=words[i];
-  document.getElementById("typing").textContent=w.slice(0,j);
-  if(!del) j++; else j--;
-  if(j==w.length+1){del=true;setTimeout(type,1000);return}
-  if(j==0){del=false;i=(i+1)%words.length}
-  setTimeout(type,del?60:120);
-}
-type();
-</script>
+            <!-- PLAN B -->
+            <div class="plan show">
+                <h3>Plan B</h3>
+                <div class="price">Rp49K</div>
+                <ul>
+                    <li>✔️ Semua di Plan A</li>
+                    <li>✔️ Animasi</li>
+                    <li>✔️ Support Email</li>
+                </ul>
+                <button>Pilih</button>
+            </div>
 
-<script>
-const counters=document.querySelectorAll('.counter');
-counters.forEach(c=>{
-  const update=()=>{
-    const target=+c.dataset.target;
-    const val=+c.innerText;
-    if(val<target){
-      c.innerText=val+Math.ceil(target/80);
-      setTimeout(update,40);
-    }else c.innerText=target;
-  }
-  update();
-});
-</script>
+            <!-- PLAN C -->
+            <div class="plan show">
+                <h3>Plan C</h3>
+                <div class="price">Rp99K</div>
+                <ul>
+                    <li>✔️ Semua di Plan B</li>
+                    <li>✔️ Custom Warna</li>
+                    <li>✔️ Prioritas Support</li>
+                </ul>
+                <button>Pilih</button>
+            </div>
 
-<script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
-</script>
+            <!-- PLAN D -->
+            <div class="plan premium show">
+                <h3>Plan D</h3>
+                <div class="price">Rp199K</div>
+                <ul>
+                    <li>🔥 Semua Fitur</li>
+                    <li>🔥 Desain Premium</li>
+                    <li>🔥 Full Support</li>
+                    <li>🔥 Update Selamanya</li>
+                </ul>
+                <button>Upgrade Sekarang</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="contact" class="show">
+        © 2026 MantapWeb • Dibuat dengan ❤️ & CSS Keren
+    </footer>
+
+    <!-- ================= JS (ANIMATION) ================= -->
+    <script>
+        const elements = document.querySelectorAll('.show');
+        window.addEventListener('load', () => {
+            elements.forEach((el, i) => {
+                setTimeout(() => {
+                    el.classList.add('show');
+                }, i * 120);
+            });
+        });
+    </script>
 
 </body>
 </html>
