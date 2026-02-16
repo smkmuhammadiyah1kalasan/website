@@ -1,473 +1,358 @@
-/* =========================================
-   GLOBAL RESET
-========================================= */
+/* =====================================================
+   SMK MUHAMMADIYAH 1 KALASAN
+   PREMIUM LUXURY STYLE
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary: #0d47a1;
+    --secondary: #1565c0;
+    --accent: #00c853;
+    --gold: #ffd700;
+    --dark: #0a0f1c;
+    --light: #ffffff;
+    --text: #333;
+}
+
+/* DARK MODE VARIABLES */
+body.dark {
+    --primary: #111827;
+    --secondary: #1f2937;
+    --light: #0f172a;
+    --text: #f3f4f6;
+}
+
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    transition: 0.4s ease;
     overflow-x: hidden;
-    color: white;
-    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #00c6ff);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
 }
 
-/* =========================================
-   ANIMATED BACKGROUND
-========================================= */
-@keyframes gradientMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-/* =========================================
-   LOADER
-========================================= */
-.loader {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% {opacity: 0.4;}
-    50% {opacity: 1;}
-    100% {opacity: 0.4;}
-}
-
-/* =========================================
+/* =====================================================
    NAVBAR
-========================================= */
+===================================================== */
+
 .navbar {
     position: fixed;
+    top: 0;
     width: 100%;
-    padding: 20px 60px;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    backdrop-filter: blur(12px);
-    background: rgba(0,0,0,0.4);
-    z-index: 1000;
-    transition: all 0.4s ease;
+    z-index: 999;
+    transition: 0.4s;
+}
+
+.navbar.scrolled {
+    background: var(--primary);
 }
 
 .logo {
-    font-weight: 700;
-    font-size: 1.2rem;
+    font-weight: 800;
+    font-size: 22px;
+    color: white;
     letter-spacing: 1px;
 }
 
-.nav-links li {
-    display: inline-block;
-    margin-left: 30px;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
-.nav-links a {
+.nav-links li a {
     text-decoration: none;
     color: white;
+    font-weight: 500;
     position: relative;
     transition: 0.3s;
 }
 
-.nav-links a::after {
+.nav-links li a::after {
     content: "";
     position: absolute;
-    width: 0%;
+    width: 0;
     height: 2px;
-    background: cyan;
+    background: var(--gold);
     left: 0;
     bottom: -5px;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
+.nav-links li a:hover::after {
     width: 100%;
 }
 
-.nav-links a.active {
-    color: cyan;
+.nav-links li a:hover {
+    color: var(--gold);
 }
 
-/* =========================================
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* =====================================================
    HERO SECTION
-========================================= */
+===================================================== */
+
 .hero {
     height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('../images/hero.jpg') center/cover no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 0 20px;
+    color: white;
 }
 
-.hero h1 {
-    font-size: 1.5rem;
-    font-weight: 300;
+.hero-content h1 {
+    font-size: 20px;
+    letter-spacing: 3px;
+    animation: fadeDown 1.2s ease;
 }
 
-.hero h2 {
-    font-size: 3rem;
+.hero-content h2 {
+    font-size: 50px;
+    margin: 20px 0;
     font-weight: 800;
-    margin: 15px 0;
-    text-shadow: 0 0 20px rgba(0,255,255,0.8);
+    background: linear-gradient(90deg, #ffd700, #00e5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeUp 1.5s ease;
 }
 
-.hero p {
-    opacity: 0.8;
-    margin-bottom: 20px;
-}
-
-/* =========================================
-   BUTTON STYLE
-========================================= */
-button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
+.hero-content p {
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+    animation: fadeUp 1.8s ease;
 }
 
 .btn-primary {
-    background: cyan;
+    margin-top: 30px;
+    padding: 15px 35px;
+    border-radius: 40px;
+    border: none;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ffd700, #ff9100);
     color: black;
+    cursor: pointer;
+    transition: 0.4s;
 }
 
 .btn-primary:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px cyan;
+    box-shadow: 0 0 20px #ffd700;
 }
 
-/* Ripple */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.7);
-    transform: scale(0);
-    animation: rippleEffect 0.6s linear;
-}
-
-@keyframes rippleEffect {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* =========================================
-   JURUSAN SECTION
-========================================= */
-.jurusan {
-    padding: 120px 60px;
-    text-align: center;
-}
+/* =====================================================
+   SECTION TITLE
+===================================================== */
 
 .section-title {
-    font-size: 2.5rem;
+    text-align: center;
+    font-size: 40px;
     margin-bottom: 60px;
-    font-weight: 700;
+    font-weight: 800;
+    color: var(--primary);
 }
 
-/* =========================================
-   CARD CONTAINER
-========================================= */
+/* =====================================================
+   JURUSAN CARDS
+===================================================== */
+
+.jurusan {
+    padding: 120px 50px;
+    background: #f5f7fa;
+}
+
 .card-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 40px;
+    flex-wrap: wrap;
 }
 
 .card {
     width: 320px;
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.1);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-    transition: all 0.5s ease;
-    transform-style: preserve-3d;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-}
-
-.card h3 {
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.card p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    line-height: 1.6;
-}
-
-.card button {
-    margin-top: 20px;
-    background: gold;
-    color: black;
-}
-
-.card button:hover {
     background: white;
-    transform: scale(1.1);
-}
-
-/* =========================================
-   TENTANG
-========================================= */
-.tentang {
-    padding: 100px 60px;
-    text-align: center;
-}
-
-.tentang h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* =========================================
-   COUNTER SECTION
-========================================= */
-.counter-section {
-    padding: 100px 60px;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    text-align: center;
-}
-
-.counter-box {
-    background: rgba(255,255,255,0.1);
-    padding: 40px;
+    padding: 40px 30px;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-}
-
-.counter {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: cyan;
-}
-
-/* =========================================
-   FOOTER
-========================================= */
-footer {
-    padding: 20px;
     text-align: center;
-    background: rgba(0,0,0,0.5);
-    font-size: 0.9rem;
-}
-
-/* =========================================
-   SCROLL TO TOP BUTTON
-========================================= */
-button[style*="fixed"] {
-    box-shadow: 0 0 20px cyan;
-    transition: 0.3s;
-}
-
-button[style*="fixed"]:hover {
-    transform: scale(1.2);
-}
-
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
-@media (max-width: 992px) {
-    .navbar {
-        padding: 20px;
-    }
-
-    .hero h2 {
-        font-size: 2.2rem;
-    }
-
-    .card-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .counter-section {
-        flex-direction: column;
-    }
-}
-/* =========================================
-   DARK & LIGHT MODE
-========================================= */
-
-:root {
-    --bg-dark: #0f2027;
-    --bg-light: #f5f7fa;
-    --text-dark: white;
-    --text-light: #222;
-    --card-dark: rgba(255,255,255,0.1);
-    --card-light: rgba(255,255,255,0.8);
-}
-
-body.light-mode {
-    background: linear-gradient(120deg, #f5f7fa, #c3cfe2);
-    color: var(--text-light);
-}
-
-body.light-mode .navbar {
-    background: rgba(255,255,255,0.7);
-}
-
-body.light-mode .card {
-    background: var(--card-light);
-    color: #222;
-}
-
-/* Toggle Switch */
-.theme-toggle {
-    margin-left: 30px;
-}
-
-.toggle-label {
-    width: 60px;
-    height: 30px;
-    background: #333;
-    display: inline-block;
-    border-radius: 50px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.toggle-label .ball {
-    width: 24px;
-    height: 24px;
-    background: white;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-
-#darkModeToggle {
-    display: none;
-}
-
-#darkModeToggle:checked + .toggle-label {
-    background: cyan;
-}
-
-#darkModeToggle:checked + .toggle-label .ball {
-    transform: translateX(30px);
-}
-
-/* =========================================
-   FOOTER PREMIUM
-========================================= */
-
-.footer {
-    margin-top: 100px;
-    background: linear-gradient(135deg, #111, #000);
-    padding: 60px 40px 20px;
+    transition: 0.5s;
     position: relative;
     overflow: hidden;
 }
 
-.footer::before {
+.card::before {
     content: "";
     position: absolute;
-    width: 200%;
-    height: 200px;
-    top: -100px;
-    left: -50%;
-    background: radial-gradient(circle, cyan 0%, transparent 70%);
-    animation: glowMove 6s linear infinite;
-    opacity: 0.2;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(45deg, transparent, rgba(0,0,0,0.05), transparent);
+    transform: rotate(45deg);
+    top: -100%;
+    left: -100%;
+    transition: 0.6s;
 }
 
-@keyframes glowMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(50%); }
+.card:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 70px 50px 30px;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 40px;
-    position: relative;
-    z-index: 2;
 }
 
-.footer-section h3,
-.footer-section h4 {
-    margin-bottom: 15px;
+.footer-section h3 {
+    margin-bottom: 20px;
+    color: var(--gold);
 }
 
-.footer-section ul {
-    list-style: none;
+.footer-section p,
+.footer-section a {
+    font-size: 14px;
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.footer-section ul li {
-    margin-bottom: 8px;
-    transition: 0.3s;
-}
-
-.footer-section ul li:hover {
-    transform: translateX(5px);
-    color: cyan;
+.footer-section a:hover {
+    color: white;
 }
 
 .footer-bottom {
     text-align: center;
     margin-top: 40px;
+    border-top: 1px solid #444;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    font-size: 0.9rem;
+    font-size: 13px;
 }
 
-/* =========================================
-   GIF-LIKE FLOATING EFFECT
-========================================= */
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 
-.card {
-    animation: floating 6s ease-in-out infinite;
+@keyframes fadeDown {
+    from {opacity:0; transform:translateY(-40px);}
+    to {opacity:1; transform:translateY(0);}
 }
 
-@keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(40px);}
+    to {opacity:1; transform:translateY(0);}
 }
 
-.hero h2 {
-    animation: glowText 3s infinite alternate;
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 992px) {
+    .hero-content h2 {
+        font-size: 36px;
+    }
 }
 
-@keyframes glowText {
-    from { text-shadow: 0 0 10px cyan; }
-    to { text-shadow: 0 0 25px cyan, 0 0 40px cyan; }
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: -100%;
+        top: 70px;
+        background: rgba(0,0,0,0.9);
+        width: 200px;
+        height: 100vh;
+        flex-direction: column;
+        padding-top: 40px;
+        transition: 0.4s;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .card {
+        width: 95%;
+    }
+
+    .jurusan {
+        padding: 100px 20px;
+    }
+
+    footer {
+        padding: 50px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
