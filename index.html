@@ -3,144 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Modern Mantap</title>
-
-    <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- ICON -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <title>SMK Muhammadiyah 1 Kalasan</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-    <nav>
-        <div class="logo">MantapWeb</div>
-        <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#features">Fitur</a></li>
-            <li><a href="#pricing">Upgrade</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="logo">SMKM 1 Kalasan</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-btn">Beranda</a></li>
+                <li><a href="#jurusan" class="nav-btn">Jurusan</a></li>
+                <li><a href="#" class="nav-btn">Profil</a></li>
+                <li><a href="#" class="nav-btn">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- ================= HERO ================= -->
-    <section class="hero show" id="home">
-        <h1>Website Cerah, Modern<br>dan Sangat Mantap 🚀</h1>
-        <p>
-            Bangun website profesional dengan tampilan modern, cerah,
-            cepat, dan siap untuk upgrade ke level premium.
-        </p>
-        <button class="btn">Mulai Sekarang</button>
-    </section>
-
-    <!-- ================= FEATURES ================= -->
-    <section class="features" id="features">
-
-        <div class="feature-card show">
-            <i class='bx bx-palette'></i>
-            <h3>Desain Modern</h3>
-            <p>Tampilan cerah, clean, dan enak dipandang di semua device.</p>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate-pop">Selamat Datang di <br><span>SMK Muhammadiyah 1 Kalasan</span></h1>
+            <p>Mencetak Generasi Unggul, Cerdas, dan Berkarakter.</p>
+            <a href="#jurusan" class="btn-main">Jelajahi Jurusan</a>
         </div>
+        </section>
 
-        <div class="feature-card show">
-            <i class='bx bx-bolt-circle'></i>
-            <h3>Performa Cepat</h3>
-            <p>Struktur ringan, loading cepat, dan responsif.</p>
-        </div>
-
-        <div class="feature-card show">
-            <i class='bx bx-shield-quarter'></i>
-            <h3>Aman & Stabil</h3>
-            <p>Kode rapi dan siap dikembangkan lebih lanjut.</p>
-        </div>
-
-        <div class="feature-card show">
-            <i class='bx bx-rocket'></i>
-            <h3>Mudah Upgrade</h3>
-            <p>Bisa naik ke versi Pro dan Premium kapan saja.</p>
-        </div>
-
-    </section>
-
-    <!-- ================= PRICING ================= -->
-    <section class="pricing" id="pricing">
-        <h2>Pilihan Upgrade 🚀</h2>
-        <p>Pilih paket sesuai kebutuhanmu</p>
-
-        <div class="pricing-box">
-
-            <!-- PLAN A -->
-            <div class="plan show">
-                <h3>Plan A</h3>
-                <div class="price">Gratis</div>
-                <ul>
-                    <li>✔️ Desain Dasar</li>
-                    <li>✔️ Responsive</li>
-                    <li>❌ Tanpa Support</li>
-                </ul>
-                <button>Pilih</button>
+    <section id="jurusan" class="jurusan-section">
+        <h2>Pilihan Kompetensi Keahlian</h2>
+        <div class="card-container">
+            
+            <div class="card" onclick="location.href='teknika.html';">
+                <div class="icon">⚓</div>
+                <h3>Teknika Kapal Niaga</h3>
+                <p>Mempelajari permesinan kapal, sistem elektrikal, dan perawatan mesin diesel kapal modern.</p>
+                <button class="push-btn">Detail Teknika</button>
             </div>
 
-            <!-- PLAN B -->
-            <div class="plan show">
-                <h3>Plan B</h3>
-                <div class="price">Rp49K</div>
-                <ul>
-                    <li>✔️ Semua di Plan A</li>
-                    <li>✔️ Animasi</li>
-                    <li>✔️ Support Email</li>
-                </ul>
-                <button>Pilih</button>
+            <div class="card" onclick="location.href='nautika.html';">
+                <div class="icon">🧭</div>
+                <h3>Nautika Kapal Niaga</h3>
+                <p>Ahli dalam navigasi kapal, prosedur keselamatan, dan pengoperasian alat komunikasi kapal.</p>
+                <button class="push-btn">Detail Nautika</button>
             </div>
 
-            <!-- PLAN C -->
-            <div class="plan show">
-                <h3>Plan C</h3>
-                <div class="price">Rp99K</div>
-                <ul>
-                    <li>✔️ Semua di Plan B</li>
-                    <li>✔️ Custom Warna</li>
-                    <li>✔️ Prioritas Support</li>
-                </ul>
-                <button>Pilih</button>
-            </div>
-
-            <!-- PLAN D -->
-            <div class="plan premium show">
-                <h3>Plan D</h3>
-                <div class="price">Rp199K</div>
-                <ul>
-                    <li>🔥 Semua Fitur</li>
-                    <li>🔥 Desain Premium</li>
-                    <li>🔥 Full Support</li>
-                    <li>🔥 Update Selamanya</li>
-                </ul>
-                <button>Upgrade Sekarang</button>
+            <div class="card" onclick="location.href='musik.html';">
+                <div class="icon">🎸</div>
+                <h3>Seni Musik Modern</h3>
+                <p>Pengembangan bakat musik industri, produksi audio, dan pertunjukan panggung profesional.</p>
+                <button class="push-btn">Detail Musik</button>
             </div>
 
         </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer id="contact" class="show">
-        © 2026 MantapWeb • Dibuat dengan ❤️ & CSS Keren
+    <footer>
+        <p>&copy; 2026 SMK Muhammadiyah 1 Kalasan - All Rights Reserved.</p>
     </footer>
 
-    <!-- ================= JS (ANIMATION) ================= -->
-    <script>
-        const elements = document.querySelectorAll('.show');
-        window.addEventListener('load', () => {
-            elements.forEach((el, i) => {
-                setTimeout(() => {
-                    el.classList.add('show');
-                }, i * 120);
-            });
-        });
-    </script>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
