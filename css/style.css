@@ -617,7 +617,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
-    padding-top: 70px;
+    padding-top: 120px;
         
         background: #0a192f;
         color: #ffffff;
