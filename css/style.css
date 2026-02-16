@@ -13,6 +13,7 @@ html {
 }
 
 body {
+    
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #eaf6ff, #ffffff);
     color: #1a2a3a;
@@ -61,14 +62,15 @@ body {
 
 .navbar {
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    z-index: 999;
+    width: 100%;
+    height: 70px; /* TAMBAHKAN */
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.95);
 }
+
 
 .navbar .container {
     display: flex;
@@ -94,6 +96,7 @@ body {
 /* ===================================================== */
 
 .hero {
+    min-height: 100vh;
     position: relative;
     height: 100vh;
     background: linear-gradient(to bottom, #4facfe, #00c6ff);
@@ -128,7 +131,7 @@ body {
     left: 0;
     width: 200%;
     height: 200px;
-    background: url('https://i.ibb.co/wWQZVxx/wave.png');
+     background: url('../images/wave.png');
     background-size: 1000px 200px;
     animation: waveMove 10s linear infinite;
     opacity: 0.8;
@@ -526,7 +529,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://i.ibb.co/9hYQ6qF/cloud.png');
+    background: url('../images/cloud.png');
     background-size: cover;
     opacity: 0.15;
     animation: cloudMove 60s linear infinite;
@@ -614,6 +617,8 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
+    padding-top: 70px;
+        
         background: #0a192f;
         color: #ffffff;
     }
