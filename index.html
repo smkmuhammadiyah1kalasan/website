@@ -16,6 +16,35 @@
 
 </head>
 <body>
+        <!-- LOADING SCREEN -->
+    <div id="loader">
+        <div class="loader-circle"></div>
+    </div>
+   <!-- CANVAS PARTICLE -->
+    <canvas id="aiCanvas"></canvas>
+    
+    <!-- Setelah ini baru isi website -->
+    <div class="particles">
+    <span style="left:10%; animation-duration:12s;"></span>
+    <span style="left:20%; animation-duration:18s;"></span>
+    <span style="left:35%; animation-duration:15s;"></span>
+    <span style="left:50%; animation-duration:10s;"></span>
+    <span style="left:70%; animation-duration:20s;"></span>
+    <span style="left:85%; animation-duration:14s;"></span>
+</div>
+    
+    <button class="toggle-theme">Toggle Mode</button>
+    <h1 class="glow-text">WELCOME TO MY WEBSITE</h1>
+
+    <div class="card-3d neon-border">
+        <h3>3D Interactive Card</h3>
+        <p>Hover dan gerakkan mouse 🔥</p>
+    </div>
+
+    <div class="terminal">
+        <span id="typedText" class="typing"></span>
+    </div>
+
 
 <!-- ================================================= -->
 <!-- ================= LOADER SCREEN ================= -->
@@ -779,6 +808,41 @@
 <!-- ================================================= -->
 
 <script src="js/script.js"></script>
+<div class="cursor"></div>
 
+<script>
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+
+    const trail = document.createElement("div");
+    trail.classList.add("trail");
+    trail.style.left = e.clientX + "px";
+    trail.style.top = e.clientY + "px";
+    document.body.appendChild(trail);
+
+    setTimeout(() => {
+        trail.remove();
+    }, 500);
+});
+
+/* Scroll animation */
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 400;
+        if(top > offset){
+            sec.classList.add("active");
+        }
+    });
+});
+</script>
+
+    
 </body>
 </html>
+
