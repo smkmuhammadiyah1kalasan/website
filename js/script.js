@@ -236,3 +236,24 @@ window.addEventListener("scroll", function () {
 });
 
 console.log("SMK Muhammadiyah 1 Kalasan - Premium JS Active 🚀");
+
+// =================================
+// DARK MODE TOGGLE
+// =================================
+const toggle = document.getElementById("darkModeToggle");
+
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+    toggle.checked = true;
+}
+
+toggle.addEventListener("change", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
+});
+
