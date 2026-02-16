@@ -255,39 +255,6 @@ ul {
     0% { background-position-x: 0; }
     100% { background-position-x: 1000px; }
 }
-<div class="cursor"></div>
-
-<script>
-const cursor = document.querySelector(".cursor");
-
-document.addEventListener("mousemove", e => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-
-    const trail = document.createElement("div");
-    trail.classList.add("trail");
-    trail.style.left = e.clientX + "px";
-    trail.style.top = e.clientY + "px";
-    document.body.appendChild(trail);
-
-    setTimeout(() => {
-        trail.remove();
-    }, 500);
-});
-
-/* Scroll animation */
-const sections = document.querySelectorAll(".section");
-
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 400;
-        if(top > offset){
-            sec.classList.add("active");
-        }
-    });
-});
-</script>
 /* ============================= */
 /* PART 3 - ADVANCED ANIMATION */
 /* ============================= */
@@ -495,4 +462,41 @@ body {
 @keyframes borderMove {
     0% { background-position: 0%; }
     100% { background-position: 400%; }
+}
+
+/* ========================= */
+/* CUSTOM CURSOR */
+/* ========================= */
+
+body {
+    cursor: none;
+}
+
+.cursor {
+    width: 12px;
+    height: 12px;
+    background: #00e0ff;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.trail {
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 224, 255, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: fadeOut 0.5s linear forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2);
+    }
 }
