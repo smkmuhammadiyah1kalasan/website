@@ -1,163 +1,200 @@
 /* ========================================= */
-/* ============ LOADER ===================== */
+/* ============ PRELOADER ================== */
 /* ========================================= */
 
-window.addEventListener("load", function () {
-    const loader = document.getElementById("loader");
-    if (loader) {
-        loader.style.opacity = "0";
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 500);
-    }
+window.addEventListener("load", () => {
+const preloader = document.getElementById("preloader");
+
+if(preloader){
+setTimeout(() => {
+preloader.style.opacity = "0";
+preloader.style.visibility = "hidden";
+}, 600);
+}
 });
 
 
 /* ========================================= */
-/* ============ BACK TO TOP ================= */
+/* ============ MENU TOGGLE ================= */
 /* ========================================= */
 
-const backToTop = document.getElementById("backToTop");
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+const closeSidebar = document.getElementById("closeSidebar");
 
-if (backToTop) {
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            backToTop.style.display = "block";
-        } else {
-            backToTop.style.display = "none";
-        }
-    });
+if(menuToggle){
+menuToggle.addEventListener("click", () => {
+sidebar.classList.toggle("active");
+});
+}
 
-    backToTop.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+if(closeSidebar){
+closeSidebar.addEventListener("click", () => {
+sidebar.classList.remove("active");
+});
 }
 
 
 /* ========================================= */
-/* ============ SCROLL ANIMATION ============ */
+/* ============ CLOSE SIDEBAR CLICK OUTSIDE */
 /* ========================================= */
 
-const sections = document.querySelectorAll(".section");
+document.addEventListener("click", (e) => {
+
+if(!sidebar) return;
+
+if(
+!sidebar.contains(e.target) &&
+!menuToggle.contains(e.target)
+){
+sidebar.classList.remove("active");
+}
+
+});
+
+
+/* ========================================= */
+/* ============ SMOOTH SCROLL ============== */
+/* ========================================= */
+
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+
+anchor.addEventListener("click", function(e){
+
+const target = document.querySelector(this.getAttribute("href"));
+
+if(target){
+e.preventDefault();
+
+target.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+sidebar.classList.remove("active");
+}
+
+});
+
+});
+
+
+/* ========================================= */
+/* ============ HEADER SCROLL EFFECT ======= */
+/* ========================================= */
+
+const header = document.querySelector(".header");
 
 window.addEventListener("scroll", () => {
-    sections.forEach(section => {
-        const triggerPoint = window.innerHeight * 0.85;
-        const sectionTop = section.getBoundingClientRect().top;
 
-        if (sectionTop < triggerPoint) {
-            section.classList.add("active");
-        }
-    });
+if(window.scrollY > 50){
+header.style.background = "#081c33";
+header.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+}else{
+header.style.background = "#0a2540";
+header.style.boxShadow = "none";
+}
+
 });
 
 
 /* ========================================= */
-/* ============ CUSTOM CURSOR =============== */
+/* ============ SCROLL ANIMATION =========== */
 /* ========================================= */
 
-const cursor = document.querySelector(".cursor");
+const revealElements = document.querySelectorAll(
+".card, .jurusan-card, .stat-box, .galeri-item, .testimoni-card"
+);
 
-if (cursor) {
-    document.addEventListener("mousemove", (e) => {
+function revealOnScroll(){
 
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
+const windowHeight = window.innerHeight;
 
-        // TRAIL EFFECT
-        const trail = document.createElement("div");
-        trail.classList.add("trail");
-        trail.style.left = e.clientX + "px";
-        trail.style.top = e.clientY + "px";
-        document.body.appendChild(trail);
+revealElements.forEach(el => {
 
-        setTimeout(() => {
-            trail.remove();
-        }, 500);
-    });
+const elementTop = el.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+el.style.opacity = "1";
+el.style.transform = "translateY(0)";
 }
 
+});
 
-/* ========================================= */
-/* ============ FLOATING PARTICLES ========== */
-/* ========================================= */
-
-const particlesContainer = document.querySelector(".particles");
-
-if (particlesContainer) {
-    for (let i = 0; i < 30; i++) {
-        const span = document.createElement("span");
-
-        span.style.left = Math.random() * 100 + "vw";
-        span.style.animationDuration = (5 + Math.random() * 10) + "s";
-        span.style.animationDelay = Math.random() * 5 + "s";
-
-        particlesContainer.appendChild(span);
-    }
 }
 
+window.addEventListener("scroll", revealOnScroll);
+
 
 /* ========================================= */
-/* ============ 3D CARD EFFECT ============== */
+/* ============ INIT ANIMATION STYLE ======= */
 /* ========================================= */
 
-const cards = document.querySelectorAll(".card-3d");
-
-cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * 10;
-        const rotateY = ((x - centerX) / centerX) * 10;
-
-        card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0deg) rotateY(0deg)";
-    });
+revealElements.forEach(el => {
+el.style.opacity = "0";
+el.style.transform = "translateY(40px)";
+el.style.transition = "0.6s ease";
 });
 
 
 /* ========================================= */
-/* ============ DARK / LIGHT MODE =========== */
+/* ============ HERO BUTTON CLICK ========== */
 /* ========================================= */
 
-const toggleBtn = document.querySelector(".toggle-theme");
+const heroBtn = document.querySelector(".btn-primary");
 
-if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-    });
+if(heroBtn){
+heroBtn.addEventListener("click", () => {
+alert("Fitur pendaftaran akan segera tersedia.");
+});
 }
 
 
 /* ========================================= */
-/* ============ TYPING EFFECT =============== */
+/* ============ STATS COUNTER ANIMATION ==== */
 /* ========================================= */
 
-const typingElement = document.querySelector(".typing");
+const counters = document.querySelectorAll(".stat-box h2");
 
-if (typingElement) {
-    const text = typingElement.innerText;
-    typingElement.innerText = "";
-    let index = 0;
+let counterStarted = false;
 
-    function typeWriter() {
-        if (index < text.length) {
-            typingElement.innerText += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, 50);
-        }
-    }
+function runCounter(){
 
-    typeWriter();
+if(counterStarted) return;
+
+const section = document.querySelector(".stats-section");
+
+if(!section) return;
+
+const sectionTop = section.getBoundingClientRect().top;
+
+if(sectionTop < window.innerHeight - 100){
+
+counterStarted = true;
+
+counters.forEach(counter => {
+
+const target = parseInt(counter.innerText);
+let count = 0;
+
+const update = () => {
+
+if(count < target){
+count += Math.ceil(target / 60);
+counter.innerText = count;
+requestAnimationFrame(update);
+}else{
+counter.innerText = target + "+";
 }
+
+};
+
+update();
+
+});
+
+}
+
+}
+
+window.addEventListener("scroll", runCounter);
