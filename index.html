@@ -1,65 +1,162 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMK Muhammadiyah 1 Kalasan</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    <header>
-        <div class="logo">SMKM 1 Kalasan</div>
-        <nav>
-            <ul>
-                <li><a href="#" class="nav-btn">Beranda</a></li>
-                <li><a href="#jurusan" class="nav-btn">Jurusan</a></li>
-                <li><a href="#" class="nav-btn">Profil</a></li>
-                <li><a href="#" class="nav-btn">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+body {
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #00c6ff);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+}
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="animate-pop">Selamat Datang di <br><span>SMK Muhammadiyah 1 Kalasan</span></h1>
-            <p>Mencetak Generasi Unggul, Cerdas, dan Berkarakter.</p>
-            <a href="#jurusan" class="btn-main">Jelajahi Jurusan</a>
-        </div>
-        </section>
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
 
-    <section id="jurusan" class="jurusan-section">
-        <h2>Pilihan Kompetensi Keahlian</h2>
-        <div class="card-container">
-            
-            <div class="card" onclick="location.href='teknika.html';">
-                <div class="icon">⚓</div>
-                <h3>Teknika Kapal Niaga</h3>
-                <p>Mempelajari permesinan kapal, sistem elektrikal, dan perawatan mesin diesel kapal modern.</p>
-                <button class="push-btn">Detail Teknika</button>
-            </div>
+/* Loader */
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 3s forwards 2s;
+}
 
-            <div class="card" onclick="location.href='nautika.html';">
-                <div class="icon">🧭</div>
-                <h3>Nautika Kapal Niaga</h3>
-                <p>Ahli dalam navigasi kapal, prosedur keselamatan, dan pengoperasian alat komunikasi kapal.</p>
-                <button class="push-btn">Detail Nautika</button>
-            </div>
+@keyframes fadeOut {
+    to {opacity: 0; visibility: hidden;}
+}
 
-            <div class="card" onclick="location.href='musik.html';">
-                <div class="icon">🎸</div>
-                <h3>Seni Musik Modern</h3>
-                <p>Pengembangan bakat musik industri, produksi audio, dan pertunjukan panggung profesional.</p>
-                <button class="push-btn">Detail Musik</button>
-            </div>
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+}
 
-        </div>
-    </section>
+.nav-links li {
+    display: inline;
+    margin-left: 30px;
+}
 
-    <footer>
-        <p>&copy; 2026 SMK Muhammadiyah 1 Kalasan - All Rights Reserved.</p>
-    </footer>
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: cyan;
+    bottom: -5px;
+    left: 0;
+    transition: 0.4s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    animation: zoomIn 1.5s ease;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+
+.btn-primary {
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: none;
+    background: cyan;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.4s;
+}
+
+.btn-primary:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px cyan;
+}
+
+/* Jurusan Cards */
+.jurusan {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 300px;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: rotateY(10deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+}
