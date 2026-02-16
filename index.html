@@ -811,39 +811,46 @@
 <div class="cursor"></div>
 
 <script>
-const cursor = document.querySelector(".cursor");
 
-document.addEventListener("mousemove", e => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+document.addEventListener("DOMContentLoaded", function(){
 
-    const trail = document.createElement("div");
-    trail.classList.add("trail");
-    trail.style.left = e.clientX + "px";
-    trail.style.top = e.clientY + "px";
-    document.body.appendChild(trail);
+    // LOADER SAFE
+    const loader = document.getElementById("loader");
+    if(loader){
+        window.addEventListener("load", () => {
+            loader.style.display = "none";
+        });
+    }
 
-    setTimeout(() => {
-        trail.remove();
-    }, 500);
+    // CARD 3D SAFE
+    const card = document.querySelector(".card-3d");
+    if(card){
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = -(y - centerY) / 10;
+            const rotateY = (x - centerX) / 10;
+
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0) rotateY(0)";
+        });
+    }
+
 });
 
-/* Scroll animation */
-const sections = document.querySelectorAll(".section");
-
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 400;
-        if(top > offset){
-            sec.classList.add("active");
-        }
-    });
-});
 </script>
 
     
 </body>
 </html>
+
 
 
