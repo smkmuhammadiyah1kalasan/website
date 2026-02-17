@@ -818,3 +818,18 @@ body.dark-mode .section-header h2 {
         opacity: 0;
     }
 }
+/* Smooth Transform */
+.fasilitas-card,
+.testimoni-card,
+.ppdb-info {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+/* Hero background smooth */
+.hero {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    transition: background-position 0.2s ease;
+}
