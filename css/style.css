@@ -1,1396 +1,257 @@
-/* ========================================================= */
-/* SMK MUHAMMADIYAH 1 KALASAN */
-/* MODERN OCEAN THEME CSS SYSTEM */
-/* PART 1 - ROOT, FONT, RESET, BODY, GLOBAL */
-/* ========================================================= */
-
-
-/* ========================================================= */
-/* IMPORT PREMIUM FONTS */
-/* ========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&display=swap');
-
-
-/* ========================================================= */
-/* ROOT VARIABLES */
-/* ========================================================= */
-
-:root {
-
-    /* COLOR SYSTEM */
-
-    --color-primary: #00aaff;
-    --color-secondary: #0077ff;
-    --color-accent: #00ffaa;
-
-    --color-dark: #050b18;
-    --color-dark-soft: #0a1628;
-
-    --color-light: #ffffff;
-    --color-light-soft: rgba(255,255,255,0.8);
-
-    --color-glass: rgba(255,255,255,0.08);
-
-    --color-border-glass: rgba(255,255,255,0.15);
-
-
-    /* GRADIENT */
-
-    --gradient-ocean-main:
-        linear-gradient(
-            180deg,
-            #020617 0%,
-            #031c3a 20%,
-            #003366 40%,
-            #004c80 60%,
-            #006699 80%,
-            #0099cc 100%
-        );
-
-
-    --gradient-button-main:
-        linear-gradient(
-            135deg,
-            #00aaff,
-            #00ffaa
-        );
-
-
-    --gradient-glow:
-        linear-gradient(
-            90deg,
-            #00ffaa,
-            #00aaff
-        );
-
-
-    /* SHADOW */
-
-    --shadow-soft:
-        0 10px 30px rgba(0,0,0,0.4);
-
-    --shadow-glow:
-        0 0 25px rgba(0,170,255,0.6);
-
-    --shadow-glow-accent:
-        0 0 30px rgba(0,255,170,0.5);
-
-
-    /* FONT SYSTEM */
-
-    --font-main:
-        'Poppins', sans-serif;
-
-    --font-heading:
-        'Orbitron', sans-serif;
-
-    --font-futuristic:
-        'Audiowide', cursive;
-
-    --font-modern:
-        'Montserrat', sans-serif;
-
-    --font-tech:
-        'Exo 2', sans-serif;
-
-}
-
-
-/* ========================================================= */
-/* RESET */
-/* ========================================================= */
+/* ================================================= */
+/* ================= RESET & GLOBAL ================= */
+/* ================================================= */
 
 * {
-
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
-
-}
-
-
-/* ========================================================= */
-/* HTML */
-/* ========================================================= */
-
-html {
-
     scroll-behavior: smooth;
-
 }
-
-
-/* ========================================================= */
-/* BODY */
-/* ========================================================= */
 
 body {
-
-    font-family: var(--font-main);
-
-    background: var(--gradient-ocean-main);
-
-    color: var(--color-light);
-
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #0a2a43, #0d3b66);
+    color: #ffffff;
     overflow-x: hidden;
-
-    position: relative;
-
 }
 
-
-/* ========================================================= */
-/* ANIMATED BACKGROUND GLOW */
-/* ========================================================= */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    width: 800px;
-    height: 800px;
-
-    background: radial-gradient(
-        circle,
-        rgba(0,170,255,0.2),
-        transparent
-    );
-
-    top: -200px;
-    left: -200px;
-
-    animation: glowMove 12s infinite alternate ease-in-out;
-
-    z-index: -1;
-
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-
-body::after {
-
-    content: "";
-
-    position: fixed;
-
-    width: 600px;
-    height: 600px;
-
-    background: radial-gradient(
-        circle,
-        rgba(0,255,170,0.15),
-        transparent
-    );
-
-    bottom: -200px;
-    right: -200px;
-
-    animation: glowMove 15s infinite alternate ease-in-out;
-
-    z-index: -1;
-
+ul {
+    list-style: none;
 }
 
-
-@keyframes glowMove {
-
-    0% {
-
-        transform: translate(0,0);
-
-    }
-
-    100% {
-
-        transform: translate(100px,50px);
-
-    }
-
+.section {
+    padding: 100px 10%;
 }
 
-
-/* ========================================================= */
-/* CUSTOM SCROLLBAR */
-/* ========================================================= */
-
-::-webkit-scrollbar {
-
-    width: 10px;
-
+.bg-light {
+    background: #f4f9ff;
+    color: #0a2a43;
 }
-
-::-webkit-scrollbar-track {
-
-    background: #031c3a;
-
-}
-
-::-webkit-scrollbar-thumb {
-
-    background: linear-gradient(
-        #00ffaa,
-        #00aaff
-    );
-
-    border-radius: 20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover {
-
-    background: #00ffaa;
-
-}
-
-
-/* ========================================================= */
-/* CONTAINER SYSTEM */
-/* ========================================================= */
-
-.container {
-
-    width: 92%;
-
-    max-width: 1300px;
-
-    margin: auto;
-
-    position: relative;
-
-    z-index: 5;
-
-}
-
-
-/* ========================================================= */
-/* TYPOGRAPHY SYSTEM */
-/* ========================================================= */
-
-h1, h2, h3 {
-
-    font-family: var(--font-heading);
-
-    letter-spacing: 1px;
-
-}
-
 
 .section-title {
-
-    font-size: 42px;
-
+    font-size: 36px;
+    font-weight: 700;
     text-align: center;
-
-    margin-bottom: 20px;
-
-    background: var(--gradient-glow);
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-}
-
-
-.section-description {
-
-    text-align: center;
-
-    max-width: 800px;
-
-    margin: auto;
-
-    opacity: 0.9;
-
-    line-height: 1.8;
-
-    font-family: var(--font-modern);
-
-}
-
-
-/* ========================================================= */
-/* BUTTON SYSTEM */
-/* ========================================================= */
-
-.btn-primary {
-
-    background: var(--gradient-button-main);
-
-    border: none;
-
-    padding: 14px 32px;
-
-    border-radius: 40px;
-
-    font-weight: 600;
-
-    color: #001a33;
-
-    cursor: pointer;
-
-    transition: all 0.4s ease;
-
-    box-shadow: var(--shadow-soft);
-
-    font-family: var(--font-tech);
-
-}
-
-
-.btn-primary:hover {
-
-    transform: scale(1.1);
-
-    box-shadow: var(--shadow-glow-accent);
-
-}
-
-
-.btn-secondary {
-
-    background: transparent;
-
-    border: 2px solid var(--color-primary);
-
-    padding: 12px 28px;
-
-    border-radius: 30px;
-
-    color: var(--color-primary);
-
-    cursor: pointer;
-
-    transition: all 0.4s ease;
-
-}
-
-
-.btn-secondary:hover {
-
-    background: var(--color-primary);
-
-    color: white;
-
-    box-shadow: var(--shadow-glow);
-
-}
-
-
-/* ========================================================= */
-/* NAVBAR SYSTEM */
-/* ========================================================= */
-
-.navbar {
-
-    position: fixed;
-
-    width: 100%;
-
-    top: 0;
-    left: 0;
-
-    padding: 15px 30px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    background: rgba(0,0,0,0.35);
-
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid var(--color-border-glass);
-
-    z-index: 999;
-
-    transition: all 0.4s ease;
-
-}
-
-
-/* NAVBAR SCROLL EFFECT */
-
-.navbar.scrolled {
-
-    background: rgba(0,0,0,0.7);
-
-    box-shadow: var(--shadow-soft);
-
-}
-
-
-/* LOGO */
-
-.logo {
-
-    font-family: var(--font-futuristic);
-
-    font-size: 22px;
-
-    color: var(--color-accent);
-
-}
-
-
-/* NAV LINKS */
-
-.nav-links {
-
-    display: flex;
-
-    gap: 25px;
-
-}
-
-
-.nav-links a {
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: 500;
-
-    font-family: var(--font-tech);
-
+    margin-bottom: 50px;
     position: relative;
-
 }
 
-
-.nav-links a::after {
-
+.section-title::after {
     content: "";
-
-    width: 0;
-
-    height: 2px;
-
-    background: var(--gradient-glow);
-
-    position: absolute;
-
-    left: 0;
-    bottom: -6px;
-
-    transition: 0.4s;
-
+    width: 80px;
+    height: 4px;
+    background: #00b4ff;
+    display: block;
+    margin: 15px auto 0;
+    border-radius: 10px;
 }
 
+/* ================================================= */
+/* ================= LOADER ========================= */
+/* ================================================= */
 
-.nav-links a:hover::after {
-
+#loader {
+    position: fixed;
     width: 100%;
-
-}
-/* ========================================================= */
-/* PART 2 - HERO SECTION, OCEAN WAVE, PARTICLES, ANIMATIONS */
-/* ========================================================= */
-
-
-/* ========================================================= */
-/* HERO SECTION */
-/* ========================================================= */
-
-.hero {
-
-    position: relative;
-
     height: 100vh;
-
+    background: #081f33;
     display: flex;
-
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
+    z-index: 9999;
 }
 
-
-/* GLASS HERO CONTENT */
-
-.hero-content {
-
-    background: rgba(255,255,255,0.05);
-
-    border: 1px solid var(--color-border-glass);
-
-    padding: 50px;
-
-    border-radius: 20px;
-
-    backdrop-filter: blur(20px);
-
-    box-shadow: var(--shadow-soft);
-
-    animation: heroFade 1.5s ease;
-
-}
-
-
-.hero-content h1 {
-
+.loader-ship i {
     font-size: 60px;
-
-    font-family: var(--font-heading);
-
-    margin-bottom: 20px;
-
-    background: linear-gradient(
-        90deg,
-        #00ffaa,
-        #00aaff,
-        #00ffaa
-    );
-
-    background-size: 200%;
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-    animation: textShine 5s infinite linear;
-
+    color: #00b4ff;
+    animation: floatShip 2s ease-in-out infinite;
 }
 
+@keyframes floatShip {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ================================================= */
+/* ================= TOP BAR ======================== */
+/* ================================================= */
+
+.top-bar {
+    background: #062037;
+    padding: 10px 10%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+/* ================================================= */
+/* ================= HEADER ========================= */
+/* ================================================= */
+
+.main-header {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 40, 70, 0.95);
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo-area h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo-area span {
+    font-size: 13px;
+    color: #00b4ff;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #00b4ff;
+}
+
+/* ================================================= */
+/* ================= SIDEBAR ======================== */
+/* ================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 150px;
+    width: 220px;
+    background: #081f33;
+    padding: 30px 20px;
+    border-radius: 0 15px 15px 0;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+    color: #00b4ff;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #00b4ff;
+}
+
+/* ================================================= */
+/* ================= HERO SECTION =================== */
+/* ================================================= */
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(to top, #001d3d, #003566);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10%;
+    overflow: hidden;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero-content h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #00b4ff;
+}
 
 .hero-content p {
-
-    font-size: 20px;
-
-    opacity: 0.9;
-
+    max-width: 700px;
+    margin: auto;
     margin-bottom: 30px;
-
-    font-family: var(--font-modern);
-
+    line-height: 1.8;
 }
 
-
-/* TEXT SHINE ANIMATION */
-
-@keyframes textShine {
-
-    0% {
-
-        background-position: 0%;
-
-    }
-
-    100% {
-
-        background-position: 200%;
-
-    }
-
+.hero-buttons a {
+    padding: 12px 25px;
+    border-radius: 30px;
+    margin: 0 10px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-
-/* HERO FADE */
-
-@keyframes heroFade {
-
-    from {
-
-        opacity: 0;
-
-        transform: translateY(50px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
-    }
-
+.btn-primary {
+    background: #00b4ff;
+    color: #fff;
 }
 
+.btn-primary:hover {
+    background: #0096d6;
+}
 
-/* ========================================================= */
-/* OCEAN WAVE SYSTEM */
-/* ========================================================= */
+.btn-secondary {
+    border: 2px solid #00b4ff;
+    color: #00b4ff;
+}
+
+.btn-secondary:hover {
+    background: #00b4ff;
+    color: white;
+}
+
+/* ================================================= */
+/* ================= OMBak ANIMASI ================== */
+/* ================================================= */
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+}
 
 .wave {
-
     position: absolute;
-
-    bottom: 0;
-
-    left: 0;
-
     width: 200%;
-
     height: 200px;
-
-    background-repeat: repeat-x;
-
-    background-size: contain;
-
-}
-
-
-/* WAVE 1 */
-
-.wave1 {
-
-    background: url('../assets/img/wave1.svg');
-
+    background: url('https://i.ibb.co/wQZVxxk/wave.png');
+    background-size: 1000px 200px;
+    animation: wave 10s linear infinite;
     opacity: 0.6;
-
-    animation: waveMove1 12s linear infinite;
-
 }
 
-
-/* WAVE 2 */
-
-.wave2 {
-
-    background: url('../assets/img/wave2.svg');
-
-    opacity: 0.4;
-
-    animation: waveMove2 18s linear infinite;
-
-}
-
-
-/* WAVE 3 */
-
-.wave3 {
-
-    background: url('../assets/img/wave3.svg');
-
-    opacity: 0.3;
-
-    animation: waveMove3 25s linear infinite;
-
-}
-
-
-/* WAVE ANIMATION */
-
-@keyframes waveMove1 {
-
-    0% {
-
-        transform: translateX(0);
-
-    }
-
-    100% {
-
-        transform: translateX(-50%);
-
-    }
-
-}
-
-@keyframes waveMove2 {
-
-    0% {
-
-        transform: translateX(0);
-
-    }
-
-    100% {
-
-        transform: translateX(-60%);
-
-    }
-
-}
-
-@keyframes waveMove3 {
-
-    0% {
-
-        transform: translateX(0);
-
-    }
-
-    100% {
-
-        transform: translateX(-70%);
-
-    }
-
-}
-
-
-/* EXTRA WAVE LAYER */
-
-.wave-extra-layer {
-
-    position: absolute;
-
-    bottom: 0;
-
-    width: 100%;
-
-    opacity: 0.3;
-
-    animation: waveFloat 8s ease-in-out infinite alternate;
-
-}
-
-
-@keyframes waveFloat {
-
-    from {
-
-        transform: translateY(0);
-
-    }
-
-    to {
-
-        transform: translateY(-15px);
-
-    }
-
-}
-
-
-/* ========================================================= */
-/* PARTICLE CANVAS */
-/* ========================================================= */
-
-#particleCanvas {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    z-index: -1;
-
-}
-
-
-/* ========================================================= */
-/* FLOATING ELEMENTS */
-/* ========================================================= */
-
-.floating {
-
-    position: absolute;
-
-    animation: floatingAnim 6s infinite ease-in-out;
-
-}
-
-
-@keyframes floatingAnim {
-
-    0% {
-
-        transform: translateY(0);
-
-    }
-
-    50% {
-
-        transform: translateY(-20px);
-
-    }
-
-    100% {
-
-        transform: translateY(0);
-
-    }
-
-}
-
-
-/* ========================================================= */
-/* ANNOUNCEMENT BAR */
-/* ========================================================= */
-
-.announcement-bar {
-
-    background: rgba(0,0,0,0.5);
-
-    backdrop-filter: blur(10px);
-
-    padding: 10px;
-
-    overflow: hidden;
-
-    border-top: 1px solid var(--color-border-glass);
-
-    border-bottom: 1px solid var(--color-border-glass);
-
-}
-
-
-.announcement-container {
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-}
-
-
-.announcement-text {
-
-    display: inline-block;
-
-    padding-left: 100%;
-
-    animation: announcementScroll 20s linear infinite;
-
-    font-family: var(--font-tech);
-
-}
-
-
-@keyframes announcementScroll {
-
-    0% {
-
-        transform: translateX(0);
-
-    }
-
-    100% {
-
-        transform: translateX(-100%);
-
-    }
-
-}
-
-
-/* ========================================================= */
-/* FADE IN ANIMATION SYSTEM */
-/* ========================================================= */
-
-.fade-in {
-
-    opacity: 0;
-
-    transform: translateY(40px);
-
-    animation: fadeInUp 1s forwards;
-
-}
-
-
-.fade-in.delay-1 {
-
-    animation-delay: 0.3s;
-
-}
-
-.fade-in.delay-2 {
-
-    animation-delay: 0.6s;
-
-}
-
-.fade-in.delay-3 {
-
-    animation-delay: 0.9s;
-
-}
-
-
-@keyframes fadeInUp {
-
-    to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
-    }
-
-}
-
-
-/* ========================================================= */
-/* MOBILE HERO OPTIMIZATION */
-/* ========================================================= */
-
-@media (max-width: 768px) {
-
-    .hero-content {
-
-        padding: 25px;
-
-        margin: 20px;
-
-    }
-
-    .hero-content h1 {
-
-        font-size: 32px;
-
-    }
-
-    .hero-content p {
-
-        font-size: 16px;
-
-    }
-
-}
-
-/* ========================================================= */
-/* PART 3 - JURUSAN, STATISTICS, PPDB, FLOATING BUTTON */
-/* ========================================================= */
-
-
-/* ========================================================= */
-/* JURUSAN SECTION */
-/* ========================================================= */
-
-.jurusan-section {
-
-    padding: 100px 0;
-
-    position: relative;
-
-}
-
-
-/* GRID */
-
-.jurusan-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 30px;
-
-    margin-top: 50px;
-
-}
-
-
-/* CARD */
-
-.jurusan-card {
-
-    background: rgba(255,255,255,0.05);
-
-    border: 1px solid var(--color-border-glass);
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    backdrop-filter: blur(20px);
-
-    box-shadow: var(--shadow-soft);
-
-    transition: 0.5s;
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-
-/* GLOW EFFECT */
-
-.jurusan-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    top: 0;
-    left: 0;
-
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(0,255,170,0.2),
-        transparent
-    );
-
-    transform: translateX(-100%);
-
-    transition: 0.6s;
-
-}
-
-
-.jurusan-card:hover::before {
-
-    transform: translateX(100%);
-
-}
-
-
-.jurusan-card:hover {
-
-    transform: translateY(-10px) scale(1.02);
-
-    box-shadow: var(--shadow-glow);
-
-}
-
-
-/* ICON */
-
-.jurusan-icon {
-
-    font-size: 40px;
-
-    margin-bottom: 15px;
-
-    animation: floatingAnim 4s infinite ease-in-out;
-
-}
-
-
-/* TITLE */
-
-.jurusan-card h3 {
-
-    margin-bottom: 15px;
-
-    font-size: 22px;
-
-}
-
-
-/* TEXT */
-
-.jurusan-card p {
-
-    opacity: 0.9;
-
-    line-height: 1.7;
-
-    margin-bottom: 20px;
-
-}
-
-
-/* ========================================================= */
-/* STATISTICS SECTION */
-/* ========================================================= */
-
-.stats-section {
-
-    padding: 100px 0;
-
-    background: rgba(0,0,0,0.3);
-
-}
-
-
-.stats-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-    gap: 30px;
-
-}
-
-
-.stat-card {
-
-    background: rgba(255,255,255,0.05);
-
-    padding: 30px;
-
-    text-align: center;
-
-    border-radius: 20px;
-
-    backdrop-filter: blur(15px);
-
-    transition: 0.4s;
-
-}
-
-
-.stat-card:hover {
-
-    transform: scale(1.05);
-
-    box-shadow: var(--shadow-glow);
-
-}
-
-
-.counter {
-
-    font-size: 40px;
-
-    font-family: var(--font-heading);
-
-    color: var(--color-accent);
-
-}
-
-
-/* ========================================================= */
-/* PPDB FORM */
-/* ========================================================= */
-
-.ppdb-section {
-
-    padding: 100px 0;
-
-}
-
-
-.ppdb-form {
-
-    max-width: 600px;
-
-    margin: auto;
-
-    background: rgba(255,255,255,0.05);
-
-    padding: 40px;
-
-    border-radius: 20px;
-
-    backdrop-filter: blur(20px);
-
-    box-shadow: var(--shadow-soft);
-
-}
-
-
-/* INPUT */
-
-.ppdb-form input,
-.ppdb-form select,
-.ppdb-form textarea {
-
-    width: 100%;
-
-    padding: 12px;
-
-    margin-bottom: 15px;
-
-    border-radius: 10px;
-
-    border: 1px solid var(--color-border-glass);
-
-    background: rgba(255,255,255,0.08);
-
-    color: white;
-
-}
-
-
-/* INPUT FOCUS */
-
-.ppdb-form input:focus,
-.ppdb-form select:focus {
-
-    outline: none;
-
-    border: 1px solid var(--color-accent);
-
-    box-shadow: var(--shadow-glow-accent);
-
-}
-
-
-/* ========================================================= */
-/* FLOATING PPDB BUTTON */
-/* ========================================================= */
-
-.floating-ppdb-btn {
-
-    position: fixed;
-
-    bottom: 30px;
-
-    right: 30px;
-
-    background: var(--gradient-button-main);
-
-    border: none;
-
-    padding: 15px 20px;
-
-    border-radius: 50px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    z-index: 999;
-
-    animation: pulseGlow 2s infinite;
-
-}
-
-
-@keyframes pulseGlow {
-
-    0% {
-
-        box-shadow: 0 0 10px rgba(0,255,170,0.5);
-
-    }
-
-    50% {
-
-        box-shadow: 0 0 25px rgba(0,255,170,1);
-
-    }
-
-    100% {
-
-        box-shadow: 0 0 10px rgba(0,255,170,0.5);
-
-    }
-
-}
-
-
-/* ========================================================= */
-/* BACK TO TOP */
-/* ========================================================= */
-
-.back-to-top {
-
-    position: fixed;
-
-    bottom: 100px;
-
-    right: 30px;
-
-    width: 45px;
-    height: 45px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: var(--color-primary);
-
-    color: white;
-
-    cursor: pointer;
-
-    display: none;
-
-    z-index: 999;
-
-}
-
-
-.back-to-top:hover {
-
-    transform: scale(1.1);
-
-}
-
-
-/* ========================================================= */
-/* MODAL */
-/* ========================================================= */
-
-.modal {
-
-    display: none;
-
-    position: fixed;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.7);
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 1000;
-
-}
-
-
-.modal-content {
-
-    background: var(--color-dark-soft);
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    max-width: 500px;
-
-}
-
-
-.close-modal {
-
-    float: right;
-
-    cursor: pointer;
-
-    font-size: 25px;
-
-}
-
-
-/* ========================================================= */
-/* MOBILE RESPONSIVE */
-/* ========================================================= */
-
-@media (max-width: 768px) {
-
-    .jurusan-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .stats-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .floating-ppdb-btn {
-
-        right: 15px;
-
-        bottom: 15px;
-
-    }
-
+.wave1 { bottom: 0; animation-delay: 0s; }
+.wave2 { bottom: 10px; animation-delay: -2s; opacity: 0.5; }
+.wave3 { bottom: 15px; animation-delay: -4s; opacity: 0.4; }
+.wave4 { bottom: 20px; animation-delay: -6s; opacity: 0.3; }
+
+@keyframes wave {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
 }
