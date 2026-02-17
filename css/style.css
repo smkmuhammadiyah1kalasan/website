@@ -1,595 +1,496 @@
-/* ========================================= */
-/* ============ RESET CSS ================== */
-/* ========================================= */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* ========================================================= */
+/* SMK MUHAMMADIYAH 1 KALASAN */
+/* MODERN OCEAN THEME CSS SYSTEM */
+/* PART 1 - ROOT, FONT, RESET, BODY, GLOBAL */
+/* ========================================================= */
 
-body{
-font-family:'Poppins', sans-serif;
-background:#f5f7fa;
-color:#333;
-line-height:1.6;
-overflow-x:hidden;
-}
 
-a{
-text-decoration:none;
-color:inherit;
-}
+/* ========================================================= */
+/* IMPORT PREMIUM FONTS */
+/* ========================================================= */
 
-ul{
-list-style:none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&display=swap');
 
-/* ========================================= */
-/* ============ PRELOADER ================== */
-/* ========================================= */
-
-#preloader{
-position:fixed;
-width:100%;
-height:100%;
-background:#0a2540;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
 
-.loader{
-width:50px;
-height:50px;
-border:5px solid #fff;
-border-top:5px solid transparent;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
+/* ========================================================= */
+/* ROOT VARIABLES */
+/* ========================================================= */
 
-@keyframes spin{
-0%{transform:rotate(0);}
-100%{transform:rotate(360deg);}
-}
+:root {
 
-/* ========================================= */
-/* ============ HEADER ===================== */
-/* ========================================= */
-
-.header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#0a2540;
-color:white;
-z-index:1000;
-}
+    /* COLOR SYSTEM */
 
-.header-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-}
+    --color-primary: #00aaff;
+    --color-secondary: #0077ff;
+    --color-accent: #00ffaa;
 
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-weight:600;
-}
+    --color-dark: #050b18;
+    --color-dark-soft: #0a1628;
 
-.nav ul{
-display:flex;
-gap:30px;
-}
+    --color-light: #ffffff;
+    --color-light-soft: rgba(255,255,255,0.8);
 
-.nav a{
-color:white;
-transition:.3s;
-}
+    --color-glass: rgba(255,255,255,0.08);
 
-.nav a:hover{
-color:#4fd1ff;
-}
+    --color-border-glass: rgba(255,255,255,0.15);
 
-.menu-toggle{
-display:none;
-font-size:22px;
-cursor:pointer;
-}
 
-/* ========================================= */
-/* ============ SIDEBAR ==================== */
-/* ========================================= */
-
-.sidebar{
-position:fixed;
-left:-260px;
-top:0;
-width:260px;
-height:100%;
-background:#0a2540;
-color:white;
-padding:20px;
-transition:.4s;
-z-index:1200;
-}
+    /* GRADIENT */
 
-.sidebar.active{
-left:0;
-}
+    --gradient-ocean-main:
+        linear-gradient(
+            180deg,
+            #020617 0%,
+            #031c3a 20%,
+            #003366 40%,
+            #004c80 60%,
+            #006699 80%,
+            #0099cc 100%
+        );
 
-.sidebar-header{
-display:flex;
-justify-content:space-between;
-margin-bottom:20px;
-}
 
-.sidebar-menu li{
-margin:15px 0;
-}
+    --gradient-button-main:
+        linear-gradient(
+            135deg,
+            #00aaff,
+            #00ffaa
+        );
 
-.sidebar-menu a{
-display:flex;
-gap:10px;
-}
 
-.sidebar-info{
-margin-top:30px;
-font-size:14px;
-}
+    --gradient-glow:
+        linear-gradient(
+            90deg,
+            #00ffaa,
+            #00aaff
+        );
 
-/* ========================================= */
-/* ============ MAIN CONTENT =============== */
-/* ========================================= */
 
-.main-content{
-margin-top:70px;
-}
+    /* SHADOW */
 
-/* ========================================= */
-/* ============ HERO ======================= */
-/* ========================================= */
-
-.hero-section{
-height:90vh;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-background:linear-gradient(180deg,#0a2540,#1e3c72);
-color:white;
-overflow:hidden;
-}
+    --shadow-soft:
+        0 10px 30px rgba(0,0,0,0.4);
 
-.hero-container{
-display:flex;
-align-items:center;
-gap:50px;
-padding:40px;
-max-width:1200px;
-}
+    --shadow-glow:
+        0 0 25px rgba(0,170,255,0.6);
 
-.hero-text{
-max-width:500px;
-}
+    --shadow-glow-accent:
+        0 0 30px rgba(0,255,170,0.5);
 
-.hero-text h1{
-font-size:42px;
-margin-bottom:20px;
-}
 
-.hero-text p{
-margin-bottom:25px;
-}
+    /* FONT SYSTEM */
 
-/* ========================================= */
-/* ============ BUTTON ===================== */
-/* ========================================= */
-
-.btn-primary{
-padding:12px 25px;
-background:#4fd1ff;
-border:none;
-color:white;
-border-radius:8px;
-cursor:pointer;
-margin-right:10px;
-}
+    --font-main:
+        'Poppins', sans-serif;
 
-.btn-secondary{
-padding:12px 25px;
-background:transparent;
-border:2px solid white;
-color:white;
-border-radius:8px;
-cursor:pointer;
-}
+    --font-heading:
+        'Orbitron', sans-serif;
 
-/* ========================================= */
-/* ============ FLOATING BOX =============== */
-/* ========================================= */
-
-.floating-box{
-width:250px;
-height:250px;
-background:rgba(255,255,255,0.1);
-border-radius:20px;
-backdrop-filter:blur(10px);
-animation:float 4s ease-in-out infinite;
-}
+    --font-futuristic:
+        'Audiowide', cursive;
 
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
-}
+    --font-modern:
+        'Montserrat', sans-serif;
 
-/* ========================================= */
-/* ============ OCEAN WAVE ================= */
-/* ========================================= */
-
-.ocean{
-position:absolute;
-bottom:0;
-width:100%;
-}
+    --font-tech:
+        'Exo 2', sans-serif;
 
-.wave{
-background:url("https://i.imgur.com/ZAts69f.png");
-position:absolute;
-width:200%;
-height:100px;
-animation:wave 8s linear infinite;
 }
 
-.wave2{
-opacity:0.5;
-animation-duration:12s;
-}
 
-.wave3{
-opacity:0.3;
-animation-duration:16s;
-}
+/* ========================================================= */
+/* RESET */
+/* ========================================================= */
 
-@keyframes wave{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
-}
+* {
 
-/* ========================================= */
-/* ============ SECTION ==================== */
-/* ========================================= */
+    margin: 0;
+    padding: 0;
 
-.section{
-padding:80px 20px;
-}
+    box-sizing: border-box;
 
-.bg-light{
-background:#f0f4f9;
 }
 
-.container{
-max-width:1200px;
-margin:auto;
-}
 
-.section-title{
-text-align:center;
-font-size:32px;
-margin-bottom:50px;
-}
+/* ========================================================= */
+/* HTML */
+/* ========================================================= */
 
-/* ========================================= */
-/* ============ GRID ======================= */
-/* ========================================= */
-
-.grid-3{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+html {
 
-.grid-4{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-}
+    scroll-behavior: smooth;
 
-/* ========================================= */
-/* ============ CARD ======================= */
-/* ========================================= */
-
-.card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:.3s;
 }
 
-.card:hover{
-transform:translateY(-8px);
-}
 
-/* ========================================= */
-/* ============ STATISTIK ================== */
-/* ========================================= */
+/* ========================================================= */
+/* BODY */
+/* ========================================================= */
 
-.stats-section{
-background:white;
-padding:60px 20px;
-}
+body {
 
-.stats-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-text-align:center;
-}
+    font-family: var(--font-main);
 
-.stat-box h2{
-color:#0a2540;
-font-size:40px;
-}
+    background: var(--gradient-ocean-main);
 
-/* ========================================= */
-/* ============ JURUSAN ==================== */
-/* ========================================= */
-
-.jurusan-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+    color: var(--color-light);
 
-.jurusan-card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
-text-align:center;
-transition:.3s;
-}
+    overflow-x: hidden;
 
-.jurusan-card:hover{
-transform:translateY(-10px);
-}
+    position: relative;
 
-.jurusan-card .icon{
-font-size:40px;
-color:#0a2540;
-margin-bottom:20px;
 }
 
-/* ========================================= */
-/* ============ GALERI ===================== */
-/* ========================================= */
-
-.galeri-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
 
-.galeri-item{
-height:200px;
-background:#ddd;
-border-radius:10px;
-}
+/* ========================================================= */
+/* ANIMATED BACKGROUND GLOW */
+/* ========================================================= */
 
-/* ========================================= */
-/* ============ TESTIMONI ================== */
-/* ========================================= */
-
-.testimoni-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+body::before {
 
-.testimoni-card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    content: "";
 
-/* ========================================= */
-/* ============ RESPONSIVE ================= */
-/* ========================================= */
+    position: fixed;
 
-@media(max-width:768px){
+    width: 800px;
+    height: 800px;
 
-.nav{
-display:none;
-}
+    background: radial-gradient(
+        circle,
+        rgba(0,170,255,0.2),
+        transparent
+    );
 
-.menu-toggle{
-display:block;
-}
+    top: -200px;
+    left: -200px;
 
-.hero-container{
-flex-direction:column;
-text-align:center;
-}
+    animation: glowMove 12s infinite alternate ease-in-out;
 
-.header-container{
-padding:15px 20px;
-}
+    z-index: -1;
 
-.hero-text h1{
-font-size:28px;
 }
 
-}
 
-/* ========================================= */
-/* ===== MOBILE RESPONSIVE IMPROVEMENT ===== */
-/* ========================================= */
+body::after {
 
-/* TABLET */
-@media (max-width: 1024px){
+    content: "";
 
-.hero-container{
-flex-direction:column;
-text-align:center;
-}
+    position: fixed;
 
-.hero-text{
-max-width:100%;
-}
+    width: 600px;
+    height: 600px;
 
-.floating-box{
-width:200px;
-height:200px;
-}
+    background: radial-gradient(
+        circle,
+        rgba(0,255,170,0.15),
+        transparent
+    );
 
-.section{
-padding:60px 20px;
-}
+    bottom: -200px;
+    right: -200px;
+
+    animation: glowMove 15s infinite alternate ease-in-out;
 
+    z-index: -1;
+
 }
 
 
-/* ========================================= */
-/* ============ MOBILE PHONE =============== */
-/* ========================================= */
+@keyframes glowMove {
 
-@media (max-width: 768px){
+    0% {
 
-/* HEADER */
-.header-container{
-padding:12px 16px;
-}
+        transform: translate(0,0);
 
-.logo span{
-font-size:14px;
-}
+    }
 
-/* NAVIGATION */
-.nav{
-display:none;
-}
+    100% {
 
-/* SIDEBAR */
-.sidebar{
-width:230px;
-}
+        transform: translate(100px,50px);
 
-/* HERO */
-.hero-section{
-height:auto;
-padding:80px 20px 120px 20px;
-}
+    }
 
-.hero-text h1{
-font-size:26px;
-line-height:1.3;
 }
 
-.hero-text p{
-font-size:14px;
-}
+
+/* ========================================================= */
+/* CUSTOM SCROLLBAR */
+/* ========================================================= */
+
+::-webkit-scrollbar {
 
-.hero-buttons{
-display:flex;
-flex-direction:column;
-gap:10px;
+    width: 10px;
+
 }
+
+::-webkit-scrollbar-track {
 
-.btn-primary,
-.btn-secondary{
-width:100%;
+    background: #031c3a;
+
 }
+
+::-webkit-scrollbar-thumb {
+
+    background: linear-gradient(
+        #00ffaa,
+        #00aaff
+    );
 
-/* FLOAT BOX */
-.floating-box{
-width:150px;
-height:150px;
-margin:auto;
+    border-radius: 20px;
+
 }
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #00ffaa;
 
-/* GRID JADI 1 KOLOM */
-.grid-3,
-.grid-4,
-.jurusan-grid,
-.galeri-grid,
-.testimoni-container,
-.stats-container{
-grid-template-columns:1fr;
 }
+
+
+/* ========================================================= */
+/* CONTAINER SYSTEM */
+/* ========================================================= */
+
+.container {
 
-/* CARD */
-.card{
-padding:20px;
+    width: 92%;
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 5;
+
 }
+
 
-.jurusan-card{
-padding:25px;
+/* ========================================================= */
+/* TYPOGRAPHY SYSTEM */
+/* ========================================================= */
+
+h1, h2, h3 {
+
+    font-family: var(--font-heading);
+
+    letter-spacing: 1px;
+
 }
+
+
+.section-title {
 
-/* SECTION */
-.section-title{
-font-size:24px;
-margin-bottom:30px;
+    font-size: 42px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    background: var(--gradient-glow);
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
 }
+
+
+.section-description {
+
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: auto;
 
-.section{
-padding:50px 15px;
+    opacity: 0.9;
+
+    line-height: 1.8;
+
+    font-family: var(--font-modern);
+
 }
+
+
+/* ========================================================= */
+/* BUTTON SYSTEM */
+/* ========================================================= */
+
+.btn-primary {
+
+    background: var(--gradient-button-main);
+
+    border: none;
+
+    padding: 14px 32px;
+
+    border-radius: 40px;
+
+    font-weight: 600;
+
+    color: #001a33;
 
-/* STATISTIK */
-.stat-box h2{
-font-size:32px;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+
+    box-shadow: var(--shadow-soft);
+
+    font-family: var(--font-tech);
+
 }
+
 
-/* GALERI */
-.galeri-item{
-height:160px;
+.btn-primary:hover {
+
+    transform: scale(1.1);
+
+    box-shadow: var(--shadow-glow-accent);
+
 }
+
+
+.btn-secondary {
+
+    background: transparent;
 
+    border: 2px solid var(--color-primary);
+
+    padding: 12px 28px;
+
+    border-radius: 30px;
+
+    color: var(--color-primary);
+
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+
 }
 
 
-/* ========================================= */
-/* ============ SMALL PHONE ================ */
-/* ========================================= */
+.btn-secondary:hover {
 
-@media (max-width: 480px){
+    background: var(--color-primary);
 
-.hero-text h1{
-font-size:22px;
+    color: white;
+
+    box-shadow: var(--shadow-glow);
+
 }
+
+
+/* ========================================================= */
+/* NAVBAR SYSTEM */
+/* ========================================================= */
+
+.navbar {
+
+    position: fixed;
 
-.hero-text p{
-font-size:13px;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+
+    padding: 15px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--color-border-glass);
+
+    z-index: 999;
+
+    transition: all 0.4s ease;
+
 }
 
-.section-title{
-font-size:20px;
+
+/* NAVBAR SCROLL EFFECT */
+
+.navbar.scrolled {
+
+    background: rgba(0,0,0,0.7);
+
+    box-shadow: var(--shadow-soft);
+
 }
+
 
-.btn-primary,
-.btn-secondary{
-padding:10px;
-font-size:14px;
+/* LOGO */
+
+.logo {
+
+    font-family: var(--font-futuristic);
+
+    font-size: 22px;
+
+    color: var(--color-accent);
+
 }
+
 
-.sidebar{
-width:200px;
+/* NAV LINKS */
+
+.nav-links {
+
+    display: flex;
+
+    gap: 25px;
+
 }
+
+
+.nav-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    font-family: var(--font-tech);
+
+    position: relative;
 
-.header-container{
-padding:10px;
 }
 
-.logo span{
-font-size:13px;
+
+.nav-links a::after {
+
+    content: "";
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--gradient-glow);
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    transition: 0.4s;
+
 }
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
 
 }
