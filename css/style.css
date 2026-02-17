@@ -494,3 +494,903 @@ h1, h2, h3 {
     width: 100%;
 
 }
+/* ========================================================= */
+/* PART 2 - HERO SECTION, OCEAN WAVE, PARTICLES, ANIMATIONS */
+/* ========================================================= */
+
+
+/* ========================================================= */
+/* HERO SECTION */
+/* ========================================================= */
+
+.hero {
+
+    position: relative;
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+}
+
+
+/* GLASS HERO CONTENT */
+
+.hero-content {
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid var(--color-border-glass);
+
+    padding: 50px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: var(--shadow-soft);
+
+    animation: heroFade 1.5s ease;
+
+}
+
+
+.hero-content h1 {
+
+    font-size: 60px;
+
+    font-family: var(--font-heading);
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #00ffaa,
+        #00aaff,
+        #00ffaa
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation: textShine 5s infinite linear;
+
+}
+
+
+.hero-content p {
+
+    font-size: 20px;
+
+    opacity: 0.9;
+
+    margin-bottom: 30px;
+
+    font-family: var(--font-modern);
+
+}
+
+
+/* TEXT SHINE ANIMATION */
+
+@keyframes textShine {
+
+    0% {
+
+        background-position: 0%;
+
+    }
+
+    100% {
+
+        background-position: 200%;
+
+    }
+
+}
+
+
+/* HERO FADE */
+
+@keyframes heroFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(50px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* OCEAN WAVE SYSTEM */
+/* ========================================================= */
+
+.wave {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 200%;
+
+    height: 200px;
+
+    background-repeat: repeat-x;
+
+    background-size: contain;
+
+}
+
+
+/* WAVE 1 */
+
+.wave1 {
+
+    background: url('../assets/img/wave1.svg');
+
+    opacity: 0.6;
+
+    animation: waveMove1 12s linear infinite;
+
+}
+
+
+/* WAVE 2 */
+
+.wave2 {
+
+    background: url('../assets/img/wave2.svg');
+
+    opacity: 0.4;
+
+    animation: waveMove2 18s linear infinite;
+
+}
+
+
+/* WAVE 3 */
+
+.wave3 {
+
+    background: url('../assets/img/wave3.svg');
+
+    opacity: 0.3;
+
+    animation: waveMove3 25s linear infinite;
+
+}
+
+
+/* WAVE ANIMATION */
+
+@keyframes waveMove1 {
+
+    0% {
+
+        transform: translateX(0);
+
+    }
+
+    100% {
+
+        transform: translateX(-50%);
+
+    }
+
+}
+
+@keyframes waveMove2 {
+
+    0% {
+
+        transform: translateX(0);
+
+    }
+
+    100% {
+
+        transform: translateX(-60%);
+
+    }
+
+}
+
+@keyframes waveMove3 {
+
+    0% {
+
+        transform: translateX(0);
+
+    }
+
+    100% {
+
+        transform: translateX(-70%);
+
+    }
+
+}
+
+
+/* EXTRA WAVE LAYER */
+
+.wave-extra-layer {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+
+    opacity: 0.3;
+
+    animation: waveFloat 8s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes waveFloat {
+
+    from {
+
+        transform: translateY(0);
+
+    }
+
+    to {
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* PARTICLE CANVAS */
+/* ========================================================= */
+
+#particleCanvas {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+}
+
+
+/* ========================================================= */
+/* FLOATING ELEMENTS */
+/* ========================================================= */
+
+.floating {
+
+    position: absolute;
+
+    animation: floatingAnim 6s infinite ease-in-out;
+
+}
+
+
+@keyframes floatingAnim {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-20px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* ANNOUNCEMENT BAR */
+/* ========================================================= */
+
+.announcement-bar {
+
+    background: rgba(0,0,0,0.5);
+
+    backdrop-filter: blur(10px);
+
+    padding: 10px;
+
+    overflow: hidden;
+
+    border-top: 1px solid var(--color-border-glass);
+
+    border-bottom: 1px solid var(--color-border-glass);
+
+}
+
+
+.announcement-container {
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+}
+
+
+.announcement-text {
+
+    display: inline-block;
+
+    padding-left: 100%;
+
+    animation: announcementScroll 20s linear infinite;
+
+    font-family: var(--font-tech);
+
+}
+
+
+@keyframes announcementScroll {
+
+    0% {
+
+        transform: translateX(0);
+
+    }
+
+    100% {
+
+        transform: translateX(-100%);
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* FADE IN ANIMATION SYSTEM */
+/* ========================================================= */
+
+.fade-in {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    animation: fadeInUp 1s forwards;
+
+}
+
+
+.fade-in.delay-1 {
+
+    animation-delay: 0.3s;
+
+}
+
+.fade-in.delay-2 {
+
+    animation-delay: 0.6s;
+
+}
+
+.fade-in.delay-3 {
+
+    animation-delay: 0.9s;
+
+}
+
+
+@keyframes fadeInUp {
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* MOBILE HERO OPTIMIZATION */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-content {
+
+        padding: 25px;
+
+        margin: 20px;
+
+    }
+
+    .hero-content h1 {
+
+        font-size: 32px;
+
+    }
+
+    .hero-content p {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* ========================================================= */
+/* PART 3 - JURUSAN, STATISTICS, PPDB, FLOATING BUTTON */
+/* ========================================================= */
+
+
+/* ========================================================= */
+/* JURUSAN SECTION */
+/* ========================================================= */
+
+.jurusan-section {
+
+    padding: 100px 0;
+
+    position: relative;
+
+}
+
+
+/* GRID */
+
+.jurusan-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 30px;
+
+    margin-top: 50px;
+
+}
+
+
+/* CARD */
+
+.jurusan-card {
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid var(--color-border-glass);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: var(--shadow-soft);
+
+    transition: 0.5s;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* GLOW EFFECT */
+
+.jurusan-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0,255,170,0.2),
+        transparent
+    );
+
+    transform: translateX(-100%);
+
+    transition: 0.6s;
+
+}
+
+
+.jurusan-card:hover::before {
+
+    transform: translateX(100%);
+
+}
+
+
+.jurusan-card:hover {
+
+    transform: translateY(-10px) scale(1.02);
+
+    box-shadow: var(--shadow-glow);
+
+}
+
+
+/* ICON */
+
+.jurusan-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+
+    animation: floatingAnim 4s infinite ease-in-out;
+
+}
+
+
+/* TITLE */
+
+.jurusan-card h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 22px;
+
+}
+
+
+/* TEXT */
+
+.jurusan-card p {
+
+    opacity: 0.9;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ========================================================= */
+/* STATISTICS SECTION */
+/* ========================================================= */
+
+.stats-section {
+
+    padding: 100px 0;
+
+    background: rgba(0,0,0,0.3);
+
+}
+
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 30px;
+
+}
+
+
+.stat-card {
+
+    background: rgba(255,255,255,0.05);
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.4s;
+
+}
+
+
+.stat-card:hover {
+
+    transform: scale(1.05);
+
+    box-shadow: var(--shadow-glow);
+
+}
+
+
+.counter {
+
+    font-size: 40px;
+
+    font-family: var(--font-heading);
+
+    color: var(--color-accent);
+
+}
+
+
+/* ========================================================= */
+/* PPDB FORM */
+/* ========================================================= */
+
+.ppdb-section {
+
+    padding: 100px 0;
+
+}
+
+
+.ppdb-form {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    background: rgba(255,255,255,0.05);
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: var(--shadow-soft);
+
+}
+
+
+/* INPUT */
+
+.ppdb-form input,
+.ppdb-form select,
+.ppdb-form textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--color-border-glass);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+}
+
+
+/* INPUT FOCUS */
+
+.ppdb-form input:focus,
+.ppdb-form select:focus {
+
+    outline: none;
+
+    border: 1px solid var(--color-accent);
+
+    box-shadow: var(--shadow-glow-accent);
+
+}
+
+
+/* ========================================================= */
+/* FLOATING PPDB BUTTON */
+/* ========================================================= */
+
+.floating-ppdb-btn {
+
+    position: fixed;
+
+    bottom: 30px;
+
+    right: 30px;
+
+    background: var(--gradient-button-main);
+
+    border: none;
+
+    padding: 15px 20px;
+
+    border-radius: 50px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    animation: pulseGlow 2s infinite;
+
+}
+
+
+@keyframes pulseGlow {
+
+    0% {
+
+        box-shadow: 0 0 10px rgba(0,255,170,0.5);
+
+    }
+
+    50% {
+
+        box-shadow: 0 0 25px rgba(0,255,170,1);
+
+    }
+
+    100% {
+
+        box-shadow: 0 0 10px rgba(0,255,170,0.5);
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* BACK TO TOP */
+/* ========================================================= */
+
+.back-to-top {
+
+    position: fixed;
+
+    bottom: 100px;
+
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    display: none;
+
+    z-index: 999;
+
+}
+
+
+.back-to-top:hover {
+
+    transform: scale(1.1);
+
+}
+
+
+/* ========================================================= */
+/* MODAL */
+/* ========================================================= */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.7);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+
+.modal-content {
+
+    background: var(--color-dark-soft);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    max-width: 500px;
+
+}
+
+
+.close-modal {
+
+    float: right;
+
+    cursor: pointer;
+
+    font-size: 25px;
+
+}
+
+
+/* ========================================================= */
+/* MOBILE RESPONSIVE */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+
+    .jurusan-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .floating-ppdb-btn {
+
+        right: 15px;
+
+        bottom: 15px;
+
+    }
+
+}
