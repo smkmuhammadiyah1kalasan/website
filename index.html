@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -27,255 +29,44 @@
 
 <body>
 
-<!-- ================= LOADER ================= -->
-<div id="loader">
-    <div class="loader-content">
-        <i class="fas fa-ship"></i>
-        <h2>SMK Muhammadiyah 1 Kalasan</h2>
-        <p>Preparing Professional Maritime Generation...</p>
-    </div>
-</div>
+<body>
 
-<!-- ================= DARK MODE BUTTON ================= -->
-<button class="toggle-theme">
-    <i class="fas fa-moon"></i>
-</button>
+<header class="navbar">
+  <div class="logo">
+    <i data-lucide="anchor"></i>
+    <span>SMK MUH 1 KALASAN</span>
+  </div>
 
-<!-- ================= SIDEBAR ================= -->
-<aside class="sidebar">
-    <div class="sidebar-header">
-        <h3>Menu Cepat</h3>
-    </div>
-    <ul>
-        <li><a href="#home"><i class="fas fa-home"></i> Beranda</a></li>
-        <li><a href="#jurusan"><i class="fas fa-anchor"></i> Jurusan</a></li>
-        <li><a href="#ppdb"><i class="fas fa-user-plus"></i> PPDB</a></li>
-        <li><a href="#kontak"><i class="fas fa-phone"></i> Kontak</a></li>
-        <li><a href="#maps"><i class="fas fa-map-marker-alt"></i> Lokasi</a></li>
-    </ul>
-</aside>
+  <nav class="nav-links">
+    <a href="#"><i data-lucide="home"></i> Beranda</a>
+    <a href="#"><i data-lucide="user"></i> Profil</a>
+    <a href="#"><i data-lucide="layers"></i> Jurusan</a>
+    <a href="#"><i data-lucide="clipboard-check"></i> PPDB</a>
+    <a href="#"><i data-lucide="phone"></i> Kontak</a>
+  </nav>
 
-<!-- ================= HEADER ================= -->
-<header class="main-header">
-    <nav class="navbar">
-
-        <div class="logo-area">
-            <h1>SMK MUH 1 KALASAN</h1>
-            <span>Preparing Professional Maritime Generation...</span>
-        </div>
-
-        <ul class="nav-menu">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#profil">Profil</a></li>
-            <li><a href="#jurusan">Jurusan</a></li>
-            <li><a href="#ppdb">PPDB</a></li>
-            <li><a href="#kontak">Hubungi</a></li>
-        </ul>
-
-        <button id="darkModeToggle" class="btn-secondary">
-            🌙 Dark Mode
-        </button>
-
-    </nav>
+  <button class="menu-toggle">
+    <i data-lucide="menu"></i>
+  </button>
 </header>
- SECTION ================= -->
-<section id="home" class="hero-section">
 
-    <div class="hero-background"></div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Preparing Professional Maritime Generation</h1>
+    <p>Mencetak generasi profesional, berkarakter islami, siap kerja dan siap bersaing global.</p>
 
-    <div class="hero-content">
-        <h2 class="glow-text">SMK Muhammadiyah 1 Kalasan</h2>
-        <h3>Preparing Professional Maritime Generation...</h3>
-
-        <p>
-            Sekolah kejuruan berbasis maritim dan seni modern yang mencetak generasi profesional, 
-            berkarakter islami, siap kerja, dan siap bersaing di tingkat nasional maupun internasional.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#ppdb" class="btn-primary">Daftar Sekarang</a>
-            <a href="#jurusan" class="btn-secondary">Lihat Jurusan</a>
-        </div>
+    <div class="hero-buttons">
+      <a href="#" class="btn primary">Daftar Sekarang</a>
+      <a href="#" class="btn secondary">Lihat Jurusan</a>
     </div>
-
-    <!-- Ombak -->
-    <div class="waves">
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-        <div class="wave wave4"></div>
-    </div>
-
+  </div>
 </section>
 
-<!-- ================= PROFIL ================= -->
-<section id="profil" class="section">
+<script>
+  lucide.createIcons();
+</script>
 
-    <h2 class="section-title">Profil Sekolah</h2>
-
-    <div class="profil-content">
-
-        <p>
-            SMK Muhammadiyah 1 Kalasan merupakan sekolah menengah kejuruan yang 
-            berfokus pada pendidikan maritim dan seni modern. Terletak di 
-            Kabupaten Sleman, Daerah Istimewa Yogyakarta, sekolah ini 
-            menjadi salah satu pusat pendidikan maritim unggulan di wilayah DIY.
-        </p>
-
-        <p>
-            Dengan fasilitas laboratorium modern, simulator kapal, studio musik profesional,
-            serta tenaga pengajar berpengalaman, kami berkomitmen untuk membentuk lulusan
-            yang profesional, disiplin, dan berakhlak mulia.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ================= JURUSAN ================= -->
-<section id="jurusan" class="section bg-light">
-
-    <h2 class="section-title">Program Keahlian</h2>
-
-    <div class="jurusan-grid">
-
-        <!-- Teknika -->
-        <div class="card-3d neon-border">
-            <h3><i class="fas fa-ship"></i> Teknika Kapal Niaga</h3>
-            <p>
-                Program keahlian yang mempelajari mesin kapal, sistem kelistrikan,
-                perawatan mesin, serta manajemen teknis kapal niaga.
-            </p>
-        </div>
-
-        <!-- Nautika -->
-        <div class="card-3d neon-border">
-            <h3><i class="fas fa-compass"></i> Nautika Kapal Niaga</h3>
-            <p>
-                Program navigasi kapal, keselamatan pelayaran,
-                meteorologi maritim, serta kepemimpinan di laut.
-            </p>
-        </div>
-
-        <!-- Seni Musik -->
-        <div class="card-3d neon-border">
-            <h3><i class="fas fa-music"></i> Seni Musik Modern</h3>
-            <p>
-                Program kreatif dalam bidang produksi musik, komposisi,
-                aransemen, serta teknologi audio profesional.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= PPDB ================= -->
-<section id="ppdb" class="section">
-
-    <h2 class="section-title">PPDB & Tata Cara Pendaftaran</h2>
-
-    <div class="ppdb-content">
-
-        <h3>Syarat Pendaftaran:</h3>
-        <ul>
-            <li>Fotokopi Ijazah / SKL</li>
-            <li>Fotokopi Kartu Keluarga</li>
-            <li>Fotokopi Akta Kelahiran</li>
-            <li>Pas Foto 3x4 (3 lembar)</li>
-            <li>Mengisi Formulir Pendaftaran</li>
-        </ul>
-
-        <h3>Langkah Pendaftaran:</h3>
-        <ol>
-            <li>Kunjungi website resmi</li>
-            <li>Klik tombol "Daftar Sekarang"</li>
-            <li>Isi formulir online</li>
-            <li>Unggah berkas persyaratan</li>
-            <li>Konfirmasi melalui WhatsApp sekolah</li>
-        </ol>
-
-        <div class="hero-buttons">
-            <a href="#" class="btn-primary">Formulir Online</a>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= KONTAK ================= -->
-<section id="kontak" class="section bg-light">
-
-    <h2 class="section-title">Kontak & Hubungi Kami</h2>
-
-    <div class="kontak-grid">
-
-        <div>
-            <i class="fas fa-phone"></i>
-            <p>Telepon: (0274) 123456</p>
-        </div>
-
-        <div>
-            <i class="fas fa-envelope"></i>
-            <p>Email: info@smkmuh1kalasan.sch.id</p>
-        </div>
-
-        <div>
-            <i class="fab fa-whatsapp"></i>
-            <p>WhatsApp: 0812-xxxx-xxxx</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= MAPS ================= -->
-<section id="maps" class="section">
-
-    <h2 class="section-title">Lokasi Sekolah</h2>
-
-    <iframe 
-        src="https://www.google.com/maps?q=6FRF+J4P,+Ngajeg,+Tirtomartani,+Kalasan,+Sleman,+Yogyakarta&output=embed"
-        width="100%" 
-        height="400" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy">
-    </iframe>
-
-    <p style="margin-top:20px;">
-        6FRF+J4P, Ngajeg, Tirtomartani, Kec. Kalasan, Kabupaten Sleman, DIY 55571
-    </p>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-
-    <div class="footer-content">
-
-        <h3>SMK Muhammadiyah 1 Kalasan</h3>
-        <p>Preparing Professional Maritime Generation...</p>
-
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-
-        <p class="copyright">
-            © 2026 SMK Muhammadiyah 1 Kalasan. All Rights Reserved.
-        </p>
-
-    </div>
-
-</footer>
-
-<!-- CURSOR -->
-<div class="cursor"></div>
-
-<!-- JS -->
-<script src="js/script.js"></script>
+</body>
 
 </body>
 </html>
@@ -668,6 +459,7 @@
 
 </body>
 </html>
+
 
 
 
