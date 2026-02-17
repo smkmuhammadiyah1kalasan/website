@@ -804,3 +804,17 @@ body.dark-mode .section-header h2 {
     }
 
 }
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleEffect 600ms linear;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
