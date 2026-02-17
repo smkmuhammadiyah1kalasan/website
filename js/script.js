@@ -1,200 +1,97 @@
-/* ========================================= */
-/* ============ PRELOADER ================== */
-/* ========================================= */
+/* ==========================================
+   SMK MUHAMMADIYAH 1 KALASAN
+   PROFESSIONAL WEBSITE
+   JS PART 1 - SAFE & STABLE
+========================================== */
 
-window.addEventListener("load", () => {
-const preloader = document.getElementById("preloader");
+document.addEventListener("DOMContentLoaded", function () {
 
-if(preloader){
-setTimeout(() => {
-preloader.style.opacity = "0";
-preloader.style.visibility = "hidden";
-}, 600);
-}
-});
+    console.log("Website SMK Muhammadiyah 1 Kalasan Loaded Successfully ✅");
 
+    /* ===============================
+       SCROLL TO TOP BUTTON
+    =============================== */
+    const scrollBtn = document.getElementById("scrollTopBtn");
 
-/* ========================================= */
-/* ============ MENU TOGGLE ================= */
-/* ========================================= */
+    if (scrollBtn) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        });
 
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
-const closeSidebar = document.getElementById("closeSidebar");
+        scrollBtn.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
 
-if(menuToggle){
-menuToggle.addEventListener("click", () => {
-sidebar.classList.toggle("active");
-});
-}
+    /* ===============================
+       SIMPLE COUNTER ANIMATION
+    =============================== */
+    const counters = document.querySelectorAll(".counter");
 
-if(closeSidebar){
-closeSidebar.addEventListener("click", () => {
-sidebar.classList.remove("active");
-});
-}
+    const runCounter = (counter) => {
+        const target = +counter.getAttribute("data-target");
+        const speed = 200;
+        const increment = target / speed;
 
+        let count = 0;
 
-/* ========================================= */
-/* ============ CLOSE SIDEBAR CLICK OUTSIDE */
-/* ========================================= */
+        const updateCounter = () => {
+            count += increment;
 
-document.addEventListener("click", (e) => {
+            if (count < target) {
+                counter.innerText = Math.ceil(count);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.innerText = target;
+            }
+        };
 
-if(!sidebar) return;
+        updateCounter();
+    };
 
-if(
-!sidebar.contains(e.target) &&
-!menuToggle.contains(e.target)
-){
-sidebar.classList.remove("active");
-}
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                runCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.6 });
 
-});
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
 
+    /* ===============================
+       SIMPLE LOADER
+    =============================== */
+    const loader = document.getElementById("loader-wrapper");
 
-/* ========================================= */
-/* ============ SMOOTH SCROLL ============== */
-/* ========================================= */
+    if (loader) {
+        window.addEventListener("load", function () {
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                loader.style.visibility = "hidden";
+            }, 500);
+        });
+    }
 
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
+    /* ===============================
+       DARK MODE TOGGLE (OPTIONAL)
+    =============================== */
+    const darkToggle = document.getElementById("darkModeToggle");
 
-anchor.addEventListener("click", function(e){
-
-const target = document.querySelector(this.getAttribute("href"));
-
-if(target){
-e.preventDefault();
-
-target.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-sidebar.classList.remove("active");
-}
-
-});
-
-});
-
-
-/* ========================================= */
-/* ============ HEADER SCROLL EFFECT ======= */
-/* ========================================= */
-
-const header = document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-
-if(window.scrollY > 50){
-header.style.background = "#081c33";
-header.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
-}else{
-header.style.background = "#0a2540";
-header.style.boxShadow = "none";
-}
-
-});
-
-
-/* ========================================= */
-/* ============ SCROLL ANIMATION =========== */
-/* ========================================= */
-
-const revealElements = document.querySelectorAll(
-".card, .jurusan-card, .stat-box, .galeri-item, .testimoni-card"
-);
-
-function revealOnScroll(){
-
-const windowHeight = window.innerHeight;
-
-revealElements.forEach(el => {
-
-const elementTop = el.getBoundingClientRect().top;
-
-if(elementTop < windowHeight - 100){
-el.style.opacity = "1";
-el.style.transform = "translateY(0)";
-}
+    if (darkToggle) {
+        darkToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    }
 
 });
-
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-
-/* ========================================= */
-/* ============ INIT ANIMATION STYLE ======= */
-/* ========================================= */
-
-revealElements.forEach(el => {
-el.style.opacity = "0";
-el.style.transform = "translateY(40px)";
-el.style.transition = "0.6s ease";
-});
-
-
-/* ========================================= */
-/* ============ HERO BUTTON CLICK ========== */
-/* ========================================= */
-
-const heroBtn = document.querySelector(".btn-primary");
-
-if(heroBtn){
-heroBtn.addEventListener("click", () => {
-alert("Fitur pendaftaran akan segera tersedia.");
-});
-}
-
-
-/* ========================================= */
-/* ============ STATS COUNTER ANIMATION ==== */
-/* ========================================= */
-
-const counters = document.querySelectorAll(".stat-box h2");
-
-let counterStarted = false;
-
-function runCounter(){
-
-if(counterStarted) return;
-
-const section = document.querySelector(".stats-section");
-
-if(!section) return;
-
-const sectionTop = section.getBoundingClientRect().top;
-
-if(sectionTop < window.innerHeight - 100){
-
-counterStarted = true;
-
-counters.forEach(counter => {
-
-const target = parseInt(counter.innerText);
-let count = 0;
-
-const update = () => {
-
-if(count < target){
-count += Math.ceil(target / 60);
-counter.innerText = count;
-requestAnimationFrame(update);
-}else{
-counter.innerText = target + "+";
-}
-
-};
-
-update();
-
-});
-
-}
-
-}
-
-window.addEventListener("scroll", runCounter);
