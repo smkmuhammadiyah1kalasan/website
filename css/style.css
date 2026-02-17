@@ -833,3 +833,20 @@ body.dark-mode .section-header h2 {
     background-position: center;
     transition: background-position 0.2s ease;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
