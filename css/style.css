@@ -255,3 +255,119 @@ ul {
     0% { background-position-x: 0; }
     100% { background-position-x: 1000px; }
 }
+
+/* ================================================= */
+/* ================= RESPONSIVE MOBILE ============= */
+/* ================================================= */
+
+@media (max-width: 992px) {
+
+    .section {
+        padding: 80px 5%;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 36px;
+    }
+
+    .hero-content h3 {
+        font-size: 20px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .hero-buttons a {
+        display: inline-block;
+        margin: 8px;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .wave {
+        background-size: 800px 200px;
+    }
+
+    .loader-ship i {
+        font-size: 45px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .logo-area h1 {
+        font-size: 18px;
+    }
+
+    .logo-area span {
+        font-size: 11px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-section {
+        height: auto;
+        padding: 120px 5% 100px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .hero-content h3 {
+        font-size: 18px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .waves {
+        height: 120px;
+    }
+
+    .wave {
+        height: 120px;
+        background-size: 600px 120px;
+    }
+
+    .loader-ship i {
+        font-size: 35px;
+    }
+
+}
