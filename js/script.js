@@ -239,3 +239,110 @@ window.addEventListener("scroll", () => {
         counterStarted = true;
     }
 });
+/* ===============================
+   AUTO SLIDE TESTIMONI
+================================= */
+
+const testiContainer = document.querySelector(".testimoni-container");
+
+if (testiContainer) {
+    let scrollAmount = 0;
+
+    setInterval(() => {
+        scrollAmount += 330;
+
+        if (scrollAmount >= testiContainer.scrollWidth - testiContainer.clientWidth) {
+            scrollAmount = 0;
+        }
+
+        testiContainer.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth"
+        });
+
+    }, 4000);
+}
+
+
+/* ===============================
+   SCROLL REVEAL ANIMATION
+================================= */
+
+const revealElements = document.querySelectorAll(
+    ".testimoni-card, .berita-card, .cta-container"
+);
+
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+        }
+    });
+}
+
+revealElements.forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "0.6s ease";
+});
+
+window.addEventListener("scroll", revealOnScroll);
+
+
+/* ===============================
+   NAVBAR SHRINK ON SCROLL
+================================= */
+
+const navbar = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        navbar.style.padding = "10px 10%";
+        navbar.style.background = "rgba(0, 31, 63, 0.95)";
+    } else {
+        navbar.style.padding = "20px 10%";
+        navbar.style.background = "transparent";
+    }
+});
+
+
+/* ===============================
+   SMOOTH SCROLL
+================================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
+
+
+/* ===============================
+   HOVER ZOOM BERITA IMAGE
+================================= */
+
+const beritaImages = document.querySelectorAll(".berita-card img");
+
+beritaImages.forEach(img => {
+    img.addEventListener("mouseenter", () => {
+        img.style.transform = "scale(1.1)";
+        img.style.transition = "0.4s ease";
+    });
+
+    img.addEventListener("mouseleave", () => {
+        img.style.transform = "scale(1)";
+    });
+});
