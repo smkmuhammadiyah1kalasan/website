@@ -1,103 +1,132 @@
 /* ===============================
-   ISLAMIC PREMIUM JS
+   INTERNATIONAL CLEAN PREMIUM JS
 ================================= */
 
-/* ========= NAVBAR SCROLL EFFECT ========= */
-window.addEventListener("scroll", function() {
-    const nav = document.querySelector("nav");
+document.addEventListener("DOMContentLoaded", function(){
 
-    if (window.scrollY > 50) {
-        nav.style.background = "rgba(7,20,40,0.95)";
-        nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.4)";
-    } else {
-        nav.style.background = "rgba(11,29,58,0.85)";
-        nav.style.boxShadow = "none";
-    }
-});
+    /* ================= HAMBURGER ================= */
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
 
-
-/* ========= SMOOTH SCROLL ========= */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href"))
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
     });
-});
 
 
-/* ========= BUTTON CLICK EFFECT ========= */
-const buttons = document.querySelectorAll(".btn");
+    /* ================= NAVBAR SCROLL EFFECT ================= */
+    const navbar = document.querySelector(".navbar");
 
-buttons.forEach(btn => {
-    btn.addEventListener("click", function() {
-        btn.style.transform = "scale(0.95)";
-        setTimeout(() => {
-            btn.style.transform = "scale(1)";
-        }, 150);
-    });
-});
-
-
-/* ========= SCROLL REVEAL ANIMATION ========= */
-const revealElements = document.querySelectorAll(".card, .section-title");
-
-const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-
-    revealElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 100) {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
+    window.addEventListener("scroll", () => {
+        if(window.scrollY > 50){
+            navbar.style.background = "rgba(255,255,255,0.95)";
+            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.1)";
+        } else {
+            navbar.style.background = "rgba(255,255,255,0.8)";
+            navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.05)";
         }
     });
-};
-
-window.addEventListener("scroll", revealOnScroll);
 
 
-/* ========= INITIAL STATE REVEAL ========= */
-revealElements.forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "all 0.8s ease";
-});
-
-
-/* ========= SCROLL TO TOP BUTTON ========= */
-const scrollBtn = document.createElement("button");
-scrollBtn.innerHTML = "↑";
-scrollBtn.style.position = "fixed";
-scrollBtn.style.bottom = "30px";
-scrollBtn.style.right = "30px";
-scrollBtn.style.padding = "10px 15px";
-scrollBtn.style.borderRadius = "50%";
-scrollBtn.style.border = "none";
-scrollBtn.style.background = "#d4af37";
-scrollBtn.style.color = "#0b1d3a";
-scrollBtn.style.fontWeight = "bold";
-scrollBtn.style.cursor = "pointer";
-scrollBtn.style.display = "none";
-scrollBtn.style.boxShadow = "0 0 20px rgba(212,175,55,0.6)";
-scrollBtn.style.zIndex = "999";
-
-document.body.appendChild(scrollBtn);
-
-window.addEventListener("scroll", function() {
-    if (window.scrollY > 300) {
-        scrollBtn.style.display = "block";
-    } else {
-        scrollBtn.style.display = "none";
-    }
-});
-
-scrollBtn.addEventListener("click", function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    /* ================= SMOOTH SCROLL ================= */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e){
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+            navLinks.classList.remove("active");
+        });
     });
+
+
+    /* ================= SCROLL ANIMATION ================= */
+    const revealElements = document.querySelectorAll("section, .jurusan-card, .guru-card, .info-card");
+
+    const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+
+        revealElements.forEach(el => {
+            const boxTop = el.getBoundingClientRect().top;
+
+            if(boxTop < triggerBottom){
+                el.style.opacity = "1";
+                el.style.transform = "translateY(0)";
+            }
+        });
+    };
+
+    revealElements.forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(40px)";
+        el.style.transition = "all 0.8s ease";
+    });
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+
+    /* ================= 3D TILT EFFECT ================= */
+    const cards = document.querySelectorAll(".jurusan-card, .guru-card");
+
+    cards.forEach(card => {
+
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / 20);
+            const rotateY = ((centerX - x) / 20);
+
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0) rotateY(0)";
+            card.style.transition = "0.5s ease";
+        });
+
+    });
+
+
+    /* ================= COUNTER ANIMATION ================= */
+    const counters = document.querySelectorAll(".counter");
+
+    const runCounter = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute("data-target");
+            const increment = target / 200;
+
+            const updateCounter = () => {
+                const current = +counter.innerText;
+
+                if(current < target){
+                    counter.innerText = Math.ceil(current + increment);
+                    setTimeout(updateCounter, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCounter();
+        });
+    };
+
+    const counterSection = document.querySelector(".statistik");
+
+    if(counterSection){
+        const observer = new IntersectionObserver(entries => {
+            if(entries[0].isIntersecting){
+                runCounter();
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(counterSection);
+    }
+
 });
