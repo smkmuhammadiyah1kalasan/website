@@ -187,3 +187,24 @@ topBtn.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
+// =====================================
+// FADE IN ANIMATION MAP
+// =====================================
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const fadeElement = document.querySelector(".fade-in");
+
+    function checkScroll() {
+        const elementTop = fadeElement.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (elementTop < screenHeight - 100) {
+            fadeElement.classList.add("active");
+        }
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll();
+
+});
