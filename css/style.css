@@ -867,3 +867,76 @@ button, .btn-primary, .btn-secondary, .btn-card {
     }
 
 }
+/* ===============================
+   NAVBAR BASE
+================================= */
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+
+/* ===============================
+   HAMBURGER STYLE
+================================= */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+}
+
+
+/* ===============================
+   MOBILE STYLE
+================================= */
+
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #001f3f;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.4s ease;
+    }
+
+    .nav-menu.active {
+        max-height: 300px;
+    }
+
+}
