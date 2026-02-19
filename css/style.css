@@ -339,3 +339,36 @@ footer{
         font-size: 20px;
     }
 }
+/* ========================= */
+/* FIX TAMPILAN MOBILE */
+/* ========================= */
+
+@media screen and (max-width: 768px){
+
+    body{
+        background-attachment: scroll; /* penting agar tidak bug di HP */
+    }
+
+    .navbar{
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+
+    .nav-links{
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .hero{
+        padding-top: 120px;
+    }
+
+    section{
+        padding: 80px 20px;
+    }
+
+    .btn-primary{
+        width: 80%;
+    }
+}
