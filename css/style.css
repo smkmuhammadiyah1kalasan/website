@@ -644,3 +644,162 @@ button, .btn-primary, .btn-secondary, .btn-card {
     }
 
 }
+/* =================================
+   TESTIMONI SECTION
+================================= */
+
+.section-testimoni {
+    padding: 80px 10%;
+    background: #f4f9ff;
+    text-align: center;
+}
+
+.testimoni-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.testimoni-card {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.testimoni-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 119, 255, 0.2);
+}
+
+.testimoni-card p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimoni-card h4 {
+    color: #0077ff;
+}
+
+
+/* =================================
+   VIDEO SECTION
+================================= */
+
+.section-video {
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #0077ff, #00c6ff);
+    text-align: center;
+    color: white;
+}
+
+.video-wrapper {
+    margin-top: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+
+/* =================================
+   BERITA SECTION
+================================= */
+
+.section-berita {
+    padding: 80px 10%;
+    background: #ffffff;
+    text-align: center;
+}
+
+.berita-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.berita-card {
+    width: 300px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.berita-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 119, 255, 0.2);
+}
+
+.berita-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.berita-card h3 {
+    padding: 15px 20px 0;
+}
+
+.berita-card p {
+    padding: 0 20px 20px;
+    font-size: 14px;
+}
+
+.btn-card {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 8px 15px;
+    background: #0077ff;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-card:hover {
+    background: #005fcc;
+}
+
+
+/* =================================
+   CALL TO ACTION
+================================= */
+
+.section-cta {
+    padding: 100px 10%;
+    background: linear-gradient(135deg, #001f3f, #0077ff);
+    color: white;
+    text-align: center;
+}
+
+.cta-container h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    padding: 12px 30px;
+    background: white;
+    color: #0077ff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #00c6ff;
+    color: white;
+}
