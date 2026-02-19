@@ -16,9 +16,13 @@
 /* ===================================================== */
 
 body{
-    background: url("assets/Fotoku.jpeg") no-repeat center center/cover;
-    color:white;
+    background-image: url("./assets/Fotoku.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 
 /* Layer gelap agar teks terbaca */
 body::before{
