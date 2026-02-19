@@ -81,16 +81,15 @@ body{
     padding:0 20px;
     color:white;
 
-    background: 
+    background-image: 
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("assets/Fotoku.png");
+        url("assets/Fotoku.jpeg");
 
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-\
-
 }
+
 
 
 .hero h1{
