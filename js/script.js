@@ -1,105 +1,48 @@
 /* ===============================
-   LOADING SCREEN
+   ISLAMIC PREMIUM JS
 ================================= */
 
-window.addEventListener("load", function () {
-    const loader = document.getElementById("loading-screen");
-    loader.style.opacity = "0";
-    loader.style.transition = "opacity 0.8s ease";
+/* ========= NAVBAR SCROLL EFFECT ========= */
+window.addEventListener("scroll", function() {
+    const nav = document.querySelector("nav");
 
-    setTimeout(() => {
-        loader.style.display = "none";
-    }, 800);
-});
-
-
-/* ===============================
-   SIDEBAR TOGGLE
-================================= */
-
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
-const closeSidebar = document.getElementById("closeSidebar");
-
-menuToggle.addEventListener("click", () => {
-    sidebar.classList.add("active");
-});
-
-closeSidebar.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-});
-
-window.addEventListener("click", (e) => {
-    if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-        sidebar.classList.remove("active");
+    if (window.scrollY > 50) {
+        nav.style.background = "rgba(7,20,40,0.95)";
+        nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.4)";
+    } else {
+        nav.style.background = "rgba(11,29,58,0.85)";
+        nav.style.boxShadow = "none";
     }
 });
 
 
-/* ===============================
-   CUSTOM CURSOR
-================================= */
-
-const cursor = document.querySelector(".custom-cursor");
-
-document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-});
-
-document.querySelectorAll("a, button").forEach(el => {
-    el.addEventListener("mouseenter", () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(1.8)";
-        cursor.style.background = "rgba(0,191,255,0.4)";
-    });
-
-    el.addEventListener("mouseleave", () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(1)";
-        cursor.style.background = "transparent";
-    });
-});
-
-
-/* ===============================
-   SMOOTH SCROLL
-================================= */
-
+/* ========= SMOOTH SCROLL ========= */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
+    anchor.addEventListener("click", function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-            target.scrollIntoView({
+        document.querySelector(this.getAttribute("href"))
+            .scrollIntoView({
                 behavior: "smooth"
             });
-        }
     });
 });
 
 
-/* ===============================
-   NAVBAR BACKGROUND CHANGE
-================================= */
+/* ========= BUTTON CLICK EFFECT ========= */
+const buttons = document.querySelectorAll(".btn");
 
-const header = document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        header.style.background = "rgba(0, 10, 25, 0.95)";
-        header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.5)";
-    } else {
-        header.style.background = "rgba(0, 20, 40, 0.8)";
-        header.style.boxShadow = "none";
-    }
+buttons.forEach(btn => {
+    btn.addEventListener("click", function() {
+        btn.style.transform = "scale(0.95)";
+        setTimeout(() => {
+            btn.style.transform = "scale(1)";
+        }, 150);
+    });
 });
 
 
-/* ===============================
-   SCROLL ANIMATION FADE IN
-================================= */
-
-const revealElements = document.querySelectorAll(".card, .info-item");
+/* ========= SCROLL REVEAL ANIMATION ========= */
+const revealElements = document.querySelectorAll(".card, .section-title");
 
 const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
@@ -114,249 +57,47 @@ const revealOnScroll = () => {
     });
 };
 
+window.addEventListener("scroll", revealOnScroll);
+
+
+/* ========= INITIAL STATE REVEAL ========= */
 revealElements.forEach(el => {
     el.style.opacity = "0";
     el.style.transform = "translateY(40px)";
     el.style.transition = "all 0.8s ease";
 });
 
-window.addEventListener("scroll", revealOnScroll);
 
+/* ========= SCROLL TO TOP BUTTON ========= */
+const scrollBtn = document.createElement("button");
+scrollBtn.innerHTML = "↑";
+scrollBtn.style.position = "fixed";
+scrollBtn.style.bottom = "30px";
+scrollBtn.style.right = "30px";
+scrollBtn.style.padding = "10px 15px";
+scrollBtn.style.borderRadius = "50%";
+scrollBtn.style.border = "none";
+scrollBtn.style.background = "#d4af37";
+scrollBtn.style.color = "#0b1d3a";
+scrollBtn.style.fontWeight = "bold";
+scrollBtn.style.cursor = "pointer";
+scrollBtn.style.display = "none";
+scrollBtn.style.boxShadow = "0 0 20px rgba(212,175,55,0.6)";
+scrollBtn.style.zIndex = "999";
 
-/* ===============================
-   HERO PARALLAX EFFECT
-================================= */
+document.body.appendChild(scrollBtn);
 
-window.addEventListener("scroll", () => {
-    const hero = document.querySelector(".hero");
-    let offset = window.scrollY;
-    hero.style.backgroundPositionY = offset * 0.5 + "px";
-});
-
-
-/* ===============================
-   RIPPLE BUTTON EFFECT
-================================= */
-
-document.querySelectorAll(".btn-primary, .btn-secondary, .btn-card")
-    .forEach(button => {
-        button.addEventListener("click", function (e) {
-
-            const circle = document.createElement("span");
-            const diameter = Math.max(this.clientWidth, this.clientHeight);
-            const radius = diameter / 2;
-
-            circle.style.width = circle.style.height = `${diameter}px`;
-            circle.style.left = `${e.clientX - this.offsetLeft - radius}px`;
-            circle.style.top = `${e.clientY - this.offsetTop - radius}px`;
-            circle.classList.add("ripple");
-
-            const ripple = this.getElementsByClassName("ripple")[0];
-            if (ripple) {
-                ripple.remove();
-            }
-
-            this.appendChild(circle);
-        });
-    });
-
-
-/* ===============================
-   FLOATING ICON ANIMATION
-================================= */
-
-setInterval(() => {
-    document.querySelectorAll(".card img").forEach(img => {
-        img.style.transform = "translateY(-5px)";
-        setTimeout(() => {
-            img.style.transform = "translateY(0)";
-        }, 1000);
-    });
-}, 4000);
-
-
-/* ===============================
-   ACTIVE NAV LINK HIGHLIGHT
-================================= */
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar ul li a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-            link.classList.add("active");
-        }
-    });
-});
-/* ===============================
-   COUNTER ANIMATION
-================================= */
-
-const counters = document.querySelectorAll(".counter");
-let counterStarted = false;
-
-function startCounter() {
-    counters.forEach(counter => {
-        const target = +counter.getAttribute("data-target");
-        const increment = target / 200;
-
-        const updateCounter = () => {
-            const current = +counter.innerText;
-
-            if (current < target) {
-                counter.innerText = Math.ceil(current + increment);
-                setTimeout(updateCounter, 10);
-            } else {
-                counter.innerText = target;
-            }
-        };
-
-        updateCounter();
-    });
-}
-
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return rect.top < window.innerHeight && rect.bottom >= 0;
-}
-
-window.addEventListener("scroll", () => {
-    const statistikSection = document.querySelector(".section-statistik");
-
-    if (statistikSection && isInViewport(statistikSection) && !counterStarted) {
-        startCounter();
-        counterStarted = true;
-    }
-});
-/* ===============================
-   AUTO SLIDE TESTIMONI
-================================= */
-
-const testiContainer = document.querySelector(".testimoni-container");
-
-if (testiContainer) {
-    let scrollAmount = 0;
-
-    setInterval(() => {
-        scrollAmount += 330;
-
-        if (scrollAmount >= testiContainer.scrollWidth - testiContainer.clientWidth) {
-            scrollAmount = 0;
-        }
-
-        testiContainer.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth"
-        });
-
-    }, 4000);
-}
-
-
-/* ===============================
-   SCROLL REVEAL ANIMATION
-================================= */
-
-const revealElements = document.querySelectorAll(
-    ".testimoni-card, .berita-card, .cta-container"
-);
-
-function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-
-    revealElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 100) {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-        }
-    });
-}
-
-revealElements.forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "0.6s ease";
-});
-
-window.addEventListener("scroll", revealOnScroll);
-
-
-/* ===============================
-   NAVBAR SHRINK ON SCROLL
-================================= */
-
-const navbar = document.querySelector("nav");
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        navbar.style.padding = "10px 10%";
-        navbar.style.background = "rgba(0, 31, 63, 0.95)";
+window.addEventListener("scroll", function() {
+    if (window.scrollY > 300) {
+        scrollBtn.style.display = "block";
     } else {
-        navbar.style.padding = "20px 10%";
-        navbar.style.background = "transparent";
+        scrollBtn.style.display = "none";
     }
 });
 
-
-/* ===============================
-   SMOOTH SCROLL
-================================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
+scrollBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
 });
-
-
-/* ===============================
-   HOVER ZOOM BERITA IMAGE
-================================= */
-
-const beritaImages = document.querySelectorAll(".berita-card img");
-
-beritaImages.forEach(img => {
-    img.addEventListener("mouseenter", () => {
-        img.style.transform = "scale(1.1)";
-        img.style.transition = "0.4s ease";
-    });
-
-    img.addEventListener("mouseleave", () => {
-        img.style.transform = "scale(1)";
-    });
-});
-
-/* ===============================
-   HAMBURGER MENU
-================================= */
-
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
-
-if (hamburger && navMenu) {
-    hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
-}
-
