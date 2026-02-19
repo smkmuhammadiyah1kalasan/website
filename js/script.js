@@ -199,3 +199,43 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+/* ===============================
+   COUNTER ANIMATION
+================================= */
+
+const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
+
+function startCounter() {
+    counters.forEach(counter => {
+        const target = +counter.getAttribute("data-target");
+        const increment = target / 200;
+
+        const updateCounter = () => {
+            const current = +counter.innerText;
+
+            if (current < target) {
+                counter.innerText = Math.ceil(current + increment);
+                setTimeout(updateCounter, 10);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        updateCounter();
+    });
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom >= 0;
+}
+
+window.addEventListener("scroll", () => {
+    const statistikSection = document.querySelector(".section-statistik");
+
+    if (statistikSection && isInViewport(statistikSection) && !counterStarted) {
+        startCounter();
+        counterStarted = true;
+    }
+});
