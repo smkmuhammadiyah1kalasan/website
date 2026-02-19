@@ -5,226 +5,172 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SMK Muhammadiyah 1 Kalasan</title>
 
-  <link rel="stylesheet" href="css/style.css">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Poppins',sans-serif;
-background:#0b1d3a;
-color:#fff;
-overflow-x:hidden;
-}
-
-/* NAVBAR */
-nav{
-position:fixed;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(11,29,58,0.8);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-
-nav h1{
-font-family:'Playfair Display',serif;
-font-size:22px;
-color:#d4af37;
-}
-
-nav ul{
-display:flex;
-gap:30px;
-list-style:none;
-}
-
-nav ul li a{
-text-decoration:none;
-color:#fff;
-font-weight:500;
-transition:0.3s;
-}
-
-nav ul li a:hover{
-color:#d4af37;
-}
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:0 20px;
-background:linear-gradient(rgba(11,29,58,0.85),rgba(11,29,58,0.9)),
-url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
-}
-
-.hero h2{
-font-family:'Playfair Display',serif;
-font-size:60px;
-color:#d4af37;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-max-width:700px;
-margin:auto;
-margin-bottom:30px;
-opacity:0.85;
-}
-
-.btn{
-padding:14px 35px;
-border-radius:40px;
-border:2px solid #d4af37;
-background:transparent;
-color:#d4af37;
-font-weight:600;
-cursor:pointer;
-transition:0.4s;
-}
-
-.btn:hover{
-background:#d4af37;
-color:#0b1d3a;
-box-shadow:0 0 25px rgba(212,175,55,0.7);
-}
-
-/* SECTION */
-section{
-padding:100px 10%;
-text-align:center;
-}
-
-.section-title{
-font-family:'Playfair Display',serif;
-font-size:40px;
-color:#d4af37;
-margin-bottom:60px;
-}
-
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:20px;
-border:1px solid rgba(212,175,55,0.3);
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(212,175,55,0.5);
-}
-
-.card i{
-font-size:45px;
-color:#d4af37;
-margin-bottom:20px;
-}
-
-.card h3{
-margin-bottom:15px;
-}
-
-/* FOOTER */
-footer{
-background:#071428;
-padding:40px;
-text-align:center;
-font-size:14px;
-opacity:0.7;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-.hero h2{
-font-size:35px;
-}
-nav ul{
-display:none;
-}
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-<h1>SMK MUH 1 KALASAN</h1>
-<ul>
-<li><a href="#">Beranda</a></li>
-<li><a href="#jurusan">Jurusan</a></li>
-<li><a href="#kontak">Kontak</a></li>
-</ul>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="assets/logo.png" alt="Logo">
+        <span>SMK Muhammadiyah 1 Kalasan</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#jurusan">Jurusan</a></li>
+        <li><a href="#guru">Guru</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#info">Informasi</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+    </ul>
+
+    <div class="hamburger">
+        <i class="fas fa-bars"></i>
+    </div>
 </nav>
 
-<section class="hero">
-<div>
-<h2>SMK Muhammadiyah 1 Kalasan</h2>
-<p>Sekolah Unggul Islami Berkarakter yang Membentuk Generasi Profesional dan Berakhlak Mulia.</p>
-<button class="btn">Daftar Sekarang</button>
-</div>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h1>Masa Depan Dimulai Dari Sini</h1>
+        <p>Sekolah unggulan berbasis karakter, teknologi dan kompetensi global.</p>
+        <button class="primary-btn">Daftar Sekarang</button>
+    </div>
 </section>
 
-<section id="jurusan">
-<h2 class="section-title">Program Keahlian</h2>
-<div class="cards">
-
-<div class="card">
-<i class="fas fa-ship"></i>
-<h3>Teknika Kapal Niaga</h3>
-<p>Mencetak tenaga ahli mesin kapal profesional bertaraf internasional.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-compass"></i>
-<h3>Nautika Kapal Niaga</h3>
-<p>Mendidik calon navigator dan perwira kapal niaga yang kompeten.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-music"></i>
-<h3>Seni Musik Modern</h3>
-<p>Mengembangkan kreativitas musik modern berbasis industri digital.</p>
-</div>
-
-</div>
+<!-- ================= SAMBUTAN ================= -->
+<section class="sambutan">
+    <div class="sambutan-container">
+        <div class="sambutan-img">
+            <img src="assets/kepala-sekolah.jpg" alt="Kepala Sekolah">
+        </div>
+        <div class="sambutan-text">
+            <h2>Sambutan Kepala Sekolah</h2>
+            <p>
+                Assalamu’alaikum Warahmatullahi Wabarakatuh. 
+                Selamat datang di SMK Muhammadiyah 1 Kalasan.
+                Kami berkomitmen mencetak generasi profesional,
+                berakhlak mulia, dan siap menghadapi dunia global.
+            </p>
+            <p>
+                Dengan fasilitas modern dan tenaga pendidik profesional,
+                kami terus berinovasi dalam pendidikan berbasis teknologi dan karakter.
+            </p>
+        </div>
+    </div>
 </section>
 
-<footer id="kontak">
-© 2026 SMK Muhammadiyah 1 Kalasan | Islamic Premium Design 👑
+<!-- ================= JURUSAN ================= -->
+<section class="jurusan" id="jurusan">
+    <h2>Program Keahlian</h2>
+    <div class="jurusan-container">
+
+        <div class="jurusan-card">
+            <i class="fas fa-ship icon-3d"></i>
+            <h3>Teknika Kapal Niaga</h3>
+            <p>Mencetak teknisi mesin kapal profesional bersertifikat internasional.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <i class="fas fa-compass icon-3d"></i>
+            <h3>Nautika Kapal Niaga</h3>
+            <p>Ahli navigasi dan pelayaran dengan standar global.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <i class="fas fa-music icon-3d"></i>
+            <h3>Seni Musik Modern</h3>
+            <p>Kreatif, inovatif, siap industri musik digital modern.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= PROFIL GURU ================= -->
+<section class="guru" id="guru">
+    <h2>Profil Guru</h2>
+    <div class="guru-container">
+
+        <div class="guru-card">
+            <img src="assets/guru1.jpg" alt="">
+            <h4>Budi Santoso, M.Pd</h4>
+            <p>Guru Nautika Kapal Niaga</p>
+        </div>
+
+        <div class="guru-card">
+            <img src="assets/guru2.jpg" alt="">
+            <h4>Nur Aisyah, S.Sn</h4>
+            <p>Guru Seni Musik Modern</p>
+        </div>
+
+        <div class="guru-card">
+            <img src="assets/guru3.jpg" alt="">
+            <h4>Rizal Hidayat, S.T</h4>
+            <p>Guru Teknika Kapal Niaga</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= VIDEO ================= -->
+<section class="video-section" id="video">
+    <h2>Video Profil Sekolah</h2>
+    <div class="video-wrapper">
+        <video controls poster="assets/thumbnail.jpg">
+            <source src="assets/video.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+<!-- ================= PAPAN INFORMASI ================= -->
+<section class="info" id="info">
+    <h2>Papan Informasi</h2>
+    <div class="info-container">
+
+        <div class="info-card">
+            <img src="assets/info1.jpg" alt="">
+            <div class="info-overlay">
+                <h4>Pendaftaran Dibuka</h4>
+                <p>Gelombang 1 Tahun Ajaran 2026/2027.</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <img src="assets/info2.jpg" alt="">
+            <div class="info-overlay">
+                <h4>Lomba Musik</h4>
+                <p>Siswa SMK Raih Juara Nasional.</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <img src="assets/info3.jpg" alt="">
+            <div class="info-overlay">
+                <h4>Kunjungan Industri</h4>
+                <p>Praktik langsung di perusahaan pelayaran.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= MAPS ================= -->
+<section class="maps" id="kontak">
+    <h2>Lokasi Sekolah</h2>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18..."
+        width="100%" height="350" style="border:0;" allowfullscreen="">
+    </iframe>
+</section>
+
+<footer>
+    © 2026 SMK Muhammadiyah 1 Kalasan | International Clean Premium
 </footer>
-<script src="js/script.js"></script>
 
+<script src="script.js"></script>
 </body>
 </html>
-
-
