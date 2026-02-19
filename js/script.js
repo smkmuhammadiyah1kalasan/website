@@ -1,132 +1,189 @@
-/* ===============================
-   INTERNATIONAL CLEAN PREMIUM JS
-================================= */
+/* ===================================================== */
+/* ================== LOADING SCREEN =================== */
+/* ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function(){
+// Membuat loading sederhana saat halaman dibuka
+window.addEventListener("load", function(){
+    const loader = document.createElement("div");
+    loader.id = "loader";
+    loader.style.position = "fixed";
+    loader.style.width = "100%";
+    loader.style.height = "100%";
+    loader.style.background = "black";
+    loader.style.display = "flex";
+    loader.style.justifyContent = "center";
+    loader.style.alignItems = "center";
+    loader.style.color = "white";
+    loader.style.fontSize = "24px";
+    loader.innerHTML = "Loading Website...";
+    document.body.appendChild(loader);
 
-    /* ================= HAMBURGER ================= */
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
-
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
-
-
-    /* ================= NAVBAR SCROLL EFFECT ================= */
-    const navbar = document.querySelector(".navbar");
-
-    window.addEventListener("scroll", () => {
-        if(window.scrollY > 50){
-            navbar.style.background = "rgba(255,255,255,0.95)";
-            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.1)";
-        } else {
-            navbar.style.background = "rgba(255,255,255,0.8)";
-            navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.05)";
-        }
-    });
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.transition = "0.5s";
+        setTimeout(() => loader.remove(), 500);
+    }, 1200);
+});
 
 
-    /* ================= SMOOTH SCROLL ================= */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function(e){
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            target.scrollIntoView({
+/* ===================================================== */
+/* ================== SMOOTH SCROLL ==================== */
+/* ===================================================== */
+
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href"))
+            .scrollIntoView({
                 behavior: "smooth"
             });
-            navLinks.classList.remove("active");
-        });
+    });
+});
+
+
+/* ===================================================== */
+/* ================== NAVBAR SCROLL EFFECT ============= */
+/* ===================================================== */
+
+window.addEventListener("scroll", function(){
+    const navbar = document.querySelector(".navbar");
+
+    if(window.scrollY > 50){
+        navbar.style.background = "rgba(0,0,0,0.85)";
+        navbar.style.boxShadow = "0 0 20px rgba(0,255,255,0.6)";
+    }else{
+        navbar.style.background = "rgba(255,255,255,0.08)";
+        navbar.style.boxShadow = "none";
+    }
+});
+
+
+/* ===================================================== */
+/* ================== REVEAL ANIMATION ================= */
+/* ===================================================== */
+
+function reveal(){
+    const reveals = document.querySelectorAll("section, .card");
+
+    for(let i = 0; i < reveals.length; i++){
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 100;
+
+        if(elementTop < windowHeight - elementVisible){
+            reveals[i].style.opacity = "1";
+            reveals[i].style.transform = "translateY(0)";
+            reveals[i].style.transition = "0.6s ease";
+        }else{
+            reveals[i].style.opacity = "0";
+            reveals[i].style.transform = "translateY(50px)";
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);
+
+
+/* ===================================================== */
+/* ================== 3D CARD TILT EFFECT ============== */
+/* ===================================================== */
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / 15);
+        const rotateY = ((centerX - x) / 15);
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
-
-    /* ================= SCROLL ANIMATION ================= */
-    const revealElements = document.querySelectorAll("section, .jurusan-card, .guru-card, .info-card");
-
-    const revealOnScroll = () => {
-        const triggerBottom = window.innerHeight * 0.85;
-
-        revealElements.forEach(el => {
-            const boxTop = el.getBoundingClientRect().top;
-
-            if(boxTop < triggerBottom){
-                el.style.opacity = "1";
-                el.style.transform = "translateY(0)";
-            }
-        });
-    };
-
-    revealElements.forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(40px)";
-        el.style.transition = "all 0.8s ease";
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0) rotateY(0)";
     });
-
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
+});
 
 
-    /* ================= 3D TILT EFFECT ================= */
-    const cards = document.querySelectorAll(".jurusan-card, .guru-card");
+/* ===================================================== */
+/* ================== VIDEO AUTO PLAY ================== */
+/* ===================================================== */
 
-    cards.forEach(card => {
+const video = document.querySelector("video");
 
-        card.addEventListener("mousemove", (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / 20);
-            const rotateY = ((centerX - x) / 20);
-
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "rotateX(0) rotateY(0)";
-            card.style.transition = "0.5s ease";
-        });
-
+if(video){
+    window.addEventListener("scroll", () => {
+        const rect = video.getBoundingClientRect();
+        if(rect.top >= 0 && rect.bottom <= window.innerHeight){
+            video.play();
+        }else{
+            video.pause();
+        }
     });
+}
 
 
-    /* ================= COUNTER ANIMATION ================= */
-    const counters = document.querySelectorAll(".counter");
+/* ===================================================== */
+/* ================== TYPING EFFECT ==================== */
+/* ===================================================== */
 
-    const runCounter = () => {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            const increment = target / 200;
+const heroTitle = document.querySelector(".hero-text h1");
 
-            const updateCounter = () => {
-                const current = +counter.innerText;
+if(heroTitle){
+    const text = heroTitle.innerText;
+    heroTitle.innerText = "";
+    let i = 0;
 
-                if(current < target){
-                    counter.innerText = Math.ceil(current + increment);
-                    setTimeout(updateCounter, 10);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            updateCounter();
-        });
-    };
-
-    const counterSection = document.querySelector(".statistik");
-
-    if(counterSection){
-        const observer = new IntersectionObserver(entries => {
-            if(entries[0].isIntersecting){
-                runCounter();
-                observer.disconnect();
-            }
-        });
-
-        observer.observe(counterSection);
+    function typeEffect(){
+        if(i < text.length){
+            heroTitle.innerText += text.charAt(i);
+            i++;
+            setTimeout(typeEffect, 50);
+        }
     }
 
+    typeEffect();
+}
+
+
+/* ===================================================== */
+/* ================== BACK TO TOP BUTTON =============== */
+/* ===================================================== */
+
+const topBtn = document.createElement("button");
+topBtn.innerHTML = "↑";
+topBtn.style.position = "fixed";
+topBtn.style.bottom = "30px";
+topBtn.style.right = "30px";
+topBtn.style.padding = "10px 15px";
+topBtn.style.border = "none";
+topBtn.style.borderRadius = "50%";
+topBtn.style.background = "#00e0ff";
+topBtn.style.color = "black";
+topBtn.style.fontSize = "20px";
+topBtn.style.cursor = "pointer";
+topBtn.style.display = "none";
+topBtn.style.zIndex = "999";
+document.body.appendChild(topBtn);
+
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 300){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
+    }
+});
+
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 });
