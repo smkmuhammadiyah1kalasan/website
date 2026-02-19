@@ -256,3 +256,82 @@ footer{
     }
 
 }
+/* ================================= */
+/* SECTION MAPS MODERN DARK MODE */
+/* ================================= */
+
+.map-section {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+.map-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Container */
+.map-container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+/* Saat aktif muncul */
+.map-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Iframe */
+.map-container iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+/* Tombol */
+.map-button {
+    margin-top: 25px;
+}
+
+.btn-maps {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00c6ff;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.4s;
+}
+
+.btn-maps:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* ================================= */
+/* RESPONSIVE HP */
+/* ================================= */
+
+@media screen and (max-width: 768px) {
+
+    .map-container iframe {
+        height: 250px;
+    }
+
+    .map-section h2 {
+        font-size: 20px;
+    }
+}
