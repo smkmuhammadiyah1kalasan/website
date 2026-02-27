@@ -1,691 +1,225 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMK Muhammadiyah 1 Kalasan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK Muhammadiyah 1 Kalasan</title>
 
-<!-- Font Modern Premium -->
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Font Elegant -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- Icon 3D -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<header class="navbar">
-    <div class="nav-container">
-
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="container nav-container">
         <div class="logo-area">
-            <img src="assets/logo.png" alt="Logo SMK Muhammadiyah 1 Kalasan">
-            <div class="logo-text">
-                <h1>SMK Muhammadiyah 1 Kalasan</h1>
-                <span>Sekolah Maritim dan Seni Berbasis Industri Modern</span>
-            </div>
+            <img src="assets/logo.png" alt="Logo Sekolah" class="logo">
+            <h1>SMK Muhammadiyah 1 Kalasan</h1>
         </div>
 
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <nav class="nav-menu">
-            <a href="#dashboard"><i class="fa-solid fa-house"></i> Dashboard</a>
-            <a href="#tentang"><i class="fa-solid fa-school"></i> Tentang</a>
-            <a href="#jurusan"><i class="fa-solid fa-ship"></i> Jurusan</a>
-            <a href="#guru"><i class="fa-solid fa-users"></i> Guru</a>
-            <a href="#ppdb"><i class="fa-solid fa-user-plus"></i> PPDB</a>
-            <a href="#kontak"><i class="fa-solid fa-phone"></i> Kontak</a>
+        <nav class="navbar">
+            <a href="#home">🏠 Beranda</a>
+            <a href="#tentang">🏫 Tentang</a>
+            <a href="#jurusan">⚓ Jurusan</a>
+            <a href="#guru">👨‍🏫 Guru</a>
+            <a href="#ppdb">📝 PPDB</a>
+            <a href="#kontak">📞 Kontak</a>
         </nav>
-
     </div>
 </header>
 
-
-<!-- ================= HERO / DASHBOARD ================= -->
-<section id="dashboard" class="hero-section">
-
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
     <div class="hero-overlay">
-        <div class="hero-content">
+        <h2>Sekolah Pelayaran & Seni Berkualitas</h2>
+        <p>Membentuk Generasi Profesional, Berakhlak & Berdaya Saing Global</p>
+        <a href="#ppdb" class="btn-primary">Daftar PPDB Sekarang</a>
+    </div>
+</section>
 
-            <h2>Selamat Datang di Website Resmi</h2>
+<!-- ================= TENTANG ================= -->
+<section id="tentang" class="section">
+    <div class="container">
+        <h2 class="section-title">Tentang SMK Muhammadiyah 1 Kalasan</h2>
+        <p>
+            SMK Muhammadiyah 1 Kalasan adalah sekolah kejuruan unggulan di bidang pelayaran
+            dan seni yang berlokasi di Kalasan, Sleman, Yogyakarta. Sekolah ini berkomitmen
+            membentuk lulusan yang profesional, disiplin, dan siap kerja.
+        </p>
+    </div>
+</section>
 
-            <h1>
-                SMK Muhammadiyah 1 Kalasan
-            </h1>
-
-            <p class="hero-description">
-                SMK Muhammadiyah 1 Kalasan merupakan institusi pendidikan menengah kejuruan 
-                yang berkomitmen penuh dalam mencetak generasi unggul, profesional, 
-                berakhlak mulia, serta siap bersaing di era globalisasi dan revolusi industri 5.0.
-                Dengan perpaduan antara pendidikan berbasis karakter, teknologi modern, 
-                dan pembelajaran berbasis industri, sekolah ini menjadi pilihan utama 
-                bagi siswa yang ingin mengembangkan potensi diri di bidang kemaritiman 
-                maupun seni kreatif secara profesional dan terarah.
+<!-- ================= SAMBUTAN ================= -->
+<section class="section sambutan">
+    <div class="container sambutan-grid">
+        <img src="assets/kepsek.jpg" alt="Kepala Sekolah">
+        <div>
+            <h2>Sambutan Kepala Sekolah</h2>
+            <p>
+                Selamat datang di SMK Muhammadiyah 1 Kalasan. Kami berkomitmen
+                memberikan pendidikan terbaik dan membentuk karakter siswa
+                yang unggul dan berakhlak mulia.
             </p>
-
-            <div class="hero-buttons">
-                <a href="#ppdb" class="btn-primary">
-                    <i class="fa-solid fa-user-plus"></i> Daftar PPDB Sekarang
-                </a>
-                <a href="#tentang" class="btn-secondary">
-                    <i class="fa-solid fa-circle-info"></i> Pelajari Lebih Lanjut
-                </a>
-            </div>
-
-            <div class="clock-container">
-                <div id="clock"></div>
-                <div id="date"></div>
-            </div>
-
         </div>
     </div>
-
 </section>
-
-
-<!-- ================= PENGUMUMAN ================= -->
-<section class="section pengumuman-section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            <i class="fa-solid fa-bullhorn"></i> Papan Informasi dan Pengumuman
-        </h2>
-
-        <div class="pengumuman-card">
-
-            <div class="pengumuman-image">
-                <img src="assets/pengumuman.jpg" alt="Pengumuman Sekolah">
-            </div>
-
-            <div class="pengumuman-content">
-                <h3>Informasi Terbaru Kegiatan Sekolah</h3>
-
-                <p>
-                    Bagian ini berfungsi sebagai pusat informasi resmi sekolah 
-                    yang menampilkan berbagai pengumuman penting seperti jadwal 
-                    ujian semester, agenda kegiatan ekstrakurikuler, lomba antar sekolah, 
-                    pelaksanaan praktik industri, hingga informasi terkait Penerimaan 
-                    Peserta Didik Baru (PPDB). Setiap pengumuman yang dipublikasikan 
-                    telah melalui proses verifikasi resmi oleh pihak manajemen sekolah.
-                </p>
-
-                <p>
-                    Kami mengimbau seluruh siswa, wali murid, dan tenaga pendidik 
-                    untuk secara rutin mengakses halaman ini guna memperoleh informasi 
-                    terbaru yang akurat dan terpercaya. Sekolah juga akan terus 
-                    meningkatkan sistem informasi digital agar komunikasi antara 
-                    sekolah dan masyarakat semakin efektif dan transparan.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= TENTANG SEKOLAH ================= -->
-<section id="tentang" class="section tentang-section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            <i class="fa-solid fa-school"></i> Tentang SMK Muhammadiyah 1 Kalasan
-        </h2>
-
-        <div class="tentang-wrapper">
-
-            <div class="tentang-box">
-
-                <p>
-                    SMK Muhammadiyah 1 Kalasan berdiri sebagai bentuk komitmen 
-                    Muhammadiyah dalam menghadirkan pendidikan kejuruan yang 
-                    unggul, berkarakter Islami, serta mampu menjawab tantangan 
-                    dunia kerja modern. Sekolah ini mengintegrasikan kurikulum 
-                    nasional dengan kebutuhan industri, sehingga lulusan memiliki 
-                    kompetensi yang relevan, adaptif, dan siap terjun langsung 
-                    ke dunia profesional.
-                </p>
-
-                <p>
-                    Dengan dukungan fasilitas laboratorium modern, ruang praktik 
-                    maritim, studio musik digital, serta sistem pembelajaran 
-                    berbasis teknologi, sekolah ini berusaha menciptakan 
-                    lingkungan belajar yang inspiratif, inovatif, dan kompetitif. 
-                    Tidak hanya fokus pada akademik, sekolah juga menanamkan 
-                    nilai kedisiplinan, kepemimpinan, kerja sama tim, dan 
-                    etika profesional sebagai bekal utama siswa.
-                </p>
-
-                <p>
-                    SMK Muhammadiyah 1 Kalasan juga menjalin kerja sama dengan 
-                    berbagai perusahaan nasional maupun internasional dalam 
-                    bidang pelayaran dan industri kreatif, sehingga siswa 
-                    mendapatkan kesempatan praktik kerja lapangan secara langsung 
-                    di lingkungan industri nyata.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
 
 <!-- ================= JURUSAN ================= -->
-<section id="jurusan" class="section jurusan-section">
-
+<section id="jurusan" class="section">
     <div class="container">
+        <h2 class="section-title">Program Keahlian</h2>
 
-        <h2 class="section-title">
-            <i class="fa-solid fa-compass"></i> Program Keahlian Unggulan
-        </h2>
+        <div class="card-grid">
 
-
-        <!-- ================= JURUSAN 1 ================= -->
-        <div class="jurusan-card">
-
-            <div class="jurusan-icon">
-                <i class="fa-solid fa-ship"></i>
-            </div>
-
-            <div class="jurusan-content">
-
+            <div class="card">
                 <h3>Nautika Kapal Niaga</h3>
-
                 <p>
-                    Program Keahlian Nautika Kapal Niaga merupakan salah satu 
-                    jurusan unggulan yang dirancang untuk mencetak tenaga profesional 
-                    di bidang navigasi dan operasional kapal niaga. Siswa akan 
-                    mempelajari berbagai aspek penting seperti ilmu pelayaran, 
-                    navigasi modern, keselamatan pelayaran, meteorologi maritim, 
-                    manajemen kapal, hingga komunikasi radio maritim.
+                    Program ini mendidik siswa menjadi pelaut profesional,
+                    menguasai navigasi, keselamatan pelayaran, dan manajemen kapal.
                 </p>
-
-                <p>
-                    Selain pembelajaran teori di kelas, siswa juga mendapatkan 
-                    praktik langsung menggunakan simulator navigasi serta 
-                    praktik di kapal mitra industri. Kurikulum disusun mengikuti 
-                    standar internasional sehingga lulusan memiliki peluang besar 
-                    untuk bekerja di perusahaan pelayaran nasional maupun internasional.
-                </p>
-
-                <p>
-                    Program ini tidak hanya membekali siswa dengan kemampuan teknis, 
-                    tetapi juga membangun karakter kepemimpinan, ketangguhan mental, 
-                    disiplin tinggi, serta tanggung jawab profesional yang menjadi 
-                    syarat utama dalam dunia kemaritiman global.
-                </p>
-
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= JURUSAN 2 ================= -->
-<section class="section jurusan-section">
-
-    <div class="container">
-
-        <div class="jurusan-card">
-
-            <div class="jurusan-icon">
-                <i class="fa-solid fa-gears"></i>
-            </div>
-
-            <div class="jurusan-content">
-
+            <div class="card">
                 <h3>Teknika Kapal Niaga</h3>
-
                 <p>
-                    Program Keahlian Teknika Kapal Niaga merupakan jurusan yang 
-                    berfokus pada sistem permesinan kapal dan teknologi kelistrikan maritim. 
-                    Siswa dibekali pengetahuan mendalam mengenai mesin induk kapal, 
-                    sistem pembakaran, sistem pendingin, sistem bahan bakar, 
-                    serta sistem tenaga dan distribusi listrik di atas kapal.
+                    Fokus pada permesinan kapal, sistem kelistrikan,
+                    serta perawatan mesin kapal modern.
                 </p>
-
-                <p>
-                    Dalam proses pembelajaran, siswa akan melakukan praktik 
-                    langsung pada unit mesin latihan serta simulasi sistem 
-                    kontrol mesin modern. Kurikulum yang diterapkan telah 
-                    disesuaikan dengan kebutuhan industri pelayaran global 
-                    sehingga lulusan mampu bersaing dalam dunia kerja internasional.
-                </p>
-
-                <p>
-                    Selain kemampuan teknis, siswa juga dilatih untuk memiliki 
-                    sikap disiplin tinggi, kemampuan problem solving, serta 
-                    tanggung jawab profesional sebagai teknisi kapal yang 
-                    menjadi tulang punggung operasional pelayaran.
-                </p>
-
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= JURUSAN 3 ================= -->
-<section class="section jurusan-section alt-bg">
-
-    <div class="container">
-
-        <div class="jurusan-card">
-
-            <div class="jurusan-icon">
-                <i class="fa-solid fa-music"></i>
-            </div>
-
-            <div class="jurusan-content">
-
+            <div class="card">
                 <h3>Seni Musik</h3>
-
                 <p>
-                    Program Keahlian Seni Musik dirancang untuk mengembangkan 
-                    bakat dan kreativitas siswa dalam bidang musik modern 
-                    maupun tradisional. Siswa mempelajari teori musik, 
-                    teknik vokal, komposisi, aransemen, hingga produksi 
-                    audio digital menggunakan perangkat studio profesional.
+                    Mengembangkan bakat seni dan kreativitas siswa
+                    dalam bidang musik dan industri kreatif.
                 </p>
-
-                <p>
-                    Selain pembelajaran di kelas, siswa juga aktif dalam 
-                    berbagai kegiatan pertunjukan, konser sekolah, serta 
-                    kompetisi musik tingkat regional maupun nasional. 
-                    Program ini juga memperkenalkan manajemen pertunjukan 
-                    dan industri kreatif agar lulusan siap menjadi musisi, 
-                    produser, maupun pelaku industri hiburan profesional.
-                </p>
-
-                <p>
-                    Dengan dukungan studio musik modern dan tenaga pengajar 
-                    berpengalaman, jurusan ini menjadi wadah bagi siswa 
-                    untuk mengembangkan potensi artistik secara maksimal 
-                    dan berdaya saing tinggi.
-                </p>
-
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-
-
-<!-- ================= STATISTIK SEKOLAH ================= -->
-<section class="section statistik-section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            <i class="fa-solid fa-chart-column"></i> Data dan Statistik Sekolah
-        </h2>
-
-        <div class="statistik-grid">
-
-            <div class="stat-box">
-                <i class="fa-solid fa-user-graduate"></i>
-                <h3 class="counter" data-target="850">0</h3>
-                <p>Jumlah Siswa Aktif</p>
-            </div>
-
-            <div class="stat-box">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <h3 class="counter" data-target="65">0</h3>
-                <p>Tenaga Pendidik & Staff</p>
-            </div>
-
-            <div class="stat-box">
-                <i class="fa-solid fa-award"></i>
-                <h3 class="counter" data-target="95">0</h3>
-                <p>Tingkat Kelulusan (%)</p>
-            </div>
-
-        </div>
-
-        <div class="chart-wrapper">
-            <canvas id="chartSekolah"></canvas>
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= TENAGA PENDIDIK ================= -->
-<section id="guru" class="section guru-section alt-bg">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            <i class="fa-solid fa-users"></i> Tenaga Pendidik Profesional
-        </h2>
-
-        <div class="guru-grid">
-
-            <div class="guru-card">
-                <img src="assets/guru1.jpg" alt="Guru 1">
-                <h4>Nama Guru 1</h4>
-                <p>Guru Produktif Nautika Kapal Niaga dengan pengalaman industri lebih dari 10 tahun.</p>
-            </div>
-
-            <div class="guru-card">
-                <img src="assets/guru2.jpg" alt="Guru 2">
-                <h4>Nama Guru 2</h4>
-                <p>Guru Produktif Teknika Kapal Niaga spesialis sistem mesin dan kelistrikan kapal.</p>
-            </div>
-
-            <div class="guru-card">
-                <img src="assets/guru3.jpg" alt="Guru 3">
-                <h4>Nama Guru 3</h4>
-                <p>Guru Seni Musik dan Produksi Audio Digital dengan latar belakang industri kreatif.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= VIDEO KEGIATAN ================= -->
-<section class="section video-section">
-
-    <div class="container">
-
-        <h2 class="section-title">
-            <i class="fa-solid fa-video"></i> Video Kegiatan Sekolah
-        </h2>
-
-        <div class="video-wrapper">
-
-            <iframe 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                title="Video Profil Sekolah"
-                allowfullscreen>
-            </iframe>
-
-        </div>
-      <div class="video-wrapper">
-
-            <iframe 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                title="Video Profil Sekolah"
-                allowfullscreen>
-            </iframe>
-
-        </div>
-        <p class="video-description">
-            Video di atas menampilkan berbagai kegiatan pembelajaran, praktik industri, 
-            serta aktivitas ekstrakurikuler yang menjadi bagian dari pengalaman belajar siswa.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ============================= -->
-<!-- STATISTIK SEKOLAH -->
-<!-- ============================= -->
-<section class="statistics">
+<!-- ================= STATISTIK ================= -->
+<section class="section statistik">
     <div class="container">
         <h2 class="section-title">Statistik Sekolah</h2>
 
         <div class="stats-grid">
-            <div class="stat-card">
-                <h3>1.250+</h3>
-                <p>Total Siswa</p>
+            <div class="stat-box">
+                <h3>850+</h3>
+                <p>Siswa</p>
             </div>
-
-            <div class="stat-card">
-                <h3>85+</h3>
-                <p>Guru & Staff</p>
+            <div class="stat-box">
+                <h3>60+</h3>
+                <p>Guru</p>
             </div>
-
-            <div class="stat-card">
-                <h3>15+</h3>
-                <p>Tahun Pengalaman</p>
+            <div class="stat-box">
+                <h3>95%</h3>
+                <p>Lulusan Terserap Kerja</p>
             </div>
         </div>
 
-        <!-- Grafik -->
-        <div class="chart-box">
-            <h3>Persentase Jurusan</h3>
-            <canvas id="jurusanChart"></canvas>
-        </div>
+        <canvas id="chartSekolah"></canvas>
     </div>
 </section>
 
-
-
-<!-- ============================= -->
-<!-- DATA GURU -->
-<!-- ============================= -->
-<section class="teachers">
+<!-- ================= GURU ================= -->
+<section id="guru" class="section">
     <div class="container">
-        <h2 class="section-title">Tenaga Pendidik Profesional</h2>
+        <h2 class="section-title">Tenaga Pendidik</h2>
 
-        <div class="teacher-grid">
+        <div class="card-grid">
 
-            <div class="teacher-card">
-                <img src="img/guru1.jpg" alt="Guru 1">
-                <h3>Ahmad Hidayat, S.Pd</h3>
-                <p>Kepala Program Nautika</p>
+            <div class="card">
+                <img src="assets/guru1.jpg" alt="Guru 1">
+                <h3>Budi Santoso</h3>
+                <p>Guru Nautika</p>
             </div>
 
-            <div class="teacher-card">
-                <img src="img/guru2.jpg" alt="Guru 2">
-                <h3>Siti Nur Aini, M.Pd</h3>
+            <div class="card">
+                <img src="assets/guru2.jpg" alt="Guru 2">
+                <h3>Siti Aminah</h3>
                 <p>Guru Seni Musik</p>
             </div>
 
-            <div class="teacher-card">
-                <img src="img/guru3.jpg" alt="Guru 3">
-                <h3>Muhammad Rafi, S.T</h3>
-                <p>Guru Navigasi</p>
-            </div>
-
-            <div class="teacher-card">
-                <img src="img/guru4.jpg" alt="Guru 4">
-                <h3>Nurul Hikmah, S.Pd</h3>
-                <p>Guru Bahasa Inggris</p>
+            <div class="card">
+                <img src="assets/guru3.jpg" alt="Guru 3">
+                <h3>Ahmad Fauzi</h3>
+                <p>Guru Teknika</p>
             </div>
 
         </div>
     </div>
 </section>
 
-
-
-<!-- ============================= -->
-<!-- VIDEO KEGIATAN -->
-<!-- ============================= -->
-<section class="videos">
+<!-- ================= VIDEO ================= -->
+<section class="section">
     <div class="container">
         <h2 class="section-title">Video Kegiatan Sekolah</h2>
 
-        <div class="video-grid">
-
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        frameborder="0"
-                        allowfullscreen></iframe>
-                <h4>Kegiatan Praktek Nautika</h4>
-            </div>
-
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        frameborder="0"
-                        allowfullscreen></iframe>
-                <h4>Festival Seni Musik</h4>
-            </div>
-
+        <div class="card-grid">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </section>
 
-
-
-<!-- ============================= -->
-<!-- GALERI FOTO -->
-<!-- ============================= -->
-<section class="gallery">
-    <div class="container">
-        <h2 class="section-title">Galeri Kegiatan Siswa</h2>
-
-        <div class="gallery-grid">
-            <img src="img/foto1.jpg" alt="">
-            <img src="img/foto2.jpg" alt="">
-            <img src="img/foto3.jpg" alt="">
-            <img src="img/foto4.jpg" alt="">
-            <img src="img/foto5.jpg" alt="">
-            <img src="img/foto6.jpg" alt="">
-        </div>
-    </div>
-</section>
-
-
-
-<!-- ============================= -->
-<!-- TESTIMONI ALUMNI -->
-<!-- ============================= -->
-<section class="testimonials">
+<!-- ================= TESTIMONI ================= -->
+<section class="section">
     <div class="container">
         <h2 class="section-title">Testimoni Alumni</h2>
 
-        <div class="testimonial-grid">
-
-            <div class="testimonial-card">
+        <div class="card-grid">
+            <div class="card">
                 <p>
-                    "Selama belajar di SMK Muhammadiyah 1 Kalasan, 
-                    saya mendapatkan pengalaman luar biasa dalam dunia pelayaran.
-                    Sekolah ini membentuk karakter disiplin dan profesional."
+                    “Saya bangga menjadi alumni SMK Muhammadiyah 1 Kalasan,
+                    sekarang saya bekerja di perusahaan pelayaran internasional.”
                 </p>
-                <h4>Rizky Pratama</h4>
-                <span>Alumni 2022</span>
+                <h4>- Alumni 2020</h4>
             </div>
-
-            <div class="testimonial-card">
-                <p>
-                    "Fasilitas lengkap dan guru yang kompeten membuat saya 
-                    siap terjun ke dunia kerja. Terima kasih SMK Muhammadiyah 1 Kalasan."
-                </p>
-                <h4>Nur Aisyah</h4>
-                <span>Alumni 2021</span>
-            </div>
-
         </div>
     </div>
 </section>
 
-
-
-<!-- ============================= -->
-<!-- LOKASI & MAP -->
-<!-- ============================= -->
-<section class="location">
+<!-- ================= LOKASI ================= -->
+<section id="kontak" class="section lokasi">
     <div class="container">
         <h2 class="section-title">Lokasi Sekolah</h2>
 
-        <div class="location-box">
+        <p>
+            6FRF+J4P, Ngajeg, Tirtomartani, Kec. Kalasan, Kabupaten Sleman,
+            Daerah Istimewa Yogyakarta 55571
+        </p>
 
-            <div class="address">
-                <h3>Alamat Lengkap:</h3>
-                <p>
-                    6FRF+J4P, Ngajeg, Tirtomartani, 
-                    Kec. Kalasan, Kabupaten Sleman, 
-                    Daerah Istimewa Yogyakarta 55571
-                </p>
-            </div>
-
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps?q=6FRF+J4P,+Ngajeg,+Tirtomartani,+Kalasan,+Sleman&output=embed"
-                    width="100%"
-                    height="350"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-            </div>
-
-        </div>
+        <iframe
+            src="https://www.google.com/maps?q=6FRF+J4P,+Ngajeg,+Tirtomartani,+Kalasan,+Sleman&output=embed"
+            width="100%" height="350" style="border:0;" allowfullscreen>
+        </iframe>
     </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 SMK Muhammadiyah 1 Kalasan</p>
+        <p>Email: info@smkmkalasan.sch.id | Telp: (0274) 123456</p>
+    </div>
+</footer>
+
+<!-- ================= JAM DIGITAL ================= -->
+<div class="digital-clock">
+    <span id="clock-time"></span><br>
+    <span id="clock-date"></span>
+</div>
+
+<!-- SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="js/script.js"></script>
 
-<div class="digital-clock">
-    <h4 id="clock-time"></h4>
-    <span id="clock-day"></span><br>
-    <span id="clock-date"></span>
-</div>
-</section>
-
-
-
-<!-- ============================= -->
-<!-- FOOTER -->
-<!-- ============================= -->
-<footer class="footer">
-    <div class="container footer-grid">
-
-        <div class="footer-col">
-            <h3>PPDB Online</h3>
-            <p>Pendaftaran Peserta Didik Baru telah dibuka.</p>
-            <a href="#" class="btn-footer">Daftar Sekarang</a>
-        </div>
-
-        <div class="footer-col">
-            <h3>Media Sosial</h3>
-            <p>Instagram: @smkmuh1kalasan</p>
-            <p>Facebook: SMK Muhammadiyah 1 Kalasan</p>
-            <p>YouTube: SMK Muhammadiyah 1 Kalasan</p>
-        </div>
-
-        <div class="footer-col">
-            <h3>Kontak</h3>
-            <p>Telp: (0274) 123456</p>
-            <p>Email: info@smkmuh1kalasan.sch.id</p>
-        </div>
-
-    </div>
-
-    <div class="copyright">
-        <p>© 2026 SMK Muhammadiyah 1 Kalasan. All Rights Reserved.</p>
-    </div>
-</footer>
-</section> <!-- Tutup location -->
-
-<!-- FOOTER -->
-<footer class="footer">
-....
-</footer>
 </body>
 </html>
-<!-- END PART 2 -->
-<!-- END PART 1 -->
-
-
