@@ -1,210 +1,113 @@
-/* ===================================================== */
-/* ================== LOADING SCREEN =================== */
-/* ===================================================== */
+// ================= JAM DIGITAL =================
+function updateClock() {
+    const now = new Date();
 
-// Membuat loading sederhana saat halaman dibuka
-window.addEventListener("load", function(){
-    const loader = document.createElement("div");
-    loader.id = "loader";
-    loader.style.position = "fixed";
-    loader.style.width = "100%";
-    loader.style.height = "100%";
-    loader.style.background = "black";
-    loader.style.display = "flex";
-    loader.style.justifyContent = "center";
-    loader.style.alignItems = "center";
-    loader.style.color = "white";
-    loader.style.fontSize = "24px";
-    loader.innerHTML = "Loading Website...";
-    document.body.appendChild(loader);
+    const hari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+    const bulan = ["Januari","Februari","Maret","April","Mei","Juni",
+                   "Juli","Agustus","September","Oktober","November","Desember"];
 
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.transition = "0.5s";
-        setTimeout(() => loader.remove(), 500);
-    }, 1200);
+    const h = hari[now.getDay()];
+    const tanggal = now.getDate();
+    const b = bulan[now.getMonth()];
+    const tahun = now.getFullYear();
+
+    let jam = now.getHours();
+    let menit = now.getMinutes();
+    let detik = now.getSeconds();
+
+    jam = jam < 10 ? "0" + jam : jam;
+    menit = menit < 10 ? "0" + menit : menit;
+    detik = detik < 10 ? "0" + detik : detik;
+
+    document.getElementById("digital-clock").innerHTML =
+        jam + ":" + menit + ":" + detik + " WIB";
+
+    document.getElementById("date-info").innerHTML =
+        h + ", " + tanggal + " " + b + " " + tahun;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+
+// ================= COUNTER ANIMASI STATISTIK =================
+const counters = document.querySelectorAll(".stat-item h3");
+
+counters.forEach(counter => {
+    const target = counter.innerText.replace('%','');
+    let count = 0;
+    const speed = 50;
+
+    const updateCounter = () => {
+        const increment = target / speed;
+        if (count < target) {
+            count += increment;
+            counter.innerText = Math.ceil(count) + (counter.innerText.includes('%') ? '%' : '');
+            setTimeout(updateCounter, 30);
+        } else {
+            counter.innerText = target + (counter.innerText.includes('%') ? '%' : '');
+        }
+    };
+
+    updateCounter();
 });
 
 
-/* ===================================================== */
-/* ================== SMOOTH SCROLL ==================== */
-/* ===================================================== */
+// ================= CHART DATA =================
+const ctx = document.getElementById("chartSekolah").getContext("2d");
 
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Siswa', 'Guru', 'Kelulusan %'],
+        datasets: [{
+            label: 'Data Statistik Sekolah',
+            data: [850, 65, 95],
+            backgroundColor: [
+                '#0077b6',
+                '#00b4d8',
+                '#90e0ef'
+            ],
+            borderRadius: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        animation: {
+            duration: 2000
+        },
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
+
+
+// ================= ANIMASI SCROLL MUNCUL =================
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll("section").forEach(section => {
+    section.style.opacity = 0;
+    section.style.transform = "translateY(40px)";
+    section.style.transition = "all 1s ease";
+    observer.observe(section);
+});
+
+
+// ================= SMOOTH SCROLL =================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e){
         e.preventDefault();
         document.querySelector(this.getAttribute("href"))
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+            .scrollIntoView({ behavior: "smooth" });
     });
-});
-
-
-/* ===================================================== */
-/* ================== NAVBAR SCROLL EFFECT ============= */
-/* ===================================================== */
-
-window.addEventListener("scroll", function(){
-    const navbar = document.querySelector(".navbar");
-
-    if(window.scrollY > 50){
-        navbar.style.background = "rgba(0,0,0,0.85)";
-        navbar.style.boxShadow = "0 0 20px rgba(0,255,255,0.6)";
-    }else{
-        navbar.style.background = "rgba(255,255,255,0.08)";
-        navbar.style.boxShadow = "none";
-    }
-});
-
-
-/* ===================================================== */
-/* ================== REVEAL ANIMATION ================= */
-/* ===================================================== */
-
-function reveal(){
-    const reveals = document.querySelectorAll("section, .card");
-
-    for(let i = 0; i < reveals.length; i++){
-        let windowHeight = window.innerHeight;
-        let elementTop = reveals[i].getBoundingClientRect().top;
-        let elementVisible = 100;
-
-        if(elementTop < windowHeight - elementVisible){
-            reveals[i].style.opacity = "1";
-            reveals[i].style.transform = "translateY(0)";
-            reveals[i].style.transition = "0.6s ease";
-        }else{
-            reveals[i].style.opacity = "0";
-            reveals[i].style.transform = "translateY(50px)";
-        }
-    }
-}
-
-window.addEventListener("scroll", reveal);
-
-
-/* ===================================================== */
-/* ================== 3D CARD TILT EFFECT ============== */
-/* ===================================================== */
-
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / 15);
-        const rotateY = ((centerX - x) / 15);
-
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0) rotateY(0)";
-    });
-});
-
-
-/* ===================================================== */
-/* ================== VIDEO AUTO PLAY ================== */
-/* ===================================================== */
-
-const video = document.querySelector("video");
-
-if(video){
-    window.addEventListener("scroll", () => {
-        const rect = video.getBoundingClientRect();
-        if(rect.top >= 0 && rect.bottom <= window.innerHeight){
-            video.play();
-        }else{
-            video.pause();
-        }
-    });
-}
-
-
-/* ===================================================== */
-/* ================== TYPING EFFECT ==================== */
-/* ===================================================== */
-
-const heroTitle = document.querySelector(".hero-text h1");
-
-if(heroTitle){
-    const text = heroTitle.innerText;
-    heroTitle.innerText = "";
-    let i = 0;
-
-    function typeEffect(){
-        if(i < text.length){
-            heroTitle.innerText += text.charAt(i);
-            i++;
-            setTimeout(typeEffect, 50);
-        }
-    }
-
-    typeEffect();
-}
-
-
-/* ===================================================== */
-/* ================== BACK TO TOP BUTTON =============== */
-/* ===================================================== */
-
-const topBtn = document.createElement("button");
-topBtn.innerHTML = "↑";
-topBtn.style.position = "fixed";
-topBtn.style.bottom = "30px";
-topBtn.style.right = "30px";
-topBtn.style.padding = "10px 15px";
-topBtn.style.border = "none";
-topBtn.style.borderRadius = "50%";
-topBtn.style.background = "#00e0ff";
-topBtn.style.color = "black";
-topBtn.style.fontSize = "20px";
-topBtn.style.cursor = "pointer";
-topBtn.style.display = "none";
-topBtn.style.zIndex = "999";
-document.body.appendChild(topBtn);
-
-window.addEventListener("scroll", () => {
-    if(window.scrollY > 300){
-        topBtn.style.display = "block";
-    }else{
-        topBtn.style.display = "none";
-    }
-});
-
-topBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
-// =====================================
-// FADE IN ANIMATION MAP
-// =====================================
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const fadeElement = document.querySelector(".fade-in");
-
-    function checkScroll() {
-        const elementTop = fadeElement.getBoundingClientRect().top;
-        const screenHeight = window.innerHeight;
-
-        if (elementTop < screenHeight - 100) {
-            fadeElement.classList.add("active");
-        }
-    }
-
-    window.addEventListener("scroll", checkScroll);
-    checkScroll();
-
 });
