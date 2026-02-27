@@ -1,667 +1,121 @@
-/* ============================= */
-/* RESET & GLOBAL */
-/* ============================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #001f3f, #003366, #001a33);
-    color: #fff;
-    overflow-x: hidden;
-}
-
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Section Title */
-.section-title {
-    text-align: center;
-    font-size: 38px;
-    font-weight: 800;
-    margin-bottom: 50px;
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ============================= */
-/* BACKGROUND ANIMASI LAUT */
-/* ============================= */
-
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15;
-    animation: moveBackground 60s linear infinite;
-    z-index: -1;
-}
-
-@keyframes moveBackground {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-200px); }
-    100% { transform: translateX(0); }
-}
-
-/* ============================= */
-/* HEADER */
-/* ============================= */
-
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(0, 0, 50, 0.6);
-    backdrop-filter: blur(15px);
-    padding: 15px 0;
-    z-index: 999;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-area img {
-    width: 55px;
-    filter: drop-shadow(0 0 10px cyan);
-}
-
-.logo-area h1 {
-    font-size: 22px;
-    font-weight: 800;
-    color: #fff;
-}
-
-nav ul {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    position: relative;
-    transition: 0.3s;
-}
-
-/* 3D ICON STYLE */
-nav ul li a i {
-    margin-right: 8px;
-    font-size: 18px;
-    text-shadow: 0 0 10px cyan;
-    transition: 0.4s;
-}
-
-nav ul li a:hover i {
-    transform: translateY(-5px) rotateY(20deg);
-    color: #00c6ff;
-}
-
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 3px;
-    background: #00c6ff;
-    bottom: -5px;
-    left: 0;
-    transition: 0.3s;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-}
-
-/* ============================= */
-/* DASHBOARD HERO */
-/* ============================= */
-
-.dashboard {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 100px;
-}
-
-.dashboard-content {
-    background: rgba(255,255,255,0.08);
-    padding: 60px;
-    border-radius: 25px;
-    backdrop-filter: blur(25px);
-    text-align: center;
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
-    animation: floatBox 6s ease-in-out infinite;
-}
-
-@keyframes floatBox {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
-.dashboard-content h2 {
-    font-size: 45px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    font-family: 'Orbitron', sans-serif;
-    color: #00eaff;
-}
-
-.dashboard-content p {
-    font-size: 18px;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.btn-primary {
-    padding: 15px 40px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
-    border: none;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.4s;
-    box-shadow: 0 0 20px #00c6ff;
-}
-
-.btn-primary:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 40px #00c6ff;
-}
-
-/* ============================= */
-/* RESPONSIVE HP */
-/* ============================= */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .dashboard-content {
-        padding: 30px;
-    }
-
-    .dashboard-content h2 {
-        font-size: 28px;
-    }
-
-    .section-title {
-        font-size: 28px;
-    }
-
-}
-
-/* ============================= */
-/* JURUSAN SECTION */
-/* ============================= */
-
-.jurusan {
-    padding: 100px 0;
-}
-
-.jurusan-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.jurusan-card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(20px);
-    border-radius: 25px;
-    padding: 40px;
-    text-align: center;
-    transition: 0.6s;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 25px rgba(0,255,255,0.2);
-}
-
-.jurusan-card::before {
-    content: "";
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: linear-gradient(45deg, transparent, rgba(0,255,255,0.4), transparent);
-    transform: rotate(45deg);
-    top: -100%;
-    left: -100%;
-    transition: 0.7s;
-}
-
-.jurusan-card:hover::before {
-    top: 100%;
-    left: 100%;
-}
-
-.jurusan-card:hover {
-    transform: translateY(-15px) rotateX(10deg);
-    box-shadow: 0 0 50px cyan;
-}
-
-.jurusan-card h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #00eaff;
-}
-
-.jurusan-card p {
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-
-/* ============================= */
-/* STATISTIK */
-/* ============================= */
-
-.statistics {
-    padding: 100px 0;
-    background: rgba(0,0,50,0.4);
-}
-
-.stats-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 60px;
-}
-
-.stat-card {
-    background: linear-gradient(135deg,#00c6ff,#0072ff);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    width: 250px;
-    transition: 0.4s;
-}
-
-.stat-card:hover {
-    transform: scale(1.1);
-}
-
-.stat-card h3 {
-    font-size: 36px;
-    font-weight: 800;
-}
-
-.stat-card p {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-.chart-box {
-    background: rgba(255,255,255,0.1);
-    padding: 40px;
-    border-radius: 20px;
-}
-
-
-/* ============================= */
-/* TEACHERS */
-/* ============================= */
-
-.teachers {
-    padding: 100px 0;
-}
-
-.teacher-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 40px;
-}
-
-.teacher-card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(20px);
-    border-radius: 25px;
-    text-align: center;
-    padding: 30px;
-    transition: 0.5s;
-    box-shadow: 0 0 20px rgba(0,255,255,0.2);
-}
-
-.teacher-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 4px solid #00c6ff;
-}
-
-.teacher-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 40px #00eaff;
-}
-
-
-/* ============================= */
-/* VIDEO */
-/* ============================= */
-
-.videos {
-    padding: 100px 0;
-    background: rgba(0,0,50,0.4);
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap: 40px;
-}
-
-.video-card {
-    background: rgba(255,255,255,0.08);
-    padding: 20px;
-    border-radius: 20px;
-    transition: 0.4s;
-}
-
-.video-card iframe {
-    width: 100%;
-    border-radius: 15px;
-    height: 220px;
-}
-
-.video-card:hover {
-    transform: scale(1.05);
-}
-
-
-/* ============================= */
-/* GALLERY */
-/* ============================= */
-
-.gallery {
-    padding: 100px 0;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    gap: 20px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    border-radius: 20px;
-    transition: 0.5s;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 30px cyan;
-}
-
-
-/* ============================= */
-/* TESTIMONIAL */
-/* ============================= */
-
-.testimonials {
-    padding: 100px 0;
-    background: rgba(0,0,50,0.4);
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap: 40px;
-}
-
-.testimonial-card {
-    background: rgba(255,255,255,0.08);
-    padding: 40px;
-    border-radius: 25px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 25px rgba(0,255,255,0.2);
-    transition: 0.4s;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 50px #00eaff;
-}
-
-
-/* ============================= */
-/* LOCATION */
-/* ============================= */
-
-.location {
-    padding: 100px 0;
-}
-
-.location-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    background: rgba(255,255,255,0.08);
-    padding: 40px;
-    border-radius: 25px;
-    backdrop-filter: blur(20px);
-}
-
-
-/* ============================= */
-/* FOOTER */
-/* ============================= */
-
-.footer {
-    background: #000814;
-    padding: 60px 0 20px 0;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 40px;
-}
-
-.footer-col h3 {
-    margin-bottom: 20px;
-    color: #00c6ff;
-}
-
-.btn-footer {
-    display: inline-block;
-    padding: 10px 25px;
-    background: linear-gradient(45deg,#00c6ff,#0072ff);
-    border-radius: 30px;
-    margin-top: 10px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.copyright {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
-    color: #aaa;
-}
-
-
-/* ============================= */
-/* RESPONSIVE HP EXTRA */
-/* ============================= */
-
-@media (max-width: 768px) {
-
-    .stats-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .location-box {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-/* ============================= */
-/* FLOATING 3D ICONS */
-/* ============================= */
-
-.floating-icon {
-    position: absolute;
-    font-size: 40px;
-    opacity: 0.15;
-    animation: floatIcon 10s infinite ease-in-out;
-}
-
-.floating-icon:nth-child(1){ top:10%; left:5%; animation-delay:0s;}
-.floating-icon:nth-child(2){ top:50%; left:90%; animation-delay:2s;}
-.floating-icon:nth-child(3){ top:80%; left:20%; animation-delay:4s;}
-.floating-icon:nth-child(4){ top:30%; left:70%; animation-delay:6s;}
-
-@keyframes floatIcon {
-    0% { transform: translateY(0px) rotate(0deg);}
-    50% { transform: translateY(-30px) rotate(180deg);}
-    100% { transform: translateY(0px) rotate(360deg);}
-}
-
-/* ============================= */
-/* SCROLL ANIMATION */
-/* ============================= */
-
-.fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
-}
-
-.fade-up.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ============================= */
-/* JAM DIGITAL */
-/* ============================= */
-
-.digital-clock {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0,0,50,0.8);
-    padding: 15px 25px;
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 20px cyan;
-    font-family: 'Orbitron', sans-serif;
-    z-index: 999;
-}
-
-.digital-clock h4 {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.digital-clock span {
-    font-size: 14px;
-}
-
-/* ============================= */
-/* WAVE FOOTER */
-/* ============================= */
-
-.wave {
-    position: relative;
-    width: 100%;
-    height: 100px;
-    background: url('https://svgshare.com/i/13uA.svg');
-    background-size: cover;
-    animation: waveMove 10s linear infinite;
-}
-
-@keyframes waveMove {
-    0% { background-position-x: 0; }
-    100% { background-position-x: 1000px; }
-}
-
-/* ============================= */
-/* PARTICLE BACKGROUND */
-/* ============================= */
-
-.particles span {
-    position: absolute;
-    display: block;
-    width: 10px;
-    height: 10px;
-    background: cyan;
-    opacity: 0.2;
-    border-radius: 50%;
-    animation: particleMove 15s linear infinite;
-}
-
-@keyframes particleMove {
-    0% { transform: translateY(100vh) scale(0); }
-    100% { transform: translateY(-10vh) scale(1); }
-}
-
-/* ============================= */
-/* SMOOTH SCROLL */
-/* ============================= */
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* ============================= */
-/* RESPONSIVE SUPER HP */
-/* ============================= */
-
-@media (max-width: 500px){
-
-    .digital-clock{
-        font-size:12px;
-        padding:10px 15px;
-    }
-
-    .jurusan-card,
-    .teacher-card,
-    .testimonial-card{
-        padding:20px;
-    }
-
-    .section-title{
-        font-size:22px;
-    }
-
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SMK Muhammadiyah 1 Kalasan</title>
+
+    <!-- Google Font Modern Elegant -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Remix Icon (Icon 3D look nanti di CSS) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo + Nama Sekolah -->
+        <div class="logo-area">
+            <img src="assets/logo.png" alt="Logo SMK" class="logo-img">
+            <div class="logo-text">
+                <h1>SMK Muhammadiyah 1 Kalasan</h1>
+                <span>Sekolah Pelayaran & Seni Modern</span>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <nav class="nav-menu" id="navMenu">
+            <a href="#" class="nav-link">
+                <i class="ri-home-5-fill nav-icon"></i>
+                <span>Beranda</span>
+            </a>
+
+            <a href="#tentang" class="nav-link">
+                <i class="ri-building-4-fill nav-icon"></i>
+                <span>Tentang</span>
+            </a>
+
+            <a href="#jurusan" class="nav-link">
+                <i class="ri-ship-2-fill nav-icon"></i>
+                <span>Jurusan</span>
+            </a>
+
+            <a href="#ppdb" class="nav-link highlight-btn">
+                <i class="ri-edit-box-fill nav-icon"></i>
+                <span>PPDB</span>
+            </a>
+        </nav>
+
+        <!-- Hamburger Mobile -->
+        <div class="hamburger" id="hamburger">
+            <i class="ri-menu-3-line"></i>
+        </div>
+
+    </div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+
+    <!-- Background Laut Animated -->
+    <div class="ocean">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
+
+    <!-- Glass Content -->
+    <div class="hero-content glass">
+
+        <h2 class="hero-title">
+            Mewujudkan Generasi <span>Profesional</span>  
+            di Bidang Pelayaran & Seni
+        </h2>
+
+        <p class="hero-description">
+            SMK Muhammadiyah 1 Kalasan adalah sekolah kejuruan unggulan 
+            yang membentuk siswa disiplin, berakhlak, kompeten, dan siap 
+            menghadapi tantangan global di dunia pelayaran maupun industri kreatif.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#ppdb" class="btn-primary">
+                <i class="ri-user-add-fill"></i> Daftar Sekarang
+            </a>
+
+            <a href="#tentang" class="btn-secondary">
+                <i class="ri-information-fill"></i> Pelajari Lebih Lanjut
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Floating 3D Icons -->
+    <div class="floating-icons">
+        <i class="ri-ship-fill float-icon icon1"></i>
+        <i class="ri-anchor-fill float-icon icon2"></i>
+        <i class="ri-music-2-fill float-icon icon3"></i>
+        <i class="ri-compass-3-fill float-icon icon4"></i>
+    </div>
+
+</section>
+
+<!-- ================= DIGITAL CLOCK ================= -->
+<div class="digital-clock glass">
+    <div id="clock-time"></div>
+    <div id="clock-date"></div>
+</div>
+
+<!-- JS -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
