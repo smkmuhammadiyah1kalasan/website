@@ -1,65 +1,85 @@
-// ============================
-// JAM DIGITAL
-// ============================
+// ================= HAMBURGER MENU =================
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
 
-function updateClock(){
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+// Tutup menu saat klik link (mobile)
+document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
+});
+
+
+// ================= DIGITAL CLOCK =================
+function updateClock() {
     const now = new Date();
 
-    const days = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
-    const day = days[now.getDay()];
-    const date = now.toLocaleDateString("id-ID");
-    const time = now.toLocaleTimeString("id-ID");
+    const timeOptions = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    };
 
-    document.getElementById("clock-day").innerHTML = day;
-    document.getElementById("clock-date").innerHTML = date;
-    document.getElementById("clock-time").innerHTML = time;
+    const dateOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+
+    const timeString = now.toLocaleTimeString('id-ID', timeOptions);
+    const dateString = now.toLocaleDateString('id-ID', dateOptions);
+
+    document.getElementById("clock-time").textContent = timeString;
+    document.getElementById("clock-date").textContent = dateString;
 }
 
-setInterval(updateClock,1000);
+setInterval(updateClock, 1000);
+updateClock();
 
 
-// ============================
-// SCROLL FADE UP
-// ============================
+// ================= NAVBAR SCROLL EFFECT =================
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
 
-const fadeElements = document.querySelectorAll('.fade-up');
+    if (window.scrollY > 50) {
+        navbar.style.background = "rgba(0, 10, 30, 0.9)";
+        navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.4)";
+    } else {
+        navbar.style.background = "rgba(0, 15, 40, 0.6)";
+        navbar.style.boxShadow = "none";
+    }
+});
 
-window.addEventListener('scroll',()=>{
-    fadeElements.forEach(el=>{
-        const position = el.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
 
-        if(position < screenPosition){
-            el.classList.add('active');
+// ================= SMOOTH SCROLL =================
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
         }
     });
 });
 
 
-// ============================
-// CHART.JS
-// ============================
+// ================= FLOATING ICON RANDOM MOVEMENT =================
+const floatIcons = document.querySelectorAll(".float-icon");
 
-const ctx = document.getElementById('jurusanChart');
+floatIcons.forEach(icon => {
+    setInterval(() => {
+        const randomX = Math.random() * 20 - 10;
+        const randomY = Math.random() * 20 - 10;
 
-if(ctx){
-new Chart(ctx,{
-    type:'doughnut',
-    data:{
-        labels:['Nautika Kapal Niaga','Teknika Kapal Niaga','Seni Musik'],
-        datasets:[{
-            data:[45,35,20],
-        }]
-    },
-    options:{
-        responsive:true,
-        plugins:{
-            legend:{
-                labels:{
-                    color:'#fff'
-                }
-            }
-        }
-    }
-});
-}
+        icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }, 3000);
+});a
