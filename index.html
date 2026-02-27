@@ -1,227 +1,244 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
-    <!-- ===================================================== -->
-    <!-- =================== META DATA ======================== -->
-    <!-- ===================================================== -->
-    
-    <!-- Mengatur karakter agar bisa membaca huruf dengan benar -->
     <meta charset="UTF-8">
-    
-    <!-- Agar website responsive di HP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Judul website yang muncul di tab browser -->
     <title>SMK Muhammadiyah 1 Kalasan</title>
 
-    <!-- Import Font Google (Poppins) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Font Elegant -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Import Icon 3D (Font Awesome) -->
+    <!-- Icon 3D Style (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Menghubungkan ke file CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ===================================================== -->
-<!-- =================== NAVBAR / HEADER ================= -->
-<!-- ===================================================== -->
-
-<nav class="navbar">
-
-    <!-- Logo Sekolah -->
-    <div class="logo">
-        <img src="assets/logo.png" alt="Logo Sekolah">
-        <span>SMK Muhammadiyah 1 Kalasan</span>
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="logo-area">
+        <img src="assets/logo.png" alt="Logo Sekolah" class="logo">
+        <h1>SMK Muhammadiyah 1 Kalasan</h1>
     </div>
 
-    <!-- Menu Navigasi -->
-    <ul class="nav-links">
-        <li><a href="#home"><i class="fas fa-house icon-3d"></i> Beranda</a></li>
-        <li><a href="#profil"><i class="fas fa-school icon-3d"></i> Profil</a></li>
-        <li><a href="#jurusan"><i class="fas fa-graduation-cap icon-3d"></i> Jurusan</a></li>
-        <li><a href="#video"><i class="fas fa-video icon-3d"></i> Video</a></li>
-        <li><a href="#audio"><i class="fas fa-music icon-3d"></i> Mars</a></li>
-        <li><a href="#alumni"><i class="fas fa-user-group icon-3d"></i> Alumni</a></li>
-        <li><a href="#kontak"><i class="fas fa-phone icon-3d"></i> Kontak</a></li>
-    </ul>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#"><i class="fas fa-home icon3d"></i> Dashboard</a></li>
+            <li><a href="#tentang"><i class="fas fa-school icon3d"></i> Tentang</a></li>
+            <li><a href="#jurusan"><i class="fas fa-book icon3d"></i> Jurusan</a></li>
+            <li><a href="#ppdb"><i class="fas fa-user-plus icon3d"></i> PPDB</a></li>
+            <li><a href="#kontak"><i class="fas fa-phone icon3d"></i> Kontak</a></li>
+        </ul>
+    </nav>
+</header>
 
-</nav>
+<!-- ================= HERO DASHBOARD ================= -->
+<section class="hero">
 
-<!-- ===================================================== -->
-<!-- =================== HERO SECTION ==================== -->
-<!-- ===================================================== -->
+    <div class="overlay-content">
+        <h2>Selamat Datang di Website Resmi</h2>
+        <p>Sekolah Maritim dan Seni Unggulan di Kalasan</p>
 
-<section class="hero" id="home">
-    <div class="hero-text">
-        <h1>Membangun Generasi Profesional & 
-            Berakhlak Mulia</h1>
+        <!-- Digital Clock -->
+        <div class="clock-box">
+            <div id="digital-clock"></div>
+            <div id="date-info"></div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= PENGUMUMAN ================= -->
+<section class="pengumuman">
+    <h2>Papan Informasi</h2>
+    <div class="pengumuman-box">
+        <img src="assets/pengumuman.jpg" alt="Pengumuman">
+        <p>Pengumuman terbaru sekolah akan ditampilkan di sini.</p>
+    </div>
+</section>
+
+<!-- ================= TENTANG SEKOLAH ================= -->
+<section id="tentang" class="tentang">
+    <h2>Tentang SMK Muhammadiyah 1 Kalasan</h2>
+    <div class="content-box">
         <p>
-            SMK Muhammadiyah 1 Kalasan adalah sekolah kejuruan unggulan 
-            berbasis teknologi, industri, dan nilai Islami.
+            SMK Muhammadiyah 1 Kalasan adalah sekolah menengah kejuruan yang 
+            berkomitmen mencetak lulusan unggul di bidang kemaritiman dan seni.
+            Dengan fasilitas modern serta tenaga pengajar profesional, 
+            sekolah ini terus berkembang menjadi institusi pendidikan terbaik.
         </p>
-        <button class="btn-primary">Daftar Sekarang</button>
     </div>
 </section>
 
-<!-- ===================================================== -->
-<!-- =================== PROFIL SEKOLAH ================== -->
-<!-- ===================================================== -->
-
-<section id="profil">
-    <h2><i class="fas fa-school icon-3d"></i> Profil Sekolah</h2>
-
-    <p>
-        SMK Muhammadiyah 1 Kalasan berdiri sebagai lembaga pendidikan
-        kejuruan yang berkomitmen mencetak lulusan profesional,
-        kompeten, dan berkarakter Islami.
-    </p>
-
-    <p>
-        Sekolah ini memiliki fasilitas laboratorium modern,
-        ruang praktik lengkap, studio musik profesional,
-        serta kerja sama dengan berbagai industri nasional
-        dan internasional.
-    </p>
-
-    <p>
-        Visi: Menjadi sekolah unggulan dalam mencetak tenaga kerja 
-        profesional yang siap bersaing di dunia global.
-    </p>
+<!-- ================= SAMBUTAN KEPALA SEKOLAH ================= -->
+<section class="kepsek">
+    <h2>Sambutan Kepala Sekolah</h2>
+    <div class="kepsek-box">
+        <img src="assets/kepsek.jpg" alt="Kepala Sekolah">
+        <div>
+            <h3>Nama Kepala Sekolah</h3>
+            <p>
+                Selamat datang di SMK Muhammadiyah 1 Kalasan. 
+                Kami berkomitmen membentuk generasi berakhlak mulia, 
+                berkompetensi tinggi, dan siap bersaing di dunia kerja global.
+            </p>
+        </div>
+    </div>
 </section>
 
-<!-- ===================================================== -->
-<!-- =================== PROGRAM KEAHLIAN ================ -->
-<!-- ===================================================== -->
+<!-- ================= JURUSAN ================= -->
+<section id="jurusan" class="jurusan">
+    <h2>Program Keahlian</h2>
 
-<section id="jurusan">
-    <h2><i class="fas fa-graduation-cap icon-3d"></i> Program Keahlian</h2>
+    <div class="jurusan-container">
 
-    <div class="card-container">
-
-        <div class="card">
-            <i class="fas fa-ship icon-3d"></i>
-            <h3>Teknika Kapal Niaga</h3>
-            <p>Kompetensi mesin kapal dan sistem permesinan laut.</p>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-compass icon-3d"></i>
+        <div class="jurusan-card">
             <h3>Nautika Kapal Niaga</h3>
-            <p>Keahlian navigasi dan keselamatan pelayaran.</p>
+            <p>
+                Jurusan ini membekali siswa dengan keahlian navigasi,
+                pengoperasian kapal niaga, keselamatan pelayaran,
+                meteorologi maritim, serta praktik langsung di dunia industri.
+                Lulusan siap bekerja di kapal nasional maupun internasional.
+            </p>
         </div>
 
-        <div class="card">
-            <i class="fas fa-music icon-3d"></i>
-            <h3>Seni Musik Modern</h3>
-            <p>Produksi musik digital dan industri kreatif.</p>
+        <div class="jurusan-card">
+            <h3>Teknika Kapal Niaga</h3>
+            <p>
+                Fokus pada sistem permesinan kapal, perawatan mesin,
+                sistem tenaga dan kelistrikan kapal.
+                Siswa dilatih secara teori dan praktik dengan standar industri maritim.
+            </p>
         </div>
 
-    </div>
-</section>
-
-<!-- ===================================================== -->
-<!-- =================== VIDEO SEKOLAH =================== -->
-<!-- ===================================================== -->
-
-<section id="video">
-    <h2><i class="fas fa-video icon-3d"></i> Video Profil</h2>
-
-    <video controls width="80%">
-        <source src="assets/video.mp4" type="video/mp4">
-    </video>
-</section>
-
-<!-- ===================================================== -->
-<!-- =================== AUDIO SEKOLAH =================== -->
-<!-- ===================================================== -->
-
-<section id="audio">
-    <h2><i class="fas fa-music icon-3d"></i> Mars Sekolah</h2>
-
-    <audio controls>
-        <source src="assets/track.mp3" type="audio/mpeg">
-    </audio>
-</section>
-
-<!-- ===================================================== -->
-<!-- =================== ALUMNI ========================== -->
-<!-- ===================================================== -->
-
-<section id="alumni">
-    <h2><i class="fas fa-user-group icon-3d"></i> Alumni Berprestasi</h2>
-
-    <div class="card-container">
-
-        <div class="card">
-            <h3>Ahmad Rizki</h3>
-            <p>Chief Engineer perusahaan pelayaran internasional.</p>
-        </div>
-
-        <div class="card">
-            <h3>Dewi Lestari</h3>
-            <p>Musisi profesional & produser musik nasional.</p>
-        </div>
-
-        <div class="card">
-            <h3>Fajar Nugroho</h3>
-            <p>Navigator kapal ekspor Asia.</p>
+        <div class="jurusan-card">
+            <h3>Seni Musik</h3>
+            <p>
+                Mengembangkan bakat siswa dalam bidang musik modern dan tradisional,
+                produksi musik digital, manajemen pertunjukan,
+                serta keterampilan tampil profesional di industri kreatif.
+            </p>
         </div>
 
     </div>
 </section>
 
-<!-- ===================================================== -->
-<!-- =================== KONTAK & MAP ==================== -->
-<!-- ===================================================== -->
+<!-- ================= STATISTIK ================= -->
+<section class="statistik">
+    <h2>Data Sekolah</h2>
+    <div class="stat-box">
+        <div class="stat-item">
+            <h3>850</h3>
+            <p>Siswa</p>
+        </div>
+        <div class="stat-item">
+            <h3>65</h3>
+            <p>Guru</p>
+        </div>
+        <div class="stat-item">
+            <h3>95%</h3>
+            <p>Tingkat Kelulusan</p>
+        </div>
+    </div>
 
-<!-- ===================================== -->
-<!-- FOOTER - LOKASI SEKOLAH -->
-<!-- ===================================== -->
-<section class="map-section">
+    <canvas id="chartSekolah"></canvas>
+</section>
 
-    <h2>Lokasi Sekolah Kami</h2>
+<!-- ================= GURU ================= -->
+<section class="guru">
+    <h2>Tenaga Pendidik</h2>
 
-    <!-- Container Maps -->
-    <div class="map-container fade-in">
+    <div class="guru-container">
+        <div class="guru-card">
+            <img src="assets/guru1.jpg" alt="">
+            <h4>Nama Guru 1</h4>
+        </div>
 
-        <!-- Google Maps Embed Resmi -->
+        <div class="guru-card">
+            <img src="assets/guru1.jpg" alt="">
+            <h4>Nama Guru 2</h4>
+        </div>
+
+        <div class="guru-card">
+            <img src="assets/guru1.jpg" alt="">
+            <h4>Nama Guru 3</h4>
+        </div>
+    </div>
+</section>
+
+<!-- ================= VIDEO KEGIATAN ================= -->
+<section class="video">
+    <h2>Kegiatan Sekolah</h2>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                frameborder="0" allowfullscreen></iframe>
+    </div>
+</section>
+
+<!-- ================= TESTIMONI ================= -->
+<section class="testimoni">
+    <h2>Testimoni Alumni</h2>
+
+    <div class="testimoni-container">
+        <div class="testimoni-card">
+            <p>
+                "Sekolah ini memberikan pengalaman luar biasa dan
+                membentuk saya menjadi pribadi yang disiplin."
+            </p>
+            <h4>- Alumni 2023</h4>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="kontak">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>PPDB</h3>
+            <p>Pendaftaran Peserta Didik Baru dibuka setiap tahun ajaran baru.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Kontak & Alamat</h3>
+            <p>
+                SMK Muhammadiyah 1 Kalasan<br>
+                Jl. Raya Kalasan, Yogyakarta<br>
+                Telp: 0812-xxxx-xxxx<br>
+                Email: info@smkmkalasan.sch.id
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Media Sosial</h3>
+            <p>
+                <i class="fab fa-facebook"></i> Facebook<br>
+                <i class="fab fa-instagram"></i> Instagram<br>
+                <i class="fab fa-youtube"></i> YouTube
+            </p>
+        </div>
+
+    </div>
+
+    <div class="maps">
         <iframe 
-            src="https://www.google.com/maps?q=SMK+Muhammadiyah+1+Kalasan,+Sleman,+Yogyakarta&output=embed"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.890437..."
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
-
     </div>
 
-    <!-- Tombol Buka Maps -->
-    <div class="map-button">
-        <a href="https://www.google.com/maps/place/SMK+Muhammadiyah+1+Kalasan"
-           target="_blank"
-           class="btn-maps">
-           📍 Buka di Google Maps
-        </a>
-    </div>
+    <p class="copyright">
+        © 2026 SMK Muhammadiyah 1 Kalasan - All Rights Reserved
+    </p>
 
-</section>
-
-<!-- ===================================================== -->
-<!-- =================== FOOTER ========================== -->
-<!-- ===================================================== -->
-
-<footer>
-    <p>© 2025 SMK Muhammadiyah 1 Kalasan | All Rights Reserved</p>
 </footer>
-<script src="js/script.js"></script>
-    
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
-
-
-
