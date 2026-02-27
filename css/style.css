@@ -1,121 +1,282 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <title>SMK Muhammadiyah 1 Kalasan</title>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a192f, #001f3f);
+    color: white;
+    overflow-x: hidden;
+}
 
-    <!-- Google Font Modern Elegant -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(15px);
+    background: rgba(0, 15, 40, 0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+}
 
-    <!-- Remix Icon (Icon 3D look nanti di CSS) -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
+/* Logo */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-<body>
+.logo-img {
+    width: 50px;
+}
 
-<!-- ================= NAVBAR ================= -->
-<header class="navbar">
-    <div class="nav-container">
+.logo-text h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
 
-        <!-- Logo + Nama Sekolah -->
-        <div class="logo-area">
-            <img src="assets/logo.png" alt="Logo SMK" class="logo-img">
-            <div class="logo-text">
-                <h1>SMK Muhammadiyah 1 Kalasan</h1>
-                <span>Sekolah Pelayaran & Seni Modern</span>
-            </div>
-        </div>
+.logo-text span {
+    font-size: 12px;
+    opacity: 0.8;
+}
 
-        <!-- Menu -->
-        <nav class="nav-menu" id="navMenu">
-            <a href="#" class="nav-link">
-                <i class="ri-home-5-fill nav-icon"></i>
-                <span>Beranda</span>
-            </a>
+/* Menu */
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
 
-            <a href="#tentang" class="nav-link">
-                <i class="ri-building-4-fill nav-icon"></i>
-                <span>Tentang</span>
-            </a>
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+}
 
-            <a href="#jurusan" class="nav-link">
-                <i class="ri-ship-2-fill nav-icon"></i>
-                <span>Jurusan</span>
-            </a>
+.nav-link:hover {
+    color: #00d4ff;
+    transform: translateY(-3px);
+}
 
-            <a href="#ppdb" class="nav-link highlight-btn">
-                <i class="ri-edit-box-fill nav-icon"></i>
-                <span>PPDB</span>
-            </a>
-        </nav>
+.nav-icon {
+    font-size: 18px;
+}
 
-        <!-- Hamburger Mobile -->
-        <div class="hamburger" id="hamburger">
-            <i class="ri-menu-3-line"></i>
-        </div>
+/* Highlight Button */
+.highlight-btn {
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #00d4ff, #0077ff);
+    box-shadow: 0 0 15px rgba(0,212,255,0.6);
+}
 
-    </div>
-</header>
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
 
-<!-- ================= HERO SECTION ================= -->
-<section class="hero">
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+}
 
-    <!-- Background Laut Animated -->
-    <div class="ocean">
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-    </div>
+/* Glass Effect */
+.glass {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+}
 
-    <!-- Glass Content -->
-    <div class="hero-content glass">
+/* Hero Content */
+.hero-content {
+    padding: 40px;
+    max-width: 850px;
+    animation: fadeUp 1.5s ease;
+}
 
-        <h2 class="hero-title">
-            Mewujudkan Generasi <span>Profesional</span>  
-            di Bidang Pelayaran & Seni
-        </h2>
+.hero-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
 
-        <p class="hero-description">
-            SMK Muhammadiyah 1 Kalasan adalah sekolah kejuruan unggulan 
-            yang membentuk siswa disiplin, berakhlak, kompeten, dan siap 
-            menghadapi tantangan global di dunia pelayaran maupun industri kreatif.
-        </p>
+.hero-title span {
+    color: #00d4ff;
+}
 
-        <div class="hero-buttons">
-            <a href="#ppdb" class="btn-primary">
-                <i class="ri-user-add-fill"></i> Daftar Sekarang
-            </a>
+.hero-description {
+    font-size: 16px;
+    opacity: 0.85;
+    margin-bottom: 30px;
+}
 
-            <a href="#tentang" class="btn-secondary">
-                <i class="ri-information-fill"></i> Pelajari Lebih Lanjut
-            </a>
-        </div>
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
-    </div>
+.btn-primary,
+.btn-secondary {
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.4s;
+}
 
-    <!-- Floating 3D Icons -->
-    <div class="floating-icons">
-        <i class="ri-ship-fill float-icon icon1"></i>
-        <i class="ri-anchor-fill float-icon icon2"></i>
-        <i class="ri-music-2-fill float-icon icon3"></i>
-        <i class="ri-compass-3-fill float-icon icon4"></i>
-    </div>
+.btn-primary {
+    background: linear-gradient(45deg, #00d4ff, #0077ff);
+    color: white;
+}
 
-</section>
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #00d4ff;
+}
 
-<!-- ================= DIGITAL CLOCK ================= -->
-<div class="digital-clock glass">
-    <div id="clock-time"></div>
-    <div id="clock-date"></div>
-</div>
+.btn-secondary {
+    border: 2px solid #00d4ff;
+    color: #00d4ff;
+}
 
-<!-- JS -->
-<script src="js/script.js"></script>
+.btn-secondary:hover {
+    background: #00d4ff;
+    color: black;
+}
 
-</body>
-</html>
+/* ================= OCEAN ANIMATION ================= */
+.ocean {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: url('https://i.ibb.co/wQZVxxk/wave.png');
+    background-size: cover;
+    opacity: 0.3;
+    bottom: 0;
+}
+
+.wave1 {
+    animation: waveMove 15s linear infinite;
+}
+
+.wave2 {
+    animation: waveMove 10s linear infinite reverse;
+    opacity: 0.2;
+}
+
+.wave3 {
+    animation: waveMove 20s linear infinite;
+    opacity: 0.15;
+}
+
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ================= FLOATING ICONS ================= */
+.floating-icons .float-icon {
+    position: absolute;
+    font-size: 40px;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.icon1 { top: 20%; left: 10%; }
+.icon2 { top: 70%; left: 15%; }
+.icon3 { top: 30%; right: 10%; }
+.icon4 { bottom: 20%; right: 15%; }
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* ================= DIGITAL CLOCK ================= */
+.digital-clock {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(0, 15, 40, 0.95);
+        width: 220px;
+        padding: 20px;
+        transition: 0.4s;
+        border-radius: 10px;
+    }
+
+    .nav-menu.active {
+        right: 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
