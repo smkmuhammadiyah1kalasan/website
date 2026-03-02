@@ -1045,3 +1045,72 @@ body {
     from { transform: translateY(0px); }
     to { transform: translateY(-8px); }
 }
+/* ================================
+   FIX VISUAL GALERI - STRONG VERSION
+================================ */
+
+/* Background lebih hidup */
+.galeri-section {
+    background: linear-gradient(135deg, #071a2f, #0f3057, #0a192f);
+    background-size: 400% 400%;
+    animation: bgMove 15s ease infinite;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Frame tegas agar terlihat jelas */
+.galeri-item {
+    border: 2px solid #00d4ff !important;
+    transition: all 0.4s ease !important;
+}
+
+/* Hover glow sangat terlihat */
+.galeri-item:hover {
+    box-shadow: 0 0 25px #00d4ff,
+                0 0 60px rgba(0,212,255,0.6) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Overlay selalu terlihat sedikit */
+.overlay {
+    background: rgba(0,0,0,0.7) !important;
+}
+
+/* Overlay muncul lebih cepat */
+.galeri-item:hover .overlay {
+    transform: translateY(0) !important;
+}
+
+/* Tambah efek zoom lebih jelas */
+.galeri-item:hover img,
+.galeri-item:hover video {
+    transform: scale(1.15) !important;
+}
+
+/* Play button besar dan jelas */
+.video-item::before {
+    content: "▶";
+    position: absolute;
+    font-size: 70px;
+    color: #00d4ff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 25px #00d4ff;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Floating lebih jelas */
+.galeri-item {
+    animation: floatFix 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatFix {
+    from { transform: translateY(0); }
+    to { transform: translateY(-6px); }
+}
