@@ -457,3 +457,77 @@ body {
     }
 
 }
+/* ================= ENHANCEMENT PART 2 ================= */
+
+/* Glow Line Accent */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 3px;
+    margin-top: 8px;
+    background: linear-gradient(90deg, #00d4ff, transparent);
+    border-radius: 3px;
+}
+
+/* Card Hover Soft Lift */
+.about-text:hover,
+.kepsek-text:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 50px rgba(0, 212, 255, 0.15);
+    transition: 0.4s ease;
+}
+
+/* Image Soft Glow Border */
+.about-image img,
+.kepsek-image img {
+    border: 2px solid rgba(0,212,255,0.2);
+}
+
+.about-image img:hover,
+.kepsek-image img:hover {
+    box-shadow: 0 15px 60px rgba(0,212,255,0.4);
+}
+
+/* Subtle Background Floating Light */
+.about-section::before,
+.kepsek-section::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0,212,255,0.15), transparent 70%);
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+}
+
+.about-section,
+.kepsek-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure content above glow */
+.about-container,
+.kepsek-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Smooth Fade In (Jika Reveal Aktif) */
+.reveal {
+    transition: 1.2s ease;
+}
+
+/* Mini Stats Hover Glow */
+.about-stats div:hover {
+    background: rgba(0,212,255,0.15);
+    box-shadow: 0 5px 20px rgba(0,212,255,0.3);
+    transform: translateY(-5px);
+}
