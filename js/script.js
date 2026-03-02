@@ -218,3 +218,69 @@ document.addEventListener("mousemove", (e) => {
                 `translate(${moveX}px, ${moveY}px)`;
         });
 });
+/* ================================
+   PART 3 - ULTRA WOW EFFECT
+================================ */
+
+/* ========= PARTICLE BACKGROUND ========= */
+function createParticles() {
+    const section = document.querySelector(".about-section");
+
+    for (let i = 0; i < 30; i++) {
+        let particle = document.createElement("span");
+        particle.classList.add("particle");
+
+        let size = Math.random() * 6 + 4;
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.top = Math.random() * 100 + "%";
+
+        particle.style.animationDuration = (Math.random() * 10 + 10) + "s";
+
+        section.appendChild(particle);
+    }
+}
+
+createParticles();
+
+/* ========= ICON ANIMATION ========= */
+const statsIcons = document.querySelectorAll(".about-stats div");
+
+statsIcons.forEach((box, index) => {
+    box.innerHTML = `
+        <i class="fas fa-star"></i>
+        <h3>${box.querySelector("h3").innerText}</h3>
+        <p>${box.querySelector("p").innerText}</p>
+    `;
+    box.style.opacity = "0";
+    box.style.transform = "translateY(30px)";
+
+    setTimeout(() => {
+        box.style.transition = "0.8s ease";
+        box.style.opacity = "1";
+        box.style.transform = "translateY(0)";
+    }, index * 200);
+});
+
+/* ========= PARALLAX EFFECT ========= */
+window.addEventListener("scroll", function () {
+    const scrollY = window.scrollY;
+
+    document.querySelectorAll(".about-image img, .kepsek-image img").forEach(img => {
+        img.style.transform = `translateY(${scrollY * 0.05}px)`;
+    });
+});
+
+/* ========= AUTO SHINE EFFECT ========= */
+const images = document.querySelectorAll(".about-image img, .kepsek-image img");
+
+images.forEach(img => {
+    setInterval(() => {
+        img.style.boxShadow = "0 0 40px rgba(0,212,255,0.7)";
+        setTimeout(() => {
+            img.style.boxShadow = "0 10px 40px rgba(0,0,0,0.4)";
+        }, 800);
+    }, 5000);
+});
