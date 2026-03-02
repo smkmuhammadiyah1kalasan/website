@@ -284,3 +284,154 @@ images.forEach(img => {
         }, 800);
     }, 5000);
 });
+/* =========================================
+   PART 3 - JURUSAN ADVANCED ANIMATION
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const jurusanSection = document.querySelector(".jurusan-section");
+    const jurusanCards = document.querySelectorAll(".jurusan-card");
+
+    /* ===== SCROLL REVEAL EFFECT ===== */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                entry.target.classList.add("active-card");
+            }
+        });
+    }, { threshold: 0.3 });
+
+    jurusanCards.forEach(card => {
+        observer.observe(card);
+    });
+
+    /* ===== REAL 3D TILT EFFECT ===== */
+    jurusanCards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / 15);
+            const rotateY = ((centerX - x) / 15);
+
+            card.style.transform =
+                `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform =
+                "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+        });
+    });
+
+    /* ===== PARALLAX BACKGROUND EFFECT ===== */
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        jurusanSection.style.backgroundPositionY = scrollY * 0.3 + "px";
+    });
+
+    /* ===== AUTO STAR GENERATOR ===== */
+    for (let i = 0; i < 25; i++) {
+        let star = document.createElement("span");
+        star.classList.add("star");
+
+        star.style.top = Math.random() * 100 + "%";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+        jurusanSection.appendChild(star);
+    }
+
+});
+
+/* =========================================
+   PART 3 EXTENSION - ULTRA EFFECT
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const jurusanSection = document.querySelector(".jurusan-section");
+    const cards = document.querySelectorAll(".jurusan-card");
+
+    /* ===== MOUSE SPOTLIGHT EFFECT ===== */
+    jurusanSection.addEventListener("mousemove", (e) => {
+        const rect = jurusanSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        jurusanSection.style.background =
+            `radial-gradient(circle at ${x}px ${y}px,
+            rgba(0,212,255,0.15),
+            #0a192f 60%)`;
+    });
+
+    /* ===== ACTIVE GLOW SAAT CARD TERLIHAT ===== */
+    const glowObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.boxShadow =
+                    "0 20px 70px rgba(0,212,255,0.4)";
+            } else {
+                entry.target.style.boxShadow =
+                    "0 10px 40px rgba(0,0,0,0.3)";
+            }
+        });
+    }, { threshold: 0.6 });
+
+    cards.forEach(card => glowObserver.observe(card));
+
+    /* ===== RIPPLE CLICK EFFECT ===== */
+    cards.forEach(card => {
+        card.addEventListener("click", function (e) {
+            const ripple = document.createElement("span");
+            ripple.style.position = "absolute";
+            ripple.style.width = "20px";
+            ripple.style.height = "20px";
+            ripple.style.background = "rgba(0,212,255,0.6)";
+            ripple.style.borderRadius = "50%";
+            ripple.style.left = e.offsetX + "px";
+            ripple.style.top = e.offsetY + "px";
+            ripple.style.transform = "scale(0)";
+            ripple.style.pointerEvents = "none";
+            ripple.style.transition = "0.6s ease";
+
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.style.transform = "scale(15)";
+                ripple.style.opacity = "0";
+            }, 10);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    /* ===== ICON FLOATING EFFECT ===== */
+    const titles = document.querySelectorAll(".jurusan-card h3");
+
+    titles.forEach(title => {
+        let angle = 0;
+        setInterval(() => {
+            angle += 0.02;
+            title.style.transform = `translateY(${Math.sin(angle) * 3}px)`;
+        }, 30);
+    });
+
+    /* ===== BACKGROUND GRADIENT MOVE ===== */
+    let bgAngle = 0;
+    setInterval(() => {
+        bgAngle += 0.3;
+        jurusanSection.style.background =
+            `linear-gradient(${bgAngle}deg, #0a192f, #112240, #0f3057)`;
+    }, 100);
+
+});
