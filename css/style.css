@@ -542,3 +542,157 @@ body {
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(-800px); opacity: 0; }
 }
+
+/* ===============================
+   PART 3 - JURUSAN SECTION
+=================================*/
+
+.jurusan-section {
+    padding: 100px 8%;
+    background: linear-gradient(135deg, #0a192f, #112240, #0f3057);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Glow Effect */
+.jurusan-section::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,212,255,0.15), transparent 70%);
+    top: -150px;
+    right: -150px;
+    z-index: 0;
+}
+
+.jurusan-header {
+    text-align: center;
+    margin-bottom: 70px;
+    position: relative;
+    z-index: 2;
+}
+
+.jurusan-header h2 {
+    font-size: 40px;
+    color: #00d4ff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.jurusan-header p {
+    color: #cbd5e1;
+    font-size: 18px;
+}
+
+/* Animated Underline */
+.jurusan-header h2::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 4px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, #00d4ff, transparent);
+    border-radius: 5px;
+    animation: underlineMove 3s infinite alternate;
+}
+
+@keyframes underlineMove {
+    from { width: 80px; }
+    to { width: 150px; }
+}
+
+/* Container Grid */
+.jurusan-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Card Style */
+.jurusan-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 35px;
+    color: #e2e8f0;
+    transition: 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,212,255,0.2);
+}
+
+/* Hover Effect */
+.jurusan-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px rgba(0,212,255,0.25);
+    border-color: #00d4ff;
+}
+
+/* Icon Style */
+.jurusan-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #00d4ff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* List Style */
+.jurusan-card ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.jurusan-card ul li {
+    margin-bottom: 8px;
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+}
+
+.jurusan-card ul li::before {
+    content: "➤";
+    position: absolute;
+    left: 0;
+    color: #00d4ff;
+}
+
+/* Paragraph */
+.jurusan-card p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #cbd5e1;
+}
+
+/* Soft Light Animation */
+.jurusan-card::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(0,212,255,0.1), transparent);
+    transform: rotate(25deg);
+    top: -150%;
+    left: -150%;
+    transition: 0.8s;
+}
+
+.jurusan-card:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jurusan-header h2 {
+        font-size: 30px;
+    }
+
+    .jurusan-card {
+        padding: 25px;
+    }
+}
