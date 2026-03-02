@@ -84,4 +84,137 @@ floatIcons.forEach(icon => {
     }, 3000);
 });a
 
+/* ================= WOW PART 2 ANIMATION ================= */
 
+/* 1️⃣ ADVANCED SCROLL REVEAL (STAGGER EFFECT) */
+const revealElements = document.querySelectorAll(".reveal");
+
+function advancedReveal() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    revealElements.forEach((el, index) => {
+        const boxTop = el.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+            setTimeout(() => {
+                el.classList.add("active");
+            }, index * 150); // delay antar elemen
+        }
+    });
+}
+
+window.addEventListener("scroll", advancedReveal);
+window.addEventListener("load", advancedReveal);
+
+
+/* 2️⃣ COUNTER ANIMATION */
+const counters = document.querySelectorAll(".about-stats h3");
+
+function animateCounters() {
+    counters.forEach(counter => {
+        const target = +counter.innerText.replace("+", "").replace("%","");
+        let count = 0;
+
+        const updateCounter = () => {
+            const increment = target / 80;
+
+            if (count < target) {
+                count += increment;
+                counter.innerText = Math.ceil(count) + 
+                    (counter.innerText.includes("%") ? "%" : "+");
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.innerText = target + 
+                    (counter.innerText.includes("%") ? "%" : "+");
+            }
+        };
+
+        updateCounter();
+    });
+}
+
+window.addEventListener("load", animateCounters);
+
+
+/* 3️⃣ BACKGROUND PARTICLE EFFECT */
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+
+canvas.style.position = "fixed";
+canvas.style.top = 0;
+canvas.style.left = 0;
+canvas.style.width = "100%";
+canvas.style.height = "100%";
+canvas.style.zIndex = "-1";
+
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 0.3 - 0.15;
+        this.speedY = Math.random() * 0.3 - 0.15;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+    }
+
+    draw() {
+        ctx.fillStyle = "rgba(0,212,255,0.6)";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function initParticles() {
+    particlesArray = [];
+    for (let i = 0; i < 80; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+}
+
+initParticles();
+animateParticles();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+});
+
+
+/* 4️⃣ PARALLAX MOUSE EFFECT */
+document.addEventListener("mousemove", (e) => {
+    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+
+    document.querySelectorAll(".about-image img, .kepsek-image img")
+        .forEach(img => {
+            img.style.transform = 
+                `translate(${moveX}px, ${moveY}px)`;
+        });
+});
